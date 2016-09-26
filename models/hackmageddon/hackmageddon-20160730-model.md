@@ -1,4 +1,4 @@
-## hackmageddon_20160730.csv
+## hackmageddon-20160730-sample.jl
 
 ### PyTransforms
 
@@ -16,3 +16,5 @@
 ### Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `memex:AttackEvent1` | `memex:affected` | `memex:PersonOrOrganization2`|
+| `memex:AttackEvent1` | `memex:owner` | `memex:PersonOrOrganization1`|
