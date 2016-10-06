@@ -6,7 +6,9 @@ To create the Elastic Search Mappings automatically,
 
 2. Run the script `create-mapping.py` available in dig-alignment repo: https://github.com/usc-isi-i2/dig-alignment/tree/development/scripts/python with input as this config-es-mappings.json file and the output as es-mappings.json
 ```
-python create-mapping.py ~/github/effect/effect-alignment/es/config-es-mappings.json ~/github/effect/effect-alignment/es/es-mappings.json
+python create-mapping.py \
+    ~/github/effect/effect-alignment/es/config-es-mappings.json \
+    ~/github/effect/effect-alignment/es/es-mappings.json
 ```
 
 The final `es-mappings.json` should be used to create the effect index.
