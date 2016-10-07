@@ -12,3 +12,10 @@ python create-mapping.py \
 ```
 
 The final `es-mappings.json` should be used to create the effect index.
+
+### Note:
+If the ontology has changed, then the following needs to be run before creating mappings:
+```
+python create_context.py ../../versions/3.0/karma/preloaded-ontologies/*.ttl
+cp karma-context.json ../../versions/3.0/karma/
+```
