@@ -68,7 +68,6 @@ return "source/"+getValue("source_name")
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _Values_ | `schema:keywords` | `memex:AttackEvent1`|
-| __id_ | `schema:name` | `memex:Identifier1`|
 | _attack_ | `memex:hasType` | `memex:AttackEvent1`|
 | _attack_class_ | `schema:additionalType` | `memex:AttackEvent1`|
 | _author_clean_ | `schema:name` | `memex:PersonOrOrganization1`|
@@ -77,20 +76,15 @@ return "source/"+getValue("source_name")
 | _date_iso_ | `schema:startDate` | `memex:AttackEvent1`|
 | _description_ | `schema:description` | `memex:AttackEvent1`|
 | _link_ | `schema:url` | `memex:AttackEvent1`|
-| _source_name_ | `schema:name` | `memex:Identifier2`|
-| _source_name_id_ | `uri` | `memex:Identifier2`|
+| _source_name_id_ | `schema:publisher` | `memex:AttackEvent1`|
 | _target_class_cleaned_ | `schema:subtype` | `memex:PersonOrOrganization2`|
 | _target_name_cleaned_ | `schema:name` | `memex:PersonOrOrganization2`|
-| _uri_id_ | `uri` | `memex:Identifier1`|
+| _uri_id_ | `schema:source` | `memex:AttackEvent1`|
 
 
 ### Links
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:AttackEvent1` | `memex:affected` | `memex:PersonOrOrganization2`|
-| `memex:AttackEvent1` | `memex:identifier` | `memex:Identifier1`|
-| `memex:AttackEvent1` | `memex:identifier` | `memex:Identifier2`|
 | `memex:AttackEvent1` | `schema:actor` | `memex:PersonOrOrganization1`|
 | `memex:AttackEvent1` | `schema:location` | `schema:Place1`|
-| `memex:Identifier1` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/database`|
-| `memex:Identifier2` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/source`|
