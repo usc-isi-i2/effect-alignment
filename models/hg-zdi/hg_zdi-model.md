@@ -35,7 +35,6 @@ return "source/"+getValue("source_name")
 ### Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:name` | `memex:Identifier1`|
 | _access_complexity_ | `memex:cvssComplexity` | `memex:CVSS1`|
 | _access_vector_ | `memex:cvssAccessVector` | `memex:CVSS1`|
 | _authentication_ | `memex:cvssAuthentication` | `memex:CVSS1`|
@@ -46,13 +45,12 @@ return "source/"+getValue("source_name")
 | _date_iso_ | `schema:startDate` | `memex:Vulnerability1`|
 | _integrity_impact_ | `memex:cvssIntegrity` | `memex:CVSS1`|
 | _link_ | `schema:url` | `memex:Vulnerability1`|
-| _source_name_ | `schema:name` | `memex:Identifier2`|
-| _source_name_id_ | `uri` | `memex:Identifier2`|
+| _source_name_id_ | `schema:publisher` | `memex:Vulnerability1`|
 | _title_ | `schema:title` | `memex:Vulnerability1`|
-| _uri_id_ | `uri` | `memex:Identifier1`|
-| _values_ | `schema:name` | `memex:SoftwareSystem1`|
+| _uri_id_ | `schema:source` | `memex:Vulnerability1`|
 | _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
+| _values_ | `schema:name` | `memex:SoftwareSystem1`|
 | _vulnerability_details_ | `schema:description` | `memex:Vulnerability1`|
 | _zdi_id_ | `schema:name` | `memex:Vulnerability1`|
 
@@ -63,6 +61,4 @@ return "source/"+getValue("source_name")
 | `memex:Identifier1` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/database`|
 | `memex:Identifier2` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/source`|
 | `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
-| `memex:Vulnerability1` | `memex:identifier` | `memex:Identifier1`|
-| `memex:Vulnerability1` | `memex:identifier` | `memex:Identifier2`|
 | `memex:Vulnerability1` | `memex:vulnerabilityOf` | `memex:SoftwareSystem1`|
