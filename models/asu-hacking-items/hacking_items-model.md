@@ -1,4 +1,4 @@
-## HI_karma.jl
+## hackingitems-for-karma.jl
 
 ### PyTransforms
 #### _item_id_
@@ -38,32 +38,44 @@ From column: __id_
 return "identifier/"+getValue("_id")
 ```
 
+#### _itemCve_split_comma_
+From column: _json_rep / itemCve_
+>``` python
+line= getValue("itemCve")
+n= 13
+answer = [line[i:i+n] for i in range(0, len(line), n)]
+return ','.join(answer)
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `uri` | `memex:Identifier1`|
-| _clusterName_ | `memex:hasType` | `memex:SoftwareSystem1`|
-| _itemCategory_ | `schema:category` | `memex:SoftwareSystem1`|
-| _itemDescription_ | `schema:description` | `memex:SoftwareSystem1`|
-| _itemName_ | `schema:name` | `memex:SoftwareSystem1`|
+| _Values_ | `uri` | `memex:Vulnerability1`|
+| _cdr_id_ | `schema:source` | `memex:Exploit1`|
+| _clusterName_ | `memex:hasType` | `memex:Exploit1`|
+| _itemCategory_ | `schema:category` | `memex:Exploit1`|
+| _itemDescription_ | `schema:description` | `memex:Exploit1`|
+| _itemName_ | `schema:name` | `memex:Exploit1`|
 | _itemShippedFrom_ | `schema:name` | `schema:Place1`|
 | _itemShippedTo_ | `schema:name` | `schema:Place2`|
-| _itemVendorRating_ | `schema:ratingValue` | `memex:SoftwareSystem1`|
-| _item_id_ | `uri` | `memex:SoftwareSystem1`|
-| _marketplace_id_ | `uri` | `schema:Place3`|
-| _source_name_id_ | `uri` | `memex:Identifier2`|
+| _itemVendorRating_ | `schema:ratingValue` | `memex:PersonOrOrganization1`|
+| _item_id_ | `uri` | `memex:Exploit1`|
+| _marketplace_id_ | `uri` | `memex:PersonOrOrganization2`|
+| _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
+| _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
+| _source_name_id_ | `schema:publisher` | `memex:Exploit1`|
 | _vendor_id_ | `uri` | `memex:PersonOrOrganization1`|
 
 
 ### Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Identifier1` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/database`|
-| `memex:Identifier2` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/source`|
-| `memex:SoftwareSystem1` | `memex:identifier` | `memex:Identifier1`|
-| `memex:SoftwareSystem1` | `memex:identifier` | `memex:Identifier2`|
-| `memex:SoftwareSystem1` | `schema:containedInPlace` | `schema:Place3`|
-| `memex:SoftwareSystem1` | `schema:fromLocation` | `schema:Place1`|
-| `memex:SoftwareSystem1` | `schema:seller` | `memex:PersonOrOrganization1`|
-| `memex:SoftwareSystem1` | `schema:toLocation` | `schema:Place2`|
+| `memex:Exploit1` | `memex:exploitsVulnerability` | `memex:Vulnerability1`|
+| `memex:Exploit1` | `schema:fromLocation` | `schema:Place1`|
+| `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
+| `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization2`|
+| `memex:Exploit1` | `schema:toLocation` | `schema:Place2`|
+| `memex:Exploit1` | `schema:vendor` | `memex:PersonOrOrganization1`|
+| `memex:Vulnerability1` | `memex:hasExploit` | `memex:Exploit1`|
+| `schema:PriceSpecification1` | `schema:priceCurrency` | `xsd:USD`|
