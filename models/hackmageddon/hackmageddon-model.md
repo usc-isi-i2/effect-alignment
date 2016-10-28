@@ -63,6 +63,16 @@ From column: _source_name_
 return "source/"+getValue("source_name")
 ```
 
+#### _target_name_uri_
+From column: _json_rep / target_name_cleaned_
+>``` python
+t = getValue("target")
+if t[0].isalnum() == False:
+    return ''
+else:
+    return "organization/"+SM.fingerprint_string(t)
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
@@ -79,6 +89,7 @@ return "source/"+getValue("source_name")
 | _source_name_id_ | `schema:publisher` | `memex:AttackEvent1`|
 | _target_class_cleaned_ | `schema:subtype` | `memex:PersonOrOrganization2`|
 | _target_name_cleaned_ | `schema:name` | `memex:PersonOrOrganization2`|
+| _target_name_uri_ | `uri` | `memex:PersonOrOrganization2`|
 | _uri_id_ | `schema:source` | `memex:AttackEvent1`|
 
 
