@@ -47,13 +47,19 @@ answer = [line[i:i+n] for i in range(0, len(line), n)]
 return ','.join(answer)
 ```
 
+#### _cve_id_split_
+From column: _json_rep / item_cve_final / Values_
+>``` python
+return "vulnerability/"+getValue("Values")
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _Values_ | `uri` | `memex:Vulnerability1`|
 | _cdr_id_ | `schema:source` | `memex:Exploit1`|
 | _clusterName_ | `memex:hasType` | `memex:Exploit1`|
+| _cve_id_split_ | `uri` | `memex:Vulnerability1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
 | _itemName_ | `schema:name` | `memex:Exploit1`|
