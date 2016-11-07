@@ -48,7 +48,8 @@ return "identifier/"+getValue("_id")
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:Exploit1` | `memex:itemStolen` | `memex:LoginCredentials1`|
-| `memex:LoginCredentials1` | `memex:emailAddress` | `memex:EmailAddress1`|
-| `memex:LoginCredentials1` | `memex:organization` | `memex:PersonOrOrganization1`|
+| `memex:LoginCredentials1` | `memex:isLoginCredentialOf` | `memex:PersonOrOrganization1`|
 | `memex:LoginCredentials1` | `memex:password` | `memex:Password1`|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
+| `memex:LoginCredentials1` | `schema:email` | `memex:EmailAddress1`|
+| `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
