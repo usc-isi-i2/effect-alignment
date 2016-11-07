@@ -50,7 +50,7 @@ return ','.join(answer)
 #### _cve_id_split_
 From column: _json_rep / item_cve_final / Values_
 >``` python
-return "vulnerability/"+getValue("Values")
+return "vulnerability/"+getValue("Values").upper()
 ```
 
 
