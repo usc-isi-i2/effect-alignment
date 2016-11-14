@@ -1,4 +1,4 @@
-## linkedSource-for-karma.jl
+## leakedSource-for-karma.jl
 
 ### PyTransforms
 #### _username_sha1_
@@ -36,7 +36,7 @@ return "identifier/"+getValue("_id")
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _cdr_id_ | `schema:source` | `memex:Exploit1`|
-| _database_ | `schema:name` | `memex:PersonOrOrganization1`|
+| _database_ | `schema:name` | `schema:Organization1`|
 | _email_domain_ | `rdfs:domain` | `memex:EmailAddress1`|
 | _email_name_sha1_ | `memex:nameSHA1` | `memex:EmailAddress1`|
 | _password_sha1_ | `memex:nameSHA1` | `memex:Password1`|
@@ -48,8 +48,8 @@ return "identifier/"+getValue("_id")
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:Exploit1` | `memex:itemStolen` | `memex:LoginCredentials1`|
-| `memex:LoginCredentials1` | `memex:isLoginCredentialOf` | `memex:PersonOrOrganization1`|
 | `memex:LoginCredentials1` | `memex:password` | `memex:Password1`|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:LoginCredentials1` | `schema:email` | `memex:EmailAddress1`|
-| `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
+| `memex:LoginCredentials1` | `memex:isLoginCredentialFor` | `schema:Organization1`|
+| `schema:Organization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
