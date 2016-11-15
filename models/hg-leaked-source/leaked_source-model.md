@@ -1,4 +1,4 @@
-## leakedSource-for-karma.jl
+## linkedSource-for-karma.jl
 
 ### PyTransforms
 #### _username_sha1_
@@ -31,14 +31,36 @@ From column: __id_
 return "identifier/"+getValue("_id")
 ```
 
+#### _leaked_date_iso_
+From column: _json_rep / leaked_
+>``` python
+t =   getValue("leaked")
+return DM.iso8601date(t,"%Y-%d-%m %H:%M:%S")
+```
+
+#### _login_credentials_uri_
+From column: _json_rep / data / email_name_sha1_
+>``` python
+return SM.sha1_hash(getValue("email").split("@")[0])
+```
+
+#### _exploit_uri_
+From column: _json_rep / data / email_name_sha1_
+>``` python
+return "exploit/"+ getValue("database").split('.')[0].lower()+"/"+SM.sha1_hash(getValue("email").split("@")[0])
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _cdr_id_ | `schema:source` | `memex:Exploit1`|
 | _database_ | `schema:name` | `schema:Organization1`|
-| _email_domain_ | `rdfs:domain` | `memex:EmailAddress1`|
+| _email_domain_ | `memex:domainName` | `memex:EmailAddress1`|
 | _email_name_sha1_ | `memex:nameSHA1` | `memex:EmailAddress1`|
+| _exploit_uri_ | `uri` | `memex:Exploit1`|
+| _leaked_date_iso_ | `schema:datePublished` | `memex:Exploit1`|
+| _login_credentials_uri_ | `uri` | `memex:LoginCredentials1`|
 | _password_sha1_ | `memex:nameSHA1` | `memex:Password1`|
 | _source_name_ | `schema:publisher` | `memex:Exploit1`|
 | _username_sha1_ | `memex:nameSHA1` | `memex:UserName1`|
