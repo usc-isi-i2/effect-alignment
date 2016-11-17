@@ -3,50 +3,50 @@
 ### PyTransforms
 #### _username_sha1_
 From column: _json_rep / data / username_
->``` python
+``` python
 return SM.sha1_hash(getValue("username"))
 ```
 
 #### _password_sha1_
 From column: _json_rep / data / Real_Password_
->``` python
+``` python
 return SM.sha1_hash(getValue("Real_Password"))
 ```
 
 #### _email_domain_
 From column: _json_rep / data / email_
->``` python
+``` python
 return getValue("email").split("@")[1]
 ```
 
 #### _email_name_sha1_
 From column: _json_rep / data / email_
->``` python
+``` python
 return SM.sha1_hash(getValue("email").split("@")[0])
 ```
 
 #### _cdr_id_
 From column: __id_
->``` python
-return "identifier/"+getValue("_id")
+``` python
+return getValue("_id")
 ```
 
 #### _leaked_date_iso_
 From column: _json_rep / leaked_
->``` python
+``` python
 t =   getValue("leaked")
 return DM.iso8601date(t,"%Y-%d-%m %H:%M:%S")
 ```
 
 #### _login_credentials_uri_
 From column: _json_rep / data / email_name_sha1_
->``` python
+``` python
 return SM.sha1_hash(getValue("email").split("@")[0])
 ```
 
 #### _exploit_uri_
 From column: _json_rep / data / email_name_sha1_
->``` python
+``` python
 return "exploit/"+ getValue("database").split('.')[0].lower()+"/"+SM.sha1_hash(getValue("email").split("@")[0])
 ```
 

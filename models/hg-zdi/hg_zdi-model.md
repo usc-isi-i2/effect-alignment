@@ -3,32 +3,32 @@
 ### PyTransforms
 #### _cdr_id_
 From column: _json_rep / zdi_id_
->``` python
+``` python
 return "vulnerability/"+getValue("zdi_id").upper()
 ```
 
 #### _date_iso_
 From column: _json_rep / date / $date_
->``` python
+``` python
 return DM.iso8601date(getValue("$date"))
 ```
 
 #### _cvss_scoring_
 From column: _json_rep / cdr_id_
->``` python
+``` python
 return "vulnerability/"+getValue("zdi_id").upper()+"/scoring"
 ```
 
 #### _uri_id_
 From column: __id_
->``` python
-return "identifier/"+getValue("_id")
+``` python
+return getValue("_id")
 ```
 
 #### _source_name_id_
 From column: _source_name_
->``` python
-return "source/"+getValue("source_name")
+``` python
+return getValue("source_name")
 ```
 
 
@@ -48,8 +48,8 @@ return "source/"+getValue("source_name")
 | _source_name_id_ | `schema:publisher` | `memex:Vulnerability1`|
 | _title_ | `schema:title` | `memex:Vulnerability1`|
 | _uri_id_ | `schema:source` | `memex:Vulnerability1`|
-| _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
+| _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:name` | `memex:SoftwareSystem1`|
 | _vulnerability_details_ | `schema:description` | `memex:Vulnerability1`|
 | _zdi_id_ | `schema:name` | `memex:Vulnerability1`|
@@ -58,7 +58,5 @@ return "source/"+getValue("source_name")
 ### Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Identifier1` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/database`|
-| `memex:Identifier2` | `memex:hasType` | `xsd:http://effect.isi.edu/identifier/source`|
 | `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
 | `memex:Vulnerability1` | `memex:vulnerabilityOf` | `memex:SoftwareSystem1`|

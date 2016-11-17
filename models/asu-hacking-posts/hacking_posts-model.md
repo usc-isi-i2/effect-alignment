@@ -41,7 +41,7 @@ return "logincredentials/" + getValue("forum_id") + "/user/" + getValue("usersId
 #### _cdr_id_
 From column: __id_
 ``` python
-return "identifier/"+getValue("_id")
+return getValue("_id")
 ```
 
 
