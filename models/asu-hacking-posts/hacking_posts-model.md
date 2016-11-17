@@ -35,7 +35,7 @@ return getValue("forum_id") + "/user/" + getValue("usersId")
 #### _person_id_
 From column: _json_rep / user_id_
 ``` python
-return getValue("forum_id") + "/user/" + getValue("usersId")
+return "logincredentials/" + getValue("forum_id") + "/user/" + getValue("usersId")
 ```
 
 #### _cdr_id_
