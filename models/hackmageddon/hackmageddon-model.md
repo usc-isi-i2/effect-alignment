@@ -3,20 +3,20 @@
 ### PyTransforms
 #### _cdr_id_
 From column: __id_
->``` python
+``` python
 return "event/"+getValue("_id")
 ```
 
 #### _author_clean_
 From column: _json_rep / author_
->``` python
+``` python
 a = getValue("author")
 return a.replace('?','')
 ```
 
 #### _country_clean_
 From column: _json_rep / country_
->``` python
+``` python
 t = getValue("country")
 if t[0].isalnum() == False:
     return ''
@@ -26,14 +26,14 @@ else:
 
 #### _date_iso_
 From column: _json_rep / date_
->``` python
+``` python
 t =  getValue("date")
 return DM.iso8601date(t,"%d/%m/%Y")
 ```
 
 #### _target_name_cleaned_
 From column: _json_rep / target_
->``` python
+``` python
 t = getValue("target")
 if t[0].isalnum() == False:
     return ''
@@ -43,7 +43,7 @@ else:
 
 #### _target_class_cleaned_
 From column: _json_rep / target_class_
->``` python
+``` python
 t = getValue("target_class")
 if t[0].isalnum() == False:
     return ''
@@ -53,19 +53,19 @@ else:
 
 #### _uri_id_
 From column: __id_
->``` python
-return "identifier/"+getValue("_id")
+``` python
+return getValue("_id")
 ```
 
 #### _source_name_id_
 From column: _source_name_
->``` python
-return "source/"+getValue("source_name")
+``` python
+return getValue("source_name")
 ```
 
 #### _target_name_uri_
 From column: _json_rep / target_name_cleaned_
->``` python
+``` python
 t = getValue("target")
 if t[0].isalnum() == False:
     return ''

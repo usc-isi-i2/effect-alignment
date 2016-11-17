@@ -3,44 +3,44 @@
 ### PyTransforms
 #### _item_id_
 From column: _json_rep / itemId_
->``` python
+``` python
 return "item/"+getValue("itemId")
 ```
 
 #### _vendor_id_
 From column: _json_rep / vendorId_
->``` python
+``` python
 return "vendor_id/"+getValue("vendorId")
 ```
 
 #### _marketplace_id_
 From column: _json_rep / marketplaceId_
->``` python
+``` python
 return "marketplace/"+getValue("marketplaceId")
 ```
 
 #### _posted_date_iso_
 From column: _json_rep / postedDate_
->``` python
+``` python
 t =  getValue("postedDate")
 return DM.iso8601date(t,"%m-%d-%Y")
 ```
 
 #### _source_name_id_
 From column: _source_name_
->``` python
-return "source/"+getValue("source_name")
+``` python
+return getValue("source_name")
 ```
 
 #### _cdr_id_
 From column: __id_
->``` python
-return "identifier/"+getValue("_id")
+``` python
+return getValue("_id")
 ```
 
 #### _itemCve_split_comma_
 From column: _json_rep / itemCve_
->``` python
+``` python
 line= getValue("itemCve")
 n= 13
 answer = [line[i:i+n] for i in range(0, len(line), n)]
@@ -49,7 +49,7 @@ return ','.join(answer)
 
 #### _cve_id_split_
 From column: _json_rep / item_cve_final / Values_
->``` python
+``` python
 return "vulnerability/"+getValue("Values").upper()
 ```
 
@@ -77,11 +77,11 @@ return "vulnerability/"+getValue("Values").upper()
 ### Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Exploit1` | `memex:exploitsVulnerability` | `memex:Vulnerability1`|
 | `memex:Exploit1` | `schema:fromLocation` | `schema:Place1`|
 | `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
 | `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization2`|
 | `memex:Exploit1` | `schema:toLocation` | `schema:Place2`|
 | `memex:Exploit1` | `schema:vendor` | `memex:PersonOrOrganization1`|
+| `memex:Exploit1` | `memex:exploitsVulnerability` | `memex:Vulnerability1`|
 | `memex:Vulnerability1` | `memex:hasExploit` | `memex:Exploit1`|
 | `schema:PriceSpecification1` | `schema:priceCurrency` | `xsd:USD`|

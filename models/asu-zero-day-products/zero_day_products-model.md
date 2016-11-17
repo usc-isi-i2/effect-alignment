@@ -3,13 +3,13 @@
 ### PyTransforms
 #### _item_id_
 From column: _json_rep / itemId_
->``` python
+``` python
 return "item/"+getValue("itemId")
 ```
 
 #### _posted_date_iso_
 From column: _json_rep / postedDate_
->``` python
+``` python
 t =  getValue("postedDate")
 return DM.iso8601date(t,"%d/%m/%Y")
  
@@ -17,19 +17,19 @@ return DM.iso8601date(t,"%d/%m/%Y")
 
 #### _cdr_id_
 From column: __id_
->``` python
-return "identifier/"+getValue("_id")
+``` python
+return getValue("_id")
 ```
 
 #### _source_name_id_
 From column: _source_name_
->``` python
-return "source/"+getValue("source_name")
+``` python
+return getValue("source_name")
 ```
 
 #### _marketplace_id_
 From column: _json_rep / marketplaceId_
->``` python
+``` python
 return "marketplace/" + getValue("marketplaceId")
 ```
 
