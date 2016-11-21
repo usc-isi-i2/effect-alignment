@@ -53,6 +53,24 @@ From column: _json_rep / item_cve_final / Values_
 return "vulnerability/"+getValue("Values").upper()
 ```
 
+#### _price_uri_
+From column: _json_rep / sellingPriceUsd_
+``` python
+return "price/" + getValue("sellingPriceUsd") + "USD"
+```
+
+#### _fromplace_uri_
+From column: _json_rep / itemShippedFrom_
+``` python
+return UM.uri_from_fields("place/", getValue("itemShippedFrom"))
+```
+
+#### _toPlace_uri_
+From column: _json_rep / itemShippedTo_
+``` python
+return UM.uri_from_fields("place/", getValue("itemShippedTo"))
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
@@ -64,12 +82,15 @@ return "vulnerability/"+getValue("Values").upper()
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
 | _itemName_ | `schema:name` | `memex:Exploit1`|
 | _itemShippedFrom_ | `schema:name` | `schema:Place1`|
+| _fromplace_uri | `uri` | `schema:Place1`|
 | _itemShippedTo_ | `schema:name` | `schema:Place2`|
+| _toPlace_uri | `uri` | `schema:Place2`|
 | _itemVendorRating_ | `schema:ratingValue` | `memex:PersonOrOrganization1`|
 | _item_id_ | `uri` | `memex:Exploit1`|
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization2`|
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
+| _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _source_name_id_ | `schema:publisher` | `memex:Exploit1`|
 | _vendor_id_ | `uri` | `memex:PersonOrOrganization1`|
 
