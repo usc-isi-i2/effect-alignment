@@ -73,6 +73,22 @@ else:
     return "organization/"+SM.fingerprint_string(t)
 ```
 
+#### _country_uri_
+From column: _json_rep / country_clean_
+``` python
+return UM.uri_from_fields("place/", getValue("country_clean"))
+```
+
+#### _author_uri_
+From column: _json_rep / author_clean_
+``` python
+t = getValue("author_clean")
+if t[0].isalnum() == False:
+    return ''
+else:
+    return "organization/"+SM.fingerprint_string(t)
+```
+
 
 ### Semantic Types
 | Column | Property | Class |
@@ -81,8 +97,10 @@ else:
 | _attack_ | `memex:hasType` | `memex:AttackEvent1`|
 | _attack_class_ | `schema:additionalType` | `memex:AttackEvent1`|
 | _author_clean_ | `schema:name` | `memex:PersonOrOrganization1`|
+| _author_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _cdr_id_ | `uri` | `memex:AttackEvent1`|
 | _country_clean_ | `schema:name` | `schema:Place1`|
+| _country_uri_ | `uri` | `schema:Place1`|
 | _date_iso_ | `schema:startDate` | `memex:AttackEvent1`|
 | _description_ | `schema:description` | `memex:AttackEvent1`|
 | _link_ | `schema:url` | `memex:AttackEvent1`|
