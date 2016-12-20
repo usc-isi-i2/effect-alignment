@@ -586,6 +586,185 @@
                 }
             }
         }, 
+        "post": {
+            "properties": {
+                "a": {
+                    "index": "not_analyzed", 
+                    "type": "string"
+                }, 
+                "author": {
+                    "properties": {
+                        "a": {
+                            "index": "not_analyzed", 
+                            "type": "string"
+                        }, 
+                        "hasLoginCredentials": {
+                            "properties": {
+                                "a": {
+                                    "index": "not_analyzed", 
+                                    "type": "string"
+                                }, 
+                                "email": {
+                                    "properties": {
+                                        "a": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }, 
+                                        "domainName": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }, 
+                                        "name": {
+                                            "fields": {
+                                                "raw": {
+                                                    "index": "not_analyzed", 
+                                                    "type": "string"
+                                                }
+                                            }, 
+                                            "type": "string"
+                                        }, 
+                                        "nameSHA1": {
+                                            "type": "string"
+                                        }, 
+                                        "uri": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }
+                                    }
+                                }, 
+                                "password": {
+                                    "properties": {
+                                        "a": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }, 
+                                        "name": {
+                                            "fields": {
+                                                "raw": {
+                                                    "index": "not_analyzed", 
+                                                    "type": "string"
+                                                }
+                                            }, 
+                                            "type": "string"
+                                        }, 
+                                        "nameSHA1": {
+                                            "type": "string"
+                                        }, 
+                                        "uri": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }
+                                    }
+                                }, 
+                                "uri": {
+                                    "index": "not_analyzed", 
+                                    "type": "string"
+                                }, 
+                                "username": {
+                                    "properties": {
+                                        "a": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }, 
+                                        "name": {
+                                            "fields": {
+                                                "raw": {
+                                                    "index": "not_analyzed", 
+                                                    "type": "string"
+                                                }
+                                            }, 
+                                            "type": "string"
+                                        }, 
+                                        "nameSHA1": {
+                                            "type": "string"
+                                        }, 
+                                        "uri": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }, 
+                        "name": {
+                            "fields": {
+                                "raw": {
+                                    "index": "not_analyzed", 
+                                    "type": "string"
+                                }
+                            }, 
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "datePublished": {
+                    "format": "dateOptionalTime", 
+                    "type": "date"
+                }, 
+                "hasTopic": {
+                    "properties": {
+                        "a": {
+                            "index": "not_analyzed", 
+                            "type": "string"
+                        }, 
+                        "isTopicOf": {
+                            "properties": {
+                                "a": {
+                                    "index": "not_analyzed", 
+                                    "type": "string"
+                                }, 
+                                "name": {
+                                    "fields": {
+                                        "raw": {
+                                            "index": "not_analyzed", 
+                                            "type": "string"
+                                        }
+                                    }, 
+                                    "type": "string"
+                                }
+                            }
+                        }, 
+                        "name": {
+                            "fields": {
+                                "raw": {
+                                    "index": "not_analyzed", 
+                                    "type": "string"
+                                }
+                            }, 
+                            "type": "string"
+                        }, 
+                        "publisher": {
+                            "index": "not_analyzed", 
+                            "type": "string"
+                        }, 
+                        "source": {
+                            "index": "not_analyzed", 
+                            "type": "string"
+                        }, 
+                        "uri": {
+                            "index": "not_analyzed", 
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "language": {
+                    "type": "string"
+                }, 
+                "text": {
+                    "fields": {
+                        "stemmed": {
+                            "type": "string",
+                            "analyzer": "stemming_analyzer"
+                        }
+                    },
+                    "type": "string"
+                }, 
+                "uri": {
+                    "index": "not_analyzed", 
+                    "type": "string"
+                }
+            }
+        }, 
         "topic": {
             "properties": {
                 "a": {
@@ -711,6 +890,12 @@
                             "type": "string"
                         }, 
                         "text": {
+                            "fields": {
+                                "stemmed": {
+                                    "type": "string",
+                                    "analyzer": "stemming_analyzer"
+                                }
+                            },
                             "type": "string"
                         }, 
                         "uri": {
@@ -921,6 +1106,14 @@
                         "ngram_3_10"
                     ], 
                     "tokenizer": "keyword"
+                }, 
+                "stemming_analyzer": {
+                    "filter": [
+                        "lowercase", 
+                        "stopwords", 
+                        "filter_stemmer"
+                    ], 
+                    "tokenizer": "standard"
                 }
             }, 
             "char_filter": {
