@@ -63,7 +63,7 @@ return ''
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source` | `memex:Topic1`|
+| _cdr_id_ | `schema:source` | `memex:Post1`|
 | _cve_id_ | `uri` | `memex:Vulnerability1`|
 | _forum_id_ | `uri` | `memex:Forum1`|
 | _language_ | `schema:language` | `memex:Post1`|
@@ -71,7 +71,7 @@ return ''
 | _postContent_ | `schema:text` | `memex:Post1`|
 | _post_date_iso_ | `schema:datePublished` | `memex:Post1`|
 | _post_id_ | `uri` | `memex:Post1`|
-| _source_name_ | `schema:publisher` | `memex:Topic1`|
+| _source_name_ | `schema:publisher` | `memex:Post1`|
 | _topic_id_ | `uri` | `memex:Topic1`|
 | _topicsName_ | `schema:name` | `memex:Topic1`|
 | _user_id_ | `uri` | `memex:PersonOrOrganization1`|
