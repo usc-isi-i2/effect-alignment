@@ -14,12 +14,12 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1b62duni2x1 a km-dev:R2RMLMapping ;
+_:node1b67ae57sx1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "ransomware.csv" ;
-	km-dev:modelPublicationTime "1483992948290"^^xsd:long ;
+	km-dev:modelPublicationTime "1484157031677"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
 	km-dev:hasInputColumns "[[{\"columnName\":\"Registrar\"}],[{\"columnName\":\"Firstseen (UTC)\"}],[{\"columnName\":\"Country\"}],[{\"columnName\":\"ASN\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"Malware\"}],[{\"columnName\":\"IPAddress\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"URL\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"Registrar\"}],[{\"columnName\":\"observed_iso\"}],[{\"columnName\":\"Country\"}],[{\"columnName\":\"ASN\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"Malware\"}],[{\"columnName\":\"IPAddress\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"URL\"}],[{\"columnName\":\"URLHash\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"Registrar\"}],[{\"columnName\":\"observed_iso\"}],[{\"columnName\":\"Country\"}],[{\"columnName\":\"IPAddress\"},{\"columnName\":\"ipaddr_uri\"}],[{\"columnName\":\"ASN\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"Malware\"}],[{\"columnName\":\"IPAddress\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"URL\"}],[{\"columnName\":\"URLHash\"}]]" ;
 	km-dev:hasModelLabel "ransomware" ;
 	km-dev:hasBaseURI "http://localhost:8080/source/" ;
 	km-dev:hasWorksheetHistory """[
@@ -293,6 +293,61 @@ _:node1b62duni2x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"outputColumns\",
                 \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"observed_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"IPAddress\"},
+                    {\"columnName\": \"Values\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"ipaddr_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"Values\\\")\\nif x:\\n   x = SM.alpha_numeric(x).replace(\\\" \\\",\\\"_\\\")\\n   return \\\"ipaddress/\\\" + x\\nreturn ''\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"IPAddress\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"IPAddress\\\"},{\\\"columnName\\\":\\\"ipaddr_uri\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             }
         ],
@@ -784,6 +839,82 @@ _:node1b62duni2x1 a km-dev:R2RMLMapping ;
         \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"IPAddress\"},
+                    {\"columnName\": \"ipaddr_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/IPAddress\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/IPAddress1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:IPAddress1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/IPAddress1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/IPAddress\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"IPAddress\\\"},{\\\"columnName\\\":\\\"ipaddr_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"IPAddress\\\"},{\\\"columnName\\\":\\\"ipaddr_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
         \"tags\": [\"Modeling\"],
         \"model\": \"new\",
         \"inputParameters\": [
@@ -833,186 +964,185 @@ _:node1b62duni2x1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f a rr:TriplesMap .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca a rr:TriplesMap .
 
-_:node1b62duni2x1 km-dev:hasTriplesMap km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f .
+_:node1b67ae57sx1 km-dev:hasTriplesMap km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x2 rr:tableName "ransomware.csv" ;
+_:node1b67ae57sx2 rr:tableName "ransomware.csv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasLogicalTable _:node1b62duni2x2 .
+_:node1b67ae57sx1 km-dev:hasLogicalTable _:node1b67ae57sx2 .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f rr:logicalTable _:node1b62duni2x2 ;
-	rr:subjectMap _:node1b62duni2x3 .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca rr:logicalTable _:node1b67ae57sx2 ;
+	rr:subjectMap _:node1b67ae57sx3 .
 
-_:node1b62duni2x1 km-dev:hasSubjectMap _:node1b62duni2x3 .
+_:node1b67ae57sx1 km-dev:hasSubjectMap _:node1b67ae57sx3 .
 
-_:node1b62duni2x3 km-dev:isPartOfMapping _:node1b62duni2x1 ;
+_:node1b67ae57sx3 km-dev:isPartOfMapping _:node1b67ae57sx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/IPAddress1" ;
 	rr:class memex:IPAddress ;
-	rr:termType rr:BlankNode ;
-	km-dev:namePrefix "memex:IPAddress1" .
+	rr:template "{[\"IPAddress\",\"ipaddr_uri\"]}" .
 
-km-dev:PredicateObjectMap_86798ad9-bc78-41d2-95d7-33494919fb60 rr:predicate memex:autonomousSystemNumber .
+km-dev:PredicateObjectMap_6f371260-a7fa-4a72-af27-5ce3254abe1d rr:predicate memex:autonomousSystemNumber .
 
-_:node1b62duni2x4 rr:column "[\"ASN\",\"Values\"]" ;
+_:node1b67ae57sx4 rr:column "[\"ASN\",\"Values\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x4 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx4 .
 
-km-dev:PredicateObjectMap_86798ad9-bc78-41d2-95d7-33494919fb60 rr:objectMap _:node1b62duni2x4 .
+km-dev:PredicateObjectMap_6f371260-a7fa-4a72-af27-5ce3254abe1d rr:objectMap _:node1b67ae57sx4 .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f rr:predicateObjectMap km-dev:PredicateObjectMap_86798ad9-bc78-41d2-95d7-33494919fb60 .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca rr:predicateObjectMap km-dev:PredicateObjectMap_6f371260-a7fa-4a72-af27-5ce3254abe1d .
 
-km-dev:PredicateObjectMap_86798ad9-bc78-41d2-95d7-33494919fb60 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_6f371260-a7fa-4a72-af27-5ce3254abe1d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_86798ad9-bc78-41d2-95d7-33494919fb60 .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6f371260-a7fa-4a72-af27-5ce3254abe1d .
 
-km-dev:PredicateObjectMap_f0f9b26f-b7d5-4753-b05c-1433cefa8b72 rr:predicate memex:registrar .
+km-dev:PredicateObjectMap_98777b11-c454-4338-a3b4-9435ec2173f4 rr:predicate memex:registrar .
 
-_:node1b62duni2x5 rr:column "Registrar" ;
+_:node1b67ae57sx5 rr:column "Registrar" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x5 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx5 .
 
-km-dev:PredicateObjectMap_f0f9b26f-b7d5-4753-b05c-1433cefa8b72 rr:objectMap _:node1b62duni2x5 .
+km-dev:PredicateObjectMap_98777b11-c454-4338-a3b4-9435ec2173f4 rr:objectMap _:node1b67ae57sx5 .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f rr:predicateObjectMap km-dev:PredicateObjectMap_f0f9b26f-b7d5-4753-b05c-1433cefa8b72 .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca rr:predicateObjectMap km-dev:PredicateObjectMap_98777b11-c454-4338-a3b4-9435ec2173f4 .
 
-km-dev:PredicateObjectMap_f0f9b26f-b7d5-4753-b05c-1433cefa8b72 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_98777b11-c454-4338-a3b4-9435ec2173f4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f0f9b26f-b7d5-4753-b05c-1433cefa8b72 .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_98777b11-c454-4338-a3b4-9435ec2173f4 .
 
-km-dev:PredicateObjectMap_26287262-c1d9-4075-bf0e-54e916c0e92a rr:predicate schema:name .
+km-dev:PredicateObjectMap_66807839-4c45-40df-bee4-55d6ff7a245d rr:predicate schema:name .
 
-_:node1b62duni2x6 rr:column "[\"IPAddress\",\"Values\"]" ;
+_:node1b67ae57sx6 rr:column "[\"IPAddress\",\"Values\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x6 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx6 .
 
-km-dev:PredicateObjectMap_26287262-c1d9-4075-bf0e-54e916c0e92a rr:objectMap _:node1b62duni2x6 .
+km-dev:PredicateObjectMap_66807839-4c45-40df-bee4-55d6ff7a245d rr:objectMap _:node1b67ae57sx6 .
 
-km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f rr:predicateObjectMap km-dev:PredicateObjectMap_26287262-c1d9-4075-bf0e-54e916c0e92a .
+km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca rr:predicateObjectMap km-dev:PredicateObjectMap_66807839-4c45-40df-bee4-55d6ff7a245d .
 
-km-dev:PredicateObjectMap_26287262-c1d9-4075-bf0e-54e916c0e92a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_66807839-4c45-40df-bee4-55d6ff7a245d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_26287262-c1d9-4075-bf0e-54e916c0e92a .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_66807839-4c45-40df-bee4-55d6ff7a245d .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 a rr:TriplesMap .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 a rr:TriplesMap .
 
-_:node1b62duni2x1 km-dev:hasTriplesMap km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 .
+_:node1b67ae57sx1 km-dev:hasTriplesMap km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x7 rr:tableName "ransomware.csv" ;
+_:node1b67ae57sx7 rr:tableName "ransomware.csv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasLogicalTable _:node1b62duni2x7 .
+_:node1b67ae57sx1 km-dev:hasLogicalTable _:node1b67ae57sx7 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:logicalTable _:node1b62duni2x7 ;
-	rr:subjectMap _:node1b62duni2x8 .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:logicalTable _:node1b67ae57sx7 ;
+	rr:subjectMap _:node1b67ae57sx8 .
 
-_:node1b62duni2x1 km-dev:hasSubjectMap _:node1b62duni2x8 .
+_:node1b67ae57sx1 km-dev:hasSubjectMap _:node1b67ae57sx8 .
 
-_:node1b62duni2x8 km-dev:isPartOfMapping _:node1b62duni2x1 ;
+_:node1b67ae57sx8 km-dev:isPartOfMapping _:node1b67ae57sx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Malware1" ;
 	rr:class memex:Malware ;
 	rr:template "{URLHash}" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_4195d7a5-a2eb-4bdb-8cf7-edf02b4eb99d rr:predicate memex:hostedAt .
+km-dev:PredicateObjectMap_1b59739e-d5f7-4752-b400-e6372903970f rr:predicate memex:hostedAt .
 
-km-dev:RefObjectMap_2cd2c509-ee61-4f4c-88d1-63cbea9301a4 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_19660101-b918-4f97-9a82-d3fc71189c3f ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:RefObjectMap_3104b4b5-95e6-4b40-bbf0-d847c9397a0f a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_ef34db7e-235a-4986-a050-a1fe7b2df0ca ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap km-dev:RefObjectMap_2cd2c509-ee61-4f4c-88d1-63cbea9301a4 .
+_:node1b67ae57sx1 km-dev:hasObjectMap km-dev:RefObjectMap_3104b4b5-95e6-4b40-bbf0-d847c9397a0f .
 
-km-dev:PredicateObjectMap_4195d7a5-a2eb-4bdb-8cf7-edf02b4eb99d rr:objectMap km-dev:RefObjectMap_2cd2c509-ee61-4f4c-88d1-63cbea9301a4 .
+km-dev:PredicateObjectMap_1b59739e-d5f7-4752-b400-e6372903970f rr:objectMap km-dev:RefObjectMap_3104b4b5-95e6-4b40-bbf0-d847c9397a0f .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:predicateObjectMap km-dev:PredicateObjectMap_4195d7a5-a2eb-4bdb-8cf7-edf02b4eb99d .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:predicateObjectMap km-dev:PredicateObjectMap_1b59739e-d5f7-4752-b400-e6372903970f .
 
-km-dev:PredicateObjectMap_4195d7a5-a2eb-4bdb-8cf7-edf02b4eb99d a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_1b59739e-d5f7-4752-b400-e6372903970f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4195d7a5-a2eb-4bdb-8cf7-edf02b4eb99d .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1b59739e-d5f7-4752-b400-e6372903970f .
 
-km-dev:PredicateObjectMap_ff37fc73-3daf-4729-893f-7e5b3699dc47 rr:predicate memex:observedDate .
+km-dev:PredicateObjectMap_06798011-b613-4d34-9f21-0f0710716b0f rr:predicate memex:observedDate .
 
-_:node1b62duni2x9 rr:column "observed_iso" ;
+_:node1b67ae57sx9 rr:column "observed_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x9 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx9 .
 
-km-dev:PredicateObjectMap_ff37fc73-3daf-4729-893f-7e5b3699dc47 rr:objectMap _:node1b62duni2x9 .
+km-dev:PredicateObjectMap_06798011-b613-4d34-9f21-0f0710716b0f rr:objectMap _:node1b67ae57sx9 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:predicateObjectMap km-dev:PredicateObjectMap_ff37fc73-3daf-4729-893f-7e5b3699dc47 .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:predicateObjectMap km-dev:PredicateObjectMap_06798011-b613-4d34-9f21-0f0710716b0f .
 
-km-dev:PredicateObjectMap_ff37fc73-3daf-4729-893f-7e5b3699dc47 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_06798011-b613-4d34-9f21-0f0710716b0f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ff37fc73-3daf-4729-893f-7e5b3699dc47 .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_06798011-b613-4d34-9f21-0f0710716b0f .
 
-km-dev:PredicateObjectMap_9af05b59-485a-4dcc-ae46-e3dfd96e6499 rr:predicate schema:countryOfOrigin .
+km-dev:PredicateObjectMap_711d5feb-67a6-453d-835c-0c8890f083a5 rr:predicate schema:countryOfOrigin .
 
-_:node1b62duni2x10 rr:column "Country" ;
+_:node1b67ae57sx10 rr:column "Country" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x10 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx10 .
 
-km-dev:PredicateObjectMap_9af05b59-485a-4dcc-ae46-e3dfd96e6499 rr:objectMap _:node1b62duni2x10 .
+km-dev:PredicateObjectMap_711d5feb-67a6-453d-835c-0c8890f083a5 rr:objectMap _:node1b67ae57sx10 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:predicateObjectMap km-dev:PredicateObjectMap_9af05b59-485a-4dcc-ae46-e3dfd96e6499 .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:predicateObjectMap km-dev:PredicateObjectMap_711d5feb-67a6-453d-835c-0c8890f083a5 .
 
-km-dev:PredicateObjectMap_9af05b59-485a-4dcc-ae46-e3dfd96e6499 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_711d5feb-67a6-453d-835c-0c8890f083a5 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9af05b59-485a-4dcc-ae46-e3dfd96e6499 .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_711d5feb-67a6-453d-835c-0c8890f083a5 .
 
-km-dev:PredicateObjectMap_8cd7488b-c9b6-443f-9b2f-b69c1cddeb8a rr:predicate schema:name .
+km-dev:PredicateObjectMap_09775307-8a98-45dd-9865-2f9f88d199ed rr:predicate schema:name .
 
-_:node1b62duni2x11 rr:column "Malware" ;
+_:node1b67ae57sx11 rr:column "Malware" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x11 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx11 .
 
-km-dev:PredicateObjectMap_8cd7488b-c9b6-443f-9b2f-b69c1cddeb8a rr:objectMap _:node1b62duni2x11 .
+km-dev:PredicateObjectMap_09775307-8a98-45dd-9865-2f9f88d199ed rr:objectMap _:node1b67ae57sx11 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:predicateObjectMap km-dev:PredicateObjectMap_8cd7488b-c9b6-443f-9b2f-b69c1cddeb8a .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:predicateObjectMap km-dev:PredicateObjectMap_09775307-8a98-45dd-9865-2f9f88d199ed .
 
-km-dev:PredicateObjectMap_8cd7488b-c9b6-443f-9b2f-b69c1cddeb8a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_09775307-8a98-45dd-9865-2f9f88d199ed a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8cd7488b-c9b6-443f-9b2f-b69c1cddeb8a .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_09775307-8a98-45dd-9865-2f9f88d199ed .
 
-km-dev:PredicateObjectMap_a00fb691-3462-42e9-bd77-d7b5b612e4e8 rr:predicate schema:url .
+km-dev:PredicateObjectMap_52d2f721-a22b-4249-94b9-156f54b1ed4a rr:predicate schema:url .
 
-_:node1b62duni2x12 rr:column "URL" ;
+_:node1b67ae57sx12 rr:column "URL" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasObjectMap _:node1b62duni2x12 .
+_:node1b67ae57sx1 km-dev:hasObjectMap _:node1b67ae57sx12 .
 
-km-dev:PredicateObjectMap_a00fb691-3462-42e9-bd77-d7b5b612e4e8 rr:objectMap _:node1b62duni2x12 .
+km-dev:PredicateObjectMap_52d2f721-a22b-4249-94b9-156f54b1ed4a rr:objectMap _:node1b67ae57sx12 .
 
-km-dev:TriplesMap_d5e66caa-4164-4b6b-a253-f67300b4abb7 rr:predicateObjectMap km-dev:PredicateObjectMap_a00fb691-3462-42e9-bd77-d7b5b612e4e8 .
+km-dev:TriplesMap_1b15775c-1824-417c-a716-d0f749933093 rr:predicateObjectMap km-dev:PredicateObjectMap_52d2f721-a22b-4249-94b9-156f54b1ed4a .
 
-km-dev:PredicateObjectMap_a00fb691-3462-42e9-bd77-d7b5b612e4e8 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b62duni2x1 .
+km-dev:PredicateObjectMap_52d2f721-a22b-4249-94b9-156f54b1ed4a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1b67ae57sx1 .
 
-_:node1b62duni2x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a00fb691-3462-42e9-bd77-d7b5b612e4e8 .
+_:node1b67ae57sx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_52d2f721-a22b-4249-94b9-156f54b1ed4a .
