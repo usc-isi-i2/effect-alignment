@@ -17,6 +17,16 @@ From column: _Firstseen (UTC)_
 return DM.iso8601date(getValue("Firstseen (UTC)"))
 ```
 
+#### _ipaddr_uri_
+From column: _IPAddress / Values_
+``` python
+x = getValue("Values")
+if x:
+   x = SM.alpha_numeric(x).replace(" ","_")
+   return "ipaddress/" + x
+return ''
+```
+
 
 ## Selections
 
@@ -30,6 +40,7 @@ return DM.iso8601date(getValue("Firstseen (UTC)"))
 | _URLHash_ | `uri` | `memex:Malware1`|
 | _Values_ | `schema:name` | `memex:IPAddress1`|
 | _Values_ | `memex:autonomousSystemNumber` | `memex:IPAddress1`|
+| _ipaddr_uri_ | `uri` | `memex:IPAddress1`|
 | _observed_iso_ | `memex:observedDate` | `memex:Malware1`|
 
 
