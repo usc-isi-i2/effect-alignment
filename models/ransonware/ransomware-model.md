@@ -11,6 +11,22 @@ From column: _URL_
 return  "malware/" + SM.md5_hash(getValue("URL"))
 ```
 
+#### _observed_iso_
+From column: _Firstseen (UTC)_
+``` python
+return DM.iso8601date(getValue("Firstseen (UTC)"))
+```
+
+#### _ipaddr_uri_
+From column: _IPAddress / Values_
+``` python
+x = getValue("Values")
+if x:
+   x = SM.alpha_numeric(x).replace(" ","_")
+   return "ipaddress/" + x
+return ''
+```
+
 
 ## Selections
 
@@ -18,12 +34,14 @@ return  "malware/" + SM.md5_hash(getValue("URL"))
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _Country_ | `schema:countryOfOrigin` | `memex:Malware1`|
-| _Firstseen (UTC)_ | `memex:observedDate` | `memex:Malware1`|
 | _Malware_ | `schema:name` | `memex:Malware1`|
 | _Registrar_ | `memex:registrar` | `memex:IPAddress1`|
+| _URL_ | `schema:url` | `memex:Malware1`|
 | _URLHash_ | `uri` | `memex:Malware1`|
 | _Values_ | `schema:name` | `memex:IPAddress1`|
 | _Values_ | `memex:autonomousSystemNumber` | `memex:IPAddress1`|
+| _ipaddr_uri_ | `uri` | `memex:IPAddress1`|
+| _observed_iso_ | `memex:observedDate` | `memex:Malware1`|
 
 
 ## Links
