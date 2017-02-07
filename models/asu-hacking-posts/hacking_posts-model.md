@@ -14,13 +14,13 @@ return "forum/" + getValue("forumsId")
 #### _topic_id_
 From column: _json_rep / topicId_
 ``` python
-return getValue("forum_id") + "/topic/" + getValue("topicId")
+return getValue("forum_id") + "/topic/" + SM.sha1_hash(getValue("topicsName"))
 ```
 
 #### _post_id_
 From column: _json_rep / postsId_
 ``` python
-return getValue("topic_id") + "/post/" + getValue("postsId")
+return getValue("topic_id") + "/post/" + SM.sha1_hash(getValue("postsId"))
 ```
 
 #### _post_date_iso_
@@ -82,9 +82,9 @@ return ''
 |  --- | -------- | ---|
 | `memex:Forum1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
-| `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
-| `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
+| `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Topic1` | `memex:hasPost` | `memex:Post1`|
+| `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
 | `memex:Vulnerability1` | `memex:isMentionedIn` | `memex:Post1`|
