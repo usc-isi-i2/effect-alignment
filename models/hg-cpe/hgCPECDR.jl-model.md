@@ -22,6 +22,8 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | _language_ | `schema:language` | `memex:SoftwareSystem1`|
 | _product_ | `schema:name` | `memex:SoftwareSystem1`|
 | _source_name_ | `schema:publisher` | `memex:SoftwareSystem1`|
+| _target_hardware_ | `schema:name` | `memex:ComputerHardware1`|
+| _target_software_ | `schema:name` | `memex:SoftwareSystem2`|
 | _timestamp_iso_ | `memex:dateRecorded` | `memex:SoftwareSystem1`|
 | _title_ | `schema:title` | `memex:SoftwareSystem1`|
 | _vendor_ | `schema:vendor` | `memex:SoftwareSystem1`|
@@ -31,3 +33,5 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `memex:SoftwareSystem1` | `memex:platform` | `memex:ComputerHardware1`|
+| `memex:SoftwareSystem1` | `memex:targetSoftware` | `memex:SoftwareSystem2`|
