@@ -16,7 +16,7 @@ From column: _json_rep / cpe / target_hardware_
 ``` python
 x = getValue("target_hardware_clean")
 if len(x) > 0:
-   return "/computerhardware/" + x
+   return "computerhardware/" + x
 return ''
 ```
 
@@ -25,7 +25,7 @@ From column: _json_rep / cpe / target_software_
 ``` python
 x = getValue("target_software_clean")
 if len(x) > 0:
-   return "/softwareSystem/" + x
+   return "softwareSystem/" + x
 return ''
 ```
 
