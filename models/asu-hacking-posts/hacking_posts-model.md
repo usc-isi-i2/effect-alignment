@@ -14,13 +14,13 @@ return "forum/" + getValue("forumsId")
 #### _topic_id_
 From column: _json_rep / topicId_
 ``` python
-return getValue("forum_id") + "/topic/" + getValue("topicId")
+return getValue("forum_id") + "/topic/" + SM.sha1_hash(getValue("topicsName"))
 ```
 
 #### _post_id_
 From column: _json_rep / postsId_
 ``` python
-return getValue("topic_id") + "/post/" + getValue("postsId")
+return getValue("topic_id") + "/post/" + SM.sha1_hash(getValue("postContent"))
 ```
 
 #### _post_date_iso_
