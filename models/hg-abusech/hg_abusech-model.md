@@ -8,7 +8,7 @@
 #### _timestamp_iso_
 From column: _timestamp_
 ``` python
-return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
+return DM.iso8601date(getValue("timestamp"))
 ```
 
 #### _first_seen_iso_
