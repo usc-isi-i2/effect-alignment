@@ -46,7 +46,7 @@ return DM.iso8601date(getValue("firstseen"), "%Y-%m-%dT%H:%M:%SZ")
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source` | `memex:Malware1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Malware1`|
 | _as_name_ | `memex:autonomousSystemName` | `memex:IPAddress1`|
 | _as_number_ | `memex:autonomousSystemNumber` | `memex:IPAddress1`|
 | _country_ | `schema:countryOfOrigin` | `memex:IPAddress1`|
@@ -59,8 +59,8 @@ return DM.iso8601date(getValue("firstseen"), "%Y-%m-%dT%H:%M:%SZ")
 | _md5_ | `memex:nameMD5` | `memex:Malware1`|
 | _registrar_ | `memex:registrar` | `memex:IPAddress1`|
 | _sha256_ | `memex:nameSHA1` | `memex:Malware1`|
-| _source_name_ | `schema:publisher` | `memex:Malware1`|
-| _timestamp_iso_ | `memex:dateRecorded` | `memex:Malware1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Malware1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Malware1`|
 | _url_ | `schema:url` | `memex:Malware1`|
 | _url_hash_ | `uri` | `memex:Malware1`|
 
