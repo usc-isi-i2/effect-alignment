@@ -1,6 +1,20 @@
-## hg_zdi-for-karma.jl
+# hg_zdi-for-karma.jl
 
-### PyTransforms
+## Add Column
+
+## Add Node/Literal
+#### Literal Node: `http://effect.isi.edu/identifier/database`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `true`
+
+#### Literal Node: `http://effect.isi.edu/identifier/source`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `true`
+
+
+## PyTransforms
 #### _cdr_id_
 From column: _json_rep / zdi_id_
 ``` python
@@ -32,7 +46,9 @@ return getValue("source_name")
 ```
 
 
-### Semantic Types
+## Selections
+
+## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _access_complexity_ | `memex:cvssComplexity` | `memex:CVSS1`|
@@ -46,16 +62,17 @@ return getValue("source_name")
 | _integrity_impact_ | `memex:cvssIntegrity` | `memex:CVSS1`|
 | _link_ | `schema:url` | `memex:Vulnerability1`|
 | _source_name_id_ | `schema:publisher` | `memex:Vulnerability1`|
+| _timestamp_ | `memex:dateRecorded` | `memex:Vulnerability1`|
 | _title_ | `schema:title` | `memex:Vulnerability1`|
 | _uri_id_ | `schema:source` | `memex:Vulnerability1`|
-| _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
-| _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:name` | `memex:SoftwareSystem1`|
+| _values_ | `schema:seller` | `memex:SoftwareSystem1`|
+| _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
 | _vulnerability_details_ | `schema:description` | `memex:Vulnerability1`|
 | _zdi_id_ | `schema:name` | `memex:Vulnerability1`|
 
 
-### Links
+## Links
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
