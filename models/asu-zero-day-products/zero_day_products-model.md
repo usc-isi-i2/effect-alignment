@@ -1,6 +1,30 @@
-## zerodayproducts-for-karma.jl
+# zerodayproducts-for-karma.jl
 
-### PyTransforms
+## Add Column
+
+## Add Node/Literal
+#### Literal Node: `http://effect.isi.edu/identifier/database`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `true`
+
+#### Literal Node: `http://effect.isi.edu/identifier/source`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `true`
+
+#### Literal Node: `zero-day-exploit`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `false`
+
+#### Literal Node: `USD`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `false`
+
+
+## PyTransforms
 #### _item_id_
 From column: _json_rep / itemId_
 ``` python
@@ -33,8 +57,17 @@ From column: _json_rep / marketplaceId_
 return "marketplace/" + getValue("marketplaceId")
 ```
 
+#### _timestamp_iso_
+From column: _timestamp_
+``` python
+return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 
-### Semantic Types
+```
+
+
+## Selections
+
+## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _cdr_id_ | `schema:source` | `memex:Exploit1`|
@@ -47,9 +80,10 @@ return "marketplace/" + getValue("marketplaceId")
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
 | _source_name_id_ | `schema:publisher` | `memex:Exploit1`|
+| _timestamp_iso_ | `memex:dateRecorded` | `memex:Exploit1`|
 
 
-### Links
+## Links
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:Exploit1` | `schema:category` | `xsd:zero-day-exploit`|
