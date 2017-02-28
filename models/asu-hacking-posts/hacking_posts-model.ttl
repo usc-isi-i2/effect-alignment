@@ -1,2473 +1,2809 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix memex: <http://schema.dig.isi.edu/ontology/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix dc: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1b8d6an8lx1 a km-dev:R2RMLMapping ;
+_:node1ba39nn89x1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "hackingposts-for-karma.jl" ;
-	km-dev:modelPublicationTime "1486501534997"^^xsd:long ;
+	km-dev:modelPublicationTime "1488317046025"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
-	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"topicsName\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"usersId\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cve\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forumsId\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postedDate\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"language\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postContent\"}],[{\"columnName\":\"_id\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"cdr_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topicsName\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"user_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"person_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"post_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"post_date_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forum_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"language\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postContent\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topic_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cve\"},{\"columnName\":\"cve_id\"}]]" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"topicsName\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cve\"},{\"columnName\":\"Values\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"usersId\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postedDate\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"language\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forumsId\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postContent\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"cve\"},{\"columnName\":\"cve_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forum_id\"}],[{\"columnName\":\"dateRecorded\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"language\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"post_date_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"postContent\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topicsName\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"user_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"post_id\"}],[{\"columnName\":\"cdr_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topic_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"person_id\"}]]" ;
 	km-dev:hasModelLabel "hacking_posts" ;
-	km-dev:hasBaseURI "http://localhost:8080/source/" ;
 	km-dev:hasWorksheetHistory """[
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"forumsId\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"forum_id\"
+                \"value\": \"forum_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return \\\"forum/\\\" + getValue(\\\"forumsId\\\")\"
+                \"value\": \"return \\\"forum/\\\" + getValue(\\\"forumsId\\\")\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forumsId\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forumsId\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"topicId\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"topic_id\"
+                \"value\": \"topic_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return getValue(\\\"forum_id\\\") + \\\"/topic/\\\" + SM.sha1_hash(getValue(\\\"topicsName\\\"))\"
+                \"value\": \"return getValue(\\\"forum_id\\\") + \\\"/topic/\\\" + SM.sha1_hash(getValue(\\\"topicsName\\\"))\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"postsId\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"post_id\"
+                \"value\": \"post_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return getValue(\\\"topic_id\\\") + \\\"/post/\\\" + SM.sha1_hash(getValue(\\\"postContent\\\"))\"
+                \"value\": \"return getValue(\\\"topic_id\\\") + \\\"/post/\\\" + SM.sha1_hash(getValue(\\\"postContent\\\"))\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"postedDate\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"post_date_iso\"
+                \"value\": \"post_date_iso\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"t = getValue(\\\"postedDate\\\")\\nreturn DM.iso8601date(t,\\\"%Y-%m-%d\\\")\"
+                \"value\": \"t = getValue(\\\"postedDate\\\")\\nreturn DM.iso8601date(t,\\\"%Y-%m-%d\\\")\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postedDate\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postedDate\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"usersId\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"user_id\"
+                \"value\": \"user_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return getValue(\\\"forum_id\\\") + \\\"/user/\\\" + getValue(\\\"usersId\\\")\"
+                \"value\": \"return getValue(\\\"forum_id\\\") + \\\"/user/\\\" + getValue(\\\"usersId\\\")\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"usersId\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"usersId\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"user_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"person_id\"
+                \"value\": \"person_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return \\\"logincredentials/\\\" + getValue(\\\"forum_id\\\") + \\\"/user/\\\" + getValue(\\\"usersId\\\")\"
+                \"value\": \"return \\\"logincredentials/\\\" + getValue(\\\"forum_id\\\") + \\\"/user/\\\" + getValue(\\\"usersId\\\")\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"usersId\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"usersId\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
-                \"value\": [{\"columnName\": \"_id\"}]
+                \"value\": [{\"columnName\": \"_id\"}],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"cdr_id\"
+                \"value\": \"cdr_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"return getValue(\\\"_id\\\")\"
+                \"value\": \"return getValue(\\\"_id\\\")\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SplitValuesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"postCve\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"delimiter\",
-                \"type\": \"other\",
-                \"value\": \"space\"
+                \"value\": \"space\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColName\",
-                \"type\": \"other\",
-                \"value\": \"cve\"
+                \"value\": \"cve\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newHNodeId\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SplitValuesCommand\"
     },
     {
-        \"commandName\": \"SplitValuesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"postMs\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"delimiter\",
-                \"type\": \"other\",
-                \"value\": \"space\"
+                \"value\": \"space\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColName\",
-                \"type\": \"other\",
-                \"value\": \"MS_ids\"
+                \"value\": \"MS_ids\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newHNodeId\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SplitValuesCommand\"
     },
     {
-        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"cve\"},
                     {\"columnName\": \"Values\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"newColumnName\",
-                \"type\": \"other\",
-                \"value\": \"cve_id\"
+                \"value\": \"cve_id\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"transformationCode\",
-                \"type\": \"other\",
-                \"value\": \"cve = getValue(\\\"Values\\\")\\nif cve:\\n  return \\\"vulnerability/\\\" + cve.upper() \\nreturn ''\"
+                \"value\": \"cve = getValue(\\\"Values\\\")\\nif cve:\\n  return \\\"vulnerability/\\\" + cve.upper() \\nreturn ''\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"errorDefaultValue\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"isJSONOutput\",
-                \"type\": \"other\",
-                \"value\": \"false\"
+                \"value\": \"false\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"Values\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
-                    \"graphLabel\": \"\",
-                    \"hasBaseURI\": false,
-                    \"hasGithubURL\": true,
-                    \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-hacking-posts\",
-                    \"baseURI\": \"\",
+                    \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"graphLabel\": \"\",
+                    \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-hacking-posts\",
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
                     \"graphLabel\": \"hacking_posts\",
-                    \"hasBaseURI\": false,
-                    \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"hasBaseURI\": false
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
                     \"graphLabel\": \"\",
-                    \"hasBaseURI\": false,
-                    \"hasGithubURL\": true,
                     \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-hacking-posts\",
-                    \"baseURI\": \"\",
-                    \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
-                    \"graphLabel\": \"\",
-                    \"hasBaseURI\": false,
-                    \"hasGithubURL\": true,
-                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
-                    \"baseURI\": \"\",
+                    \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"graphLabel\": \"\",
+                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
-                    \"graphLabel\": \"\",
-                    \"hasBaseURI\": false,
-                    \"hasGithubURL\": true,
-                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
-                    \"baseURI\": \"\",
+                    \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"graphLabel\": \"\",
+                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"properties\",
-                \"type\": \"other\",
                 \"value\": {
-                    \"graphLabel\": \"\",
-                    \"hasBaseURI\": false,
-                    \"hasGithubURL\": true,
-                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
-                    \"baseURI\": \"\",
+                    \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
-                    \"hasServiceProperties\": false
-                }
+                    \"graphLabel\": \"\",
+                    \"GithubURL\": \"https://github.com/darkshadows123/effect-alignment/tree/hacking-vulnerability-posts/models/asu-hacking-posts\",
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Transformation\"]
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
+                    \"graphLabel\": \"\",
+                    \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-hacking-posts\",
+                    \"hasGithubURL\": true,
+                    \"hasBaseURI\": false,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"timestamp\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"dateRecorded\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return DM.iso8601date(getValue(\\\"timestamp\\\"), \\\"%Y-%m-%d %H:%M:%S.%f\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"dateRecorded\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"forum_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Forum\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Forum1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:Forum1 (add)\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Forum1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"language\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://schema.org/language\",
-                    \"DomainLabel\": \"memex:Post1 (add)\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Post1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"language\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"language\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"language\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"language\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"postContent\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://schema.org/text\",
-                    \"DomainLabel\": \"memex:Post1\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"postContent\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"post_date_iso\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://schema.org/datePublished\",
-                    \"DomainLabel\": \"memex:Post1\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"post_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Post\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Post\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Post1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:Post1\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"topic_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Topic\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Topic1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:Topic1 (add)\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Topic1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topic_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"topicsName\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://schema.org/name\",
-                    \"DomainLabel\": \"memex:Topic1\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Topic1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"topicsName\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"user_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:PersonOrOrganization1 (add)\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:PersonOrOrganization1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
-                \"value\": [{\"columnName\": \"cdr_id\"}]
+                \"value\": [{\"columnName\": \"cdr_id\"}],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
-                    \"FullType\": \"http://schema.org/source\",
-                    \"DomainLabel\": \"memex:Post1\"
-                }]
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": false,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": false,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": false,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": false,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": false,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": false,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    }
+                ],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"cdr_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetSemanticTypeCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
-                \"value\": [{\"columnName\": \"source_name\"}]
+                \"value\": [{\"columnName\": \"source_name\"}],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"isPrimary\": true,
-                    \"FullType\": \"http://schema.org/publisher\",
-                    \"DomainLabel\": \"memex:Post1\"
-                }]
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    }
+                ],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetSemanticTypeCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"person_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:LoginCredentials1\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:LoginCredentials1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"person_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"SetMetaPropertyCommand\",
+        \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"hNodeId\",
-                \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
                     {\"columnName\": \"cve\"},
                     {\"columnName\": \"cve_id\"}
-                ]
+                ],
+                \"type\": \"hNodeId\"
             },
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
                 \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyName\",
-                \"type\": \"other\",
-                \"value\": \"isUriOfClass\"
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyUri\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"metaPropertyId\",
-                \"type\": \"other\",
-                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\"
+                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"SemanticTypesArray\",
-                \"type\": \"other\",
                 \"value\": [{
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
-                    \"DomainLabel\": \"memex:Vulnerability1 (add)\"
-                }]
+                    \"isPrimary\": true,
+                    \"DomainLabel\": \"memex:Vulnerability1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                }],
+                \"type\": \"other\"
             },
             {
                 \"name\": \"trainAndShowUpdates\",
-                \"type\": \"other\",
-                \"value\": true
+                \"value\": true,
+                \"type\": \"other\"
             },
             {
                 \"name\": \"rdfLiteralType\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"language\",
-                \"type\": \"other\",
-                \"value\": \"\"
+                \"value\": \"\",
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"cve_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"SemanticType\"]
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"dateRecorded\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"memex:Topic1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                    }
+                ],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"dateRecorded\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"dateRecorded\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasTopic\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                \"name\": \"edge\",
+                \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasTopic\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/isTopicOf\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Forum\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasPost\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.org/author\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasLoginCredentials\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/username\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/UserName1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/UserName\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/username\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/UserName1\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\"
-                }]
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.org/mentions\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
-                }]
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
-            }
-        ],
-        \"tags\": [\"Modeling\"]
-    },
-    {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasTopic\",
                     \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
-                }]
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Modeling\"]
+        \"commandName\": \"AddLinkCommand\"
     },
     {
-        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"tags\": [\"Modeling\"],
         \"model\": \"new\",
         \"inputParameters\": [
             {
                 \"name\": \"worksheetId\",
-                \"type\": \"worksheetId\",
-                \"value\": \"W\"
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
             },
             {
-                \"name\": \"selectionName\",
-                \"type\": \"other\",
-                \"value\": \"DEFAULT_TEST\"
-            },
-            {
-                \"name\": \"initialEdges\",
-                \"type\": \"other\",
-                \"value\": []
-            },
-            {
-                \"name\": \"alignmentId\",
-                \"type\": \"other\",
-                \"value\": \"WSP3:WS5AL\"
-            },
-            {
-                \"name\": \"newEdges\",
-                \"type\": \"other\",
-                \"value\": [{
-                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/isMentionedIn\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Post1\",
-                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Post\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
-                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
-                }]
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Forum\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/isTopicOf\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                },
+                \"type\": \"other\"
             },
             {
                 \"name\": \"inputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             },
             {
                 \"name\": \"outputColumns\",
-                \"type\": \"hNodeIdList\",
-                \"value\": \"[]\"
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
             }
         ],
-        \"tags\": [\"Modeling\"]
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Post\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasPost\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                    \"edgeId\": \"http://schema.org/author\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/LoginCredentials\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasLoginCredentials\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/LoginCredentials1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
+                    \"edgeId\": \"http://schema.org/mentions\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasTopic\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Post\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/isMentionedIn\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
     }
 ]""" .
 
-km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 a rr:TriplesMap .
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 a rr:TriplesMap .
 
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 .
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 .
 
-km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx2 rr:tableName "hackingposts-for-karma.jl" ;
+_:node1ba39nn89x2 rr:tableName "hackingposts-for-karma.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx2 .
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x2 .
 
-km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 rr:logicalTable _:node1b8d6an8lx2 ;
-	rr:subjectMap _:node1b8d6an8lx3 .
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 rr:logicalTable _:node1ba39nn89x2 ;
+	rr:subjectMap _:node1ba39nn89x3 .
 
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx3 .
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x3 .
 
-_:node1b8d6an8lx3 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
+_:node1ba39nn89x3 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Forum1" ;
 	rr:class memex:Forum ;
 	rr:template "forum/{[\"json_rep\",\"forumsId\"]}" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_daefca13-b852-4322-850c-d0118c9bff8f rr:predicate memex:hasTopic .
+km-dev:PredicateObjectMap_751e72cd-b1bd-4467-8d10-f01ffaeea37d rr:predicate memex:hasTopic .
 
-km-dev:RefObjectMap_1108987f-3224-49f0-9207-6213ec830a29 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:RefObjectMap_01b4152a-fd2b-434d-b92e-2078728eabdb a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_1108987f-3224-49f0-9207-6213ec830a29 .
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_01b4152a-fd2b-434d-b92e-2078728eabdb .
 
-km-dev:PredicateObjectMap_daefca13-b852-4322-850c-d0118c9bff8f rr:objectMap km-dev:RefObjectMap_1108987f-3224-49f0-9207-6213ec830a29 .
+km-dev:PredicateObjectMap_751e72cd-b1bd-4467-8d10-f01ffaeea37d rr:objectMap km-dev:RefObjectMap_01b4152a-fd2b-434d-b92e-2078728eabdb .
 
-km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 rr:predicateObjectMap km-dev:PredicateObjectMap_daefca13-b852-4322-850c-d0118c9bff8f .
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 rr:predicateObjectMap km-dev:PredicateObjectMap_751e72cd-b1bd-4467-8d10-f01ffaeea37d .
 
-km-dev:PredicateObjectMap_daefca13-b852-4322-850c-d0118c9bff8f a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:PredicateObjectMap_751e72cd-b1bd-4467-8d10-f01ffaeea37d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_daefca13-b852-4322-850c-d0118c9bff8f .
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_751e72cd-b1bd-4467-8d10-f01ffaeea37d .
 
-km-dev:TriplesMap_d744311c-c9e1-4d5f-b5c0-1597a7fa354f a rr:TriplesMap .
+km-dev:PredicateObjectMap_edd97eb4-9631-4302-a336-e7e8e41523c6 rr:predicate schema:publisher .
 
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_d744311c-c9e1-4d5f-b5c0-1597a7fa354f .
+_:node1ba39nn89x4 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-km-dev:TriplesMap_d744311c-c9e1-4d5f-b5c0-1597a7fa354f km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x4 .
 
-_:node1b8d6an8lx4 rr:tableName "hackingposts-for-karma.jl" ;
+km-dev:PredicateObjectMap_edd97eb4-9631-4302-a336-e7e8e41523c6 rr:objectMap _:node1ba39nn89x4 .
+
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 rr:predicateObjectMap km-dev:PredicateObjectMap_edd97eb4-9631-4302-a336-e7e8e41523c6 .
+
+km-dev:PredicateObjectMap_edd97eb4-9631-4302-a336-e7e8e41523c6 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_edd97eb4-9631-4302-a336-e7e8e41523c6 .
+
+km-dev:PredicateObjectMap_ece0b179-8833-4f4e-a01b-fac5d5b50e96 rr:predicate memex:dateRecorded .
+
+_:node1ba39nn89x5 rr:column "dateRecorded" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x5 .
+
+km-dev:PredicateObjectMap_ece0b179-8833-4f4e-a01b-fac5d5b50e96 rr:objectMap _:node1ba39nn89x5 .
+
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 rr:predicateObjectMap km-dev:PredicateObjectMap_ece0b179-8833-4f4e-a01b-fac5d5b50e96 .
+
+km-dev:PredicateObjectMap_ece0b179-8833-4f4e-a01b-fac5d5b50e96 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ece0b179-8833-4f4e-a01b-fac5d5b50e96 .
+
+km-dev:PredicateObjectMap_421ceaff-a1a6-4c5f-bbb9-8010813827aa rr:predicate schema:source .
+
+_:node1ba39nn89x6 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x6 .
+
+km-dev:PredicateObjectMap_421ceaff-a1a6-4c5f-bbb9-8010813827aa rr:objectMap _:node1ba39nn89x6 .
+
+km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 rr:predicateObjectMap km-dev:PredicateObjectMap_421ceaff-a1a6-4c5f-bbb9-8010813827aa .
+
+km-dev:PredicateObjectMap_421ceaff-a1a6-4c5f-bbb9-8010813827aa a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_421ceaff-a1a6-4c5f-bbb9-8010813827aa .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 a rr:TriplesMap .
+
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x7 rr:tableName "hackingposts-for-karma.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx4 .
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x7 .
 
-km-dev:TriplesMap_d744311c-c9e1-4d5f-b5c0-1597a7fa354f rr:logicalTable _:node1b8d6an8lx4 ;
-	rr:subjectMap _:node1b8d6an8lx5 .
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:logicalTable _:node1ba39nn89x7 ;
+	rr:subjectMap _:node1ba39nn89x8 .
 
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx5 .
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x8 .
 
-_:node1b8d6an8lx5 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/LoginCredentials1" ;
-	rr:class memex:LoginCredentials ;
-	rr:template "logincredentials/{[\"json_rep\",\"forum_id\"]}/user/{[\"json_rep\",\"usersId\"]}" .
-
-km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 a rr:TriplesMap .
-
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 .
-
-km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx6 rr:tableName "hackingposts-for-karma.jl" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx6 .
-
-km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 rr:logicalTable _:node1b8d6an8lx6 ;
-	rr:subjectMap _:node1b8d6an8lx7 .
-
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx7 .
-
-_:node1b8d6an8lx7 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization1" ;
-	rr:class memex:PersonOrOrganization ;
-	rr:template "{[\"json_rep\",\"forum_id\"]}/user/{[\"json_rep\",\"usersId\"]}" .
-
-km-dev:PredicateObjectMap_ffc10feb-eebb-4ef9-b5c9-809f9068e0c4 rr:predicate memex:hasLoginCredentials .
-
-km-dev:RefObjectMap_b162c1d6-da99-4362-ab2f-390dfdf243bb a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_d744311c-c9e1-4d5f-b5c0-1597a7fa354f ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_b162c1d6-da99-4362-ab2f-390dfdf243bb .
-
-km-dev:PredicateObjectMap_ffc10feb-eebb-4ef9-b5c9-809f9068e0c4 rr:objectMap km-dev:RefObjectMap_b162c1d6-da99-4362-ab2f-390dfdf243bb .
-
-km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 rr:predicateObjectMap km-dev:PredicateObjectMap_ffc10feb-eebb-4ef9-b5c9-809f9068e0c4 .
-
-km-dev:PredicateObjectMap_ffc10feb-eebb-4ef9-b5c9-809f9068e0c4 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ffc10feb-eebb-4ef9-b5c9-809f9068e0c4 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 a rr:TriplesMap .
-
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx8 rr:tableName "hackingposts-for-karma.jl" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx8 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:logicalTable _:node1b8d6an8lx8 ;
-	rr:subjectMap _:node1b8d6an8lx9 .
-
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx9 .
-
-_:node1b8d6an8lx9 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Post1" ;
-	rr:class memex:Post ;
-	rr:template "{[\"json_rep\",\"post_id\"]}" .
-
-km-dev:PredicateObjectMap_180a99f1-994d-4816-bc91-2f38977bc358 rr:predicate memex:hasTopic .
-
-km-dev:RefObjectMap_b170ffa0-98b3-47cc-a048-27a639824102 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_b170ffa0-98b3-47cc-a048-27a639824102 .
-
-km-dev:PredicateObjectMap_180a99f1-994d-4816-bc91-2f38977bc358 rr:objectMap km-dev:RefObjectMap_b170ffa0-98b3-47cc-a048-27a639824102 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_180a99f1-994d-4816-bc91-2f38977bc358 .
-
-km-dev:PredicateObjectMap_180a99f1-994d-4816-bc91-2f38977bc358 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_180a99f1-994d-4816-bc91-2f38977bc358 .
-
-km-dev:PredicateObjectMap_7fa158bb-6b25-4f67-97bd-dcc344f42588 rr:predicate schema:author .
-
-km-dev:RefObjectMap_eb39eee6-2ca4-46b7-bca6-46d3693ccbb2 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_5f5b663b-2351-4deb-81c0-10b2ae619c86 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_eb39eee6-2ca4-46b7-bca6-46d3693ccbb2 .
-
-km-dev:PredicateObjectMap_7fa158bb-6b25-4f67-97bd-dcc344f42588 rr:objectMap km-dev:RefObjectMap_eb39eee6-2ca4-46b7-bca6-46d3693ccbb2 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_7fa158bb-6b25-4f67-97bd-dcc344f42588 .
-
-km-dev:PredicateObjectMap_7fa158bb-6b25-4f67-97bd-dcc344f42588 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7fa158bb-6b25-4f67-97bd-dcc344f42588 .
-
-km-dev:PredicateObjectMap_9a108d12-8f36-4cd3-afde-e734af8c8dc1 rr:predicate schema:datePublished .
-
-_:node1b8d6an8lx10 rr:column "[\"json_rep\",\"post_date_iso\"]" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx10 .
-
-km-dev:PredicateObjectMap_9a108d12-8f36-4cd3-afde-e734af8c8dc1 rr:objectMap _:node1b8d6an8lx10 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_9a108d12-8f36-4cd3-afde-e734af8c8dc1 .
-
-km-dev:PredicateObjectMap_9a108d12-8f36-4cd3-afde-e734af8c8dc1 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9a108d12-8f36-4cd3-afde-e734af8c8dc1 .
-
-km-dev:PredicateObjectMap_dec9cb5a-334e-45df-a61f-8405c7419940 rr:predicate schema:language .
-
-_:node1b8d6an8lx11 rr:column "[\"json_rep\",\"language\"]" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx11 .
-
-km-dev:PredicateObjectMap_dec9cb5a-334e-45df-a61f-8405c7419940 rr:objectMap _:node1b8d6an8lx11 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_dec9cb5a-334e-45df-a61f-8405c7419940 .
-
-km-dev:PredicateObjectMap_dec9cb5a-334e-45df-a61f-8405c7419940 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_dec9cb5a-334e-45df-a61f-8405c7419940 .
-
-km-dev:PredicateObjectMap_3b63ccd5-916f-4820-846a-cb4d7dc4bf92 rr:predicate schema:mentions .
-
-km-dev:RefObjectMap_2eda294d-43b6-45cf-8443-f4bb36b78abc a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_2eda294d-43b6-45cf-8443-f4bb36b78abc .
-
-km-dev:PredicateObjectMap_3b63ccd5-916f-4820-846a-cb4d7dc4bf92 rr:objectMap km-dev:RefObjectMap_2eda294d-43b6-45cf-8443-f4bb36b78abc .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_3b63ccd5-916f-4820-846a-cb4d7dc4bf92 .
-
-km-dev:PredicateObjectMap_3b63ccd5-916f-4820-846a-cb4d7dc4bf92 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3b63ccd5-916f-4820-846a-cb4d7dc4bf92 .
-
-km-dev:PredicateObjectMap_6f4f0b92-3762-4ce0-afed-bb05ecc1a473 rr:predicate schema:publisher .
-
-_:node1b8d6an8lx12 rr:column "source_name" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx12 .
-
-km-dev:PredicateObjectMap_6f4f0b92-3762-4ce0-afed-bb05ecc1a473 rr:objectMap _:node1b8d6an8lx12 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_6f4f0b92-3762-4ce0-afed-bb05ecc1a473 .
-
-km-dev:PredicateObjectMap_6f4f0b92-3762-4ce0-afed-bb05ecc1a473 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6f4f0b92-3762-4ce0-afed-bb05ecc1a473 .
-
-km-dev:PredicateObjectMap_2a8e8457-ee76-47da-a11b-1d2b0e46262d rr:predicate schema:source .
-
-_:node1b8d6an8lx13 rr:column "_id" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx13 .
-
-km-dev:PredicateObjectMap_2a8e8457-ee76-47da-a11b-1d2b0e46262d rr:objectMap _:node1b8d6an8lx13 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_2a8e8457-ee76-47da-a11b-1d2b0e46262d .
-
-km-dev:PredicateObjectMap_2a8e8457-ee76-47da-a11b-1d2b0e46262d a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2a8e8457-ee76-47da-a11b-1d2b0e46262d .
-
-km-dev:PredicateObjectMap_4a0ffa32-8219-4849-82a9-15a23e6e4320 rr:predicate schema:text .
-
-_:node1b8d6an8lx14 rr:column "[\"json_rep\",\"postContent\"]" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx14 .
-
-km-dev:PredicateObjectMap_4a0ffa32-8219-4849-82a9-15a23e6e4320 rr:objectMap _:node1b8d6an8lx14 .
-
-km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 rr:predicateObjectMap km-dev:PredicateObjectMap_4a0ffa32-8219-4849-82a9-15a23e6e4320 .
-
-km-dev:PredicateObjectMap_4a0ffa32-8219-4849-82a9-15a23e6e4320 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4a0ffa32-8219-4849-82a9-15a23e6e4320 .
-
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 a rr:TriplesMap .
-
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 .
-
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx15 rr:tableName "hackingposts-for-karma.jl" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx15 .
-
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 rr:logicalTable _:node1b8d6an8lx15 ;
-	rr:subjectMap _:node1b8d6an8lx16 .
-
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx16 .
-
-_:node1b8d6an8lx16 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
+_:node1ba39nn89x8 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Topic1" ;
 	rr:class memex:Topic ;
 	rr:template "{[\"json_rep\",\"topic_id\"]}" .
 
-km-dev:PredicateObjectMap_e2ff2048-b4dc-40bf-bd54-fd945b63fee0 rr:predicate memex:isTopicOf .
+km-dev:PredicateObjectMap_fa19fb73-1ca9-4a69-944f-93c602f687e3 rr:predicate memex:dateRecorded .
 
-km-dev:RefObjectMap_8f0dd73a-6805-4ed1-9ed3-22680eb39431 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_c7a76221-53af-4874-a689-6fea1517b579 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_8f0dd73a-6805-4ed1-9ed3-22680eb39431 .
-
-km-dev:PredicateObjectMap_e2ff2048-b4dc-40bf-bd54-fd945b63fee0 rr:objectMap km-dev:RefObjectMap_8f0dd73a-6805-4ed1-9ed3-22680eb39431 .
-
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 rr:predicateObjectMap km-dev:PredicateObjectMap_e2ff2048-b4dc-40bf-bd54-fd945b63fee0 .
-
-km-dev:PredicateObjectMap_e2ff2048-b4dc-40bf-bd54-fd945b63fee0 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
-
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e2ff2048-b4dc-40bf-bd54-fd945b63fee0 .
-
-km-dev:PredicateObjectMap_b243df52-471b-47a9-822d-6377890076a9 rr:predicate schema:name .
-
-_:node1b8d6an8lx17 rr:column "[\"json_rep\",\"topicsName\"]" ;
+_:node1ba39nn89x9 rr:column "dateRecorded" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasObjectMap _:node1b8d6an8lx17 .
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x9 .
 
-km-dev:PredicateObjectMap_b243df52-471b-47a9-822d-6377890076a9 rr:objectMap _:node1b8d6an8lx17 .
+km-dev:PredicateObjectMap_fa19fb73-1ca9-4a69-944f-93c602f687e3 rr:objectMap _:node1ba39nn89x9 .
 
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 rr:predicateObjectMap km-dev:PredicateObjectMap_b243df52-471b-47a9-822d-6377890076a9 .
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_fa19fb73-1ca9-4a69-944f-93c602f687e3 .
 
-km-dev:PredicateObjectMap_b243df52-471b-47a9-822d-6377890076a9 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:PredicateObjectMap_fa19fb73-1ca9-4a69-944f-93c602f687e3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b243df52-471b-47a9-822d-6377890076a9 .
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_fa19fb73-1ca9-4a69-944f-93c602f687e3 .
 
-km-dev:PredicateObjectMap_1ad6faf1-61ea-43f4-8030-6b3a14a17299 rr:predicate memex:hasPost .
+km-dev:PredicateObjectMap_5c685322-0c36-47f2-9d4a-c7be477ee8c4 rr:predicate schema:name .
 
-km-dev:RefObjectMap_08d2f0cc-ddf5-455a-8512-21ac05db89a9 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+_:node1ba39nn89x10 rr:column "[\"json_rep\",\"topicsName\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_08d2f0cc-ddf5-455a-8512-21ac05db89a9 .
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x10 .
 
-km-dev:PredicateObjectMap_1ad6faf1-61ea-43f4-8030-6b3a14a17299 rr:objectMap km-dev:RefObjectMap_08d2f0cc-ddf5-455a-8512-21ac05db89a9 .
+km-dev:PredicateObjectMap_5c685322-0c36-47f2-9d4a-c7be477ee8c4 rr:objectMap _:node1ba39nn89x10 .
 
-km-dev:TriplesMap_b823a3f7-c916-4770-94f2-d52dcf5a38e4 rr:predicateObjectMap km-dev:PredicateObjectMap_1ad6faf1-61ea-43f4-8030-6b3a14a17299 .
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_5c685322-0c36-47f2-9d4a-c7be477ee8c4 .
 
-km-dev:PredicateObjectMap_1ad6faf1-61ea-43f4-8030-6b3a14a17299 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:PredicateObjectMap_5c685322-0c36-47f2-9d4a-c7be477ee8c4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1ad6faf1-61ea-43f4-8030-6b3a14a17299 .
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5c685322-0c36-47f2-9d4a-c7be477ee8c4 .
 
-km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 a rr:TriplesMap .
+km-dev:PredicateObjectMap_0ce41a28-253e-4813-ad3a-0db20c508938 rr:predicate memex:hasPost .
 
-_:node1b8d6an8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 .
+km-dev:RefObjectMap_c1457b17-fc35-4125-b66e-e821be2bc7b3 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_c1457b17-fc35-4125-b66e-e821be2bc7b3 .
 
-_:node1b8d6an8lx18 rr:tableName "hackingposts-for-karma.jl" ;
+km-dev:PredicateObjectMap_0ce41a28-253e-4813-ad3a-0db20c508938 rr:objectMap km-dev:RefObjectMap_c1457b17-fc35-4125-b66e-e821be2bc7b3 .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_0ce41a28-253e-4813-ad3a-0db20c508938 .
+
+km-dev:PredicateObjectMap_0ce41a28-253e-4813-ad3a-0db20c508938 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_0ce41a28-253e-4813-ad3a-0db20c508938 .
+
+km-dev:PredicateObjectMap_85f86c49-9e8d-4dbd-8ef8-80bfd46ef5c8 rr:predicate schema:publisher .
+
+_:node1ba39nn89x11 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x11 .
+
+km-dev:PredicateObjectMap_85f86c49-9e8d-4dbd-8ef8-80bfd46ef5c8 rr:objectMap _:node1ba39nn89x11 .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_85f86c49-9e8d-4dbd-8ef8-80bfd46ef5c8 .
+
+km-dev:PredicateObjectMap_85f86c49-9e8d-4dbd-8ef8-80bfd46ef5c8 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_85f86c49-9e8d-4dbd-8ef8-80bfd46ef5c8 .
+
+km-dev:PredicateObjectMap_e957e0e3-488f-4d59-afa8-2519ffacbf48 rr:predicate memex:isTopicOf .
+
+km-dev:RefObjectMap_95e13276-16d4-46f5-9b96-b55a531ba917 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_74ee6d39-d653-4e8a-aa26-a7aa5fbe7074 ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_95e13276-16d4-46f5-9b96-b55a531ba917 .
+
+km-dev:PredicateObjectMap_e957e0e3-488f-4d59-afa8-2519ffacbf48 rr:objectMap km-dev:RefObjectMap_95e13276-16d4-46f5-9b96-b55a531ba917 .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_e957e0e3-488f-4d59-afa8-2519ffacbf48 .
+
+km-dev:PredicateObjectMap_e957e0e3-488f-4d59-afa8-2519ffacbf48 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e957e0e3-488f-4d59-afa8-2519ffacbf48 .
+
+km-dev:PredicateObjectMap_f8b5258d-45f2-4293-b0d0-6fa7767450e4 rr:predicate schema:source .
+
+_:node1ba39nn89x12 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x12 .
+
+km-dev:PredicateObjectMap_f8b5258d-45f2-4293-b0d0-6fa7767450e4 rr:objectMap _:node1ba39nn89x12 .
+
+km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 rr:predicateObjectMap km-dev:PredicateObjectMap_f8b5258d-45f2-4293-b0d0-6fa7767450e4 .
+
+km-dev:PredicateObjectMap_f8b5258d-45f2-4293-b0d0-6fa7767450e4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f8b5258d-45f2-4293-b0d0-6fa7767450e4 .
+
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d a rr:TriplesMap .
+
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d .
+
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x13 rr:tableName "hackingposts-for-karma.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasLogicalTable _:node1b8d6an8lx18 .
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x13 .
 
-km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 rr:logicalTable _:node1b8d6an8lx18 ;
-	rr:subjectMap _:node1b8d6an8lx19 .
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d rr:logicalTable _:node1ba39nn89x13 ;
+	rr:subjectMap _:node1ba39nn89x14 .
 
-_:node1b8d6an8lx1 km-dev:hasSubjectMap _:node1b8d6an8lx19 .
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x14 .
 
-_:node1b8d6an8lx19 km-dev:isPartOfMapping _:node1b8d6an8lx1 ;
+_:node1ba39nn89x14 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/LoginCredentials1" ;
+	rr:class memex:LoginCredentials ;
+	rr:template "logincredentials/{[\"json_rep\",\"forum_id\"]}/user/{[\"json_rep\",\"usersId\"]}" .
+
+km-dev:PredicateObjectMap_55fed1c6-033a-4dca-929e-f2c1466ce9ff rr:predicate memex:dateRecorded .
+
+_:node1ba39nn89x15 rr:column "dateRecorded" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x15 .
+
+km-dev:PredicateObjectMap_55fed1c6-033a-4dca-929e-f2c1466ce9ff rr:objectMap _:node1ba39nn89x15 .
+
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d rr:predicateObjectMap km-dev:PredicateObjectMap_55fed1c6-033a-4dca-929e-f2c1466ce9ff .
+
+km-dev:PredicateObjectMap_55fed1c6-033a-4dca-929e-f2c1466ce9ff a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_55fed1c6-033a-4dca-929e-f2c1466ce9ff .
+
+km-dev:PredicateObjectMap_eebdbd36-cf5a-4a1e-a6ec-2faf76fceee4 rr:predicate schema:publisher .
+
+_:node1ba39nn89x16 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x16 .
+
+km-dev:PredicateObjectMap_eebdbd36-cf5a-4a1e-a6ec-2faf76fceee4 rr:objectMap _:node1ba39nn89x16 .
+
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d rr:predicateObjectMap km-dev:PredicateObjectMap_eebdbd36-cf5a-4a1e-a6ec-2faf76fceee4 .
+
+km-dev:PredicateObjectMap_eebdbd36-cf5a-4a1e-a6ec-2faf76fceee4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_eebdbd36-cf5a-4a1e-a6ec-2faf76fceee4 .
+
+km-dev:PredicateObjectMap_b03b9170-5321-4685-ad95-c90f135a699e rr:predicate schema:source .
+
+_:node1ba39nn89x17 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x17 .
+
+km-dev:PredicateObjectMap_b03b9170-5321-4685-ad95-c90f135a699e rr:objectMap _:node1ba39nn89x17 .
+
+km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d rr:predicateObjectMap km-dev:PredicateObjectMap_b03b9170-5321-4685-ad95-c90f135a699e .
+
+km-dev:PredicateObjectMap_b03b9170-5321-4685-ad95-c90f135a699e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b03b9170-5321-4685-ad95-c90f135a699e .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b a rr:TriplesMap .
+
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x18 rr:tableName "hackingposts-for-karma.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x18 .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b rr:logicalTable _:node1ba39nn89x18 ;
+	rr:subjectMap _:node1ba39nn89x19 .
+
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x19 .
+
+_:node1ba39nn89x19 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization1" ;
+	rr:class memex:PersonOrOrganization ;
+	rr:template "{[\"json_rep\",\"forum_id\"]}/user/{[\"json_rep\",\"usersId\"]}" .
+
+km-dev:PredicateObjectMap_43dbb32f-0a49-42c9-a4cb-6dee9120eea7 rr:predicate memex:hasLoginCredentials .
+
+km-dev:RefObjectMap_88aeb633-1547-46e8-b50c-1edd20abda35 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c0b55b91-7e85-43a5-8d74-68ed5480c92d ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_88aeb633-1547-46e8-b50c-1edd20abda35 .
+
+km-dev:PredicateObjectMap_43dbb32f-0a49-42c9-a4cb-6dee9120eea7 rr:objectMap km-dev:RefObjectMap_88aeb633-1547-46e8-b50c-1edd20abda35 .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b rr:predicateObjectMap km-dev:PredicateObjectMap_43dbb32f-0a49-42c9-a4cb-6dee9120eea7 .
+
+km-dev:PredicateObjectMap_43dbb32f-0a49-42c9-a4cb-6dee9120eea7 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_43dbb32f-0a49-42c9-a4cb-6dee9120eea7 .
+
+km-dev:PredicateObjectMap_b46acc12-25a8-4949-b3c0-f2e7d310910d rr:predicate memex:dateRecorded .
+
+_:node1ba39nn89x20 rr:column "dateRecorded" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x20 .
+
+km-dev:PredicateObjectMap_b46acc12-25a8-4949-b3c0-f2e7d310910d rr:objectMap _:node1ba39nn89x20 .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b rr:predicateObjectMap km-dev:PredicateObjectMap_b46acc12-25a8-4949-b3c0-f2e7d310910d .
+
+km-dev:PredicateObjectMap_b46acc12-25a8-4949-b3c0-f2e7d310910d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b46acc12-25a8-4949-b3c0-f2e7d310910d .
+
+km-dev:PredicateObjectMap_7b8e16d8-e99d-4e24-971e-ffa4d365f73f rr:predicate schema:source .
+
+_:node1ba39nn89x21 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x21 .
+
+km-dev:PredicateObjectMap_7b8e16d8-e99d-4e24-971e-ffa4d365f73f rr:objectMap _:node1ba39nn89x21 .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b rr:predicateObjectMap km-dev:PredicateObjectMap_7b8e16d8-e99d-4e24-971e-ffa4d365f73f .
+
+km-dev:PredicateObjectMap_7b8e16d8-e99d-4e24-971e-ffa4d365f73f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7b8e16d8-e99d-4e24-971e-ffa4d365f73f .
+
+km-dev:PredicateObjectMap_a186ce73-d935-498f-b344-45d0b1b9cdd6 rr:predicate schema:publisher .
+
+_:node1ba39nn89x22 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x22 .
+
+km-dev:PredicateObjectMap_a186ce73-d935-498f-b344-45d0b1b9cdd6 rr:objectMap _:node1ba39nn89x22 .
+
+km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b rr:predicateObjectMap km-dev:PredicateObjectMap_a186ce73-d935-498f-b344-45d0b1b9cdd6 .
+
+km-dev:PredicateObjectMap_a186ce73-d935-498f-b344-45d0b1b9cdd6 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a186ce73-d935-498f-b344-45d0b1b9cdd6 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c a rr:TriplesMap .
+
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x23 rr:tableName "hackingposts-for-karma.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x23 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:logicalTable _:node1ba39nn89x23 ;
+	rr:subjectMap _:node1ba39nn89x24 .
+
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x24 .
+
+_:node1ba39nn89x24 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Post1" ;
+	rr:class memex:Post ;
+	rr:template "{[\"json_rep\",\"post_id\"]}" .
+
+km-dev:PredicateObjectMap_54fa8aee-8521-4f7b-b7e4-73b1dcc3f89a rr:predicate schema:author .
+
+km-dev:RefObjectMap_6e4f782f-a7f4-41f8-ab1b-fa6633ffaf2e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c3312180-bba9-4411-985b-dd06abc9368b ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_6e4f782f-a7f4-41f8-ab1b-fa6633ffaf2e .
+
+km-dev:PredicateObjectMap_54fa8aee-8521-4f7b-b7e4-73b1dcc3f89a rr:objectMap km-dev:RefObjectMap_6e4f782f-a7f4-41f8-ab1b-fa6633ffaf2e .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_54fa8aee-8521-4f7b-b7e4-73b1dcc3f89a .
+
+km-dev:PredicateObjectMap_54fa8aee-8521-4f7b-b7e4-73b1dcc3f89a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_54fa8aee-8521-4f7b-b7e4-73b1dcc3f89a .
+
+km-dev:PredicateObjectMap_ed7b5f76-1f5a-4769-b042-d582c4bce438 rr:predicate schema:datePublished .
+
+_:node1ba39nn89x25 rr:column "[\"json_rep\",\"post_date_iso\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x25 .
+
+km-dev:PredicateObjectMap_ed7b5f76-1f5a-4769-b042-d582c4bce438 rr:objectMap _:node1ba39nn89x25 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_ed7b5f76-1f5a-4769-b042-d582c4bce438 .
+
+km-dev:PredicateObjectMap_ed7b5f76-1f5a-4769-b042-d582c4bce438 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ed7b5f76-1f5a-4769-b042-d582c4bce438 .
+
+km-dev:PredicateObjectMap_8dfe87b1-2ec9-4fb5-b743-ee5394a4494e rr:predicate schema:language .
+
+_:node1ba39nn89x26 rr:column "[\"json_rep\",\"language\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x26 .
+
+km-dev:PredicateObjectMap_8dfe87b1-2ec9-4fb5-b743-ee5394a4494e rr:objectMap _:node1ba39nn89x26 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_8dfe87b1-2ec9-4fb5-b743-ee5394a4494e .
+
+km-dev:PredicateObjectMap_8dfe87b1-2ec9-4fb5-b743-ee5394a4494e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8dfe87b1-2ec9-4fb5-b743-ee5394a4494e .
+
+km-dev:PredicateObjectMap_47b94546-ff84-48db-972c-275405fe353e rr:predicate schema:text .
+
+_:node1ba39nn89x27 rr:column "[\"json_rep\",\"postContent\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x27 .
+
+km-dev:PredicateObjectMap_47b94546-ff84-48db-972c-275405fe353e rr:objectMap _:node1ba39nn89x27 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_47b94546-ff84-48db-972c-275405fe353e .
+
+km-dev:PredicateObjectMap_47b94546-ff84-48db-972c-275405fe353e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_47b94546-ff84-48db-972c-275405fe353e .
+
+km-dev:PredicateObjectMap_2953ff6a-26cb-46e5-9cf8-3337f98eb165 rr:predicate memex:hasTopic .
+
+km-dev:RefObjectMap_185a449c-6812-4859-97e4-d3584cf7412e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_139c83ff-17f5-41a2-ad6a-2a5058573410 ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_185a449c-6812-4859-97e4-d3584cf7412e .
+
+km-dev:PredicateObjectMap_2953ff6a-26cb-46e5-9cf8-3337f98eb165 rr:objectMap km-dev:RefObjectMap_185a449c-6812-4859-97e4-d3584cf7412e .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_2953ff6a-26cb-46e5-9cf8-3337f98eb165 .
+
+km-dev:PredicateObjectMap_2953ff6a-26cb-46e5-9cf8-3337f98eb165 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2953ff6a-26cb-46e5-9cf8-3337f98eb165 .
+
+km-dev:PredicateObjectMap_4409ed54-9c93-4d9c-9f41-b91115c7e332 rr:predicate schema:publisher .
+
+_:node1ba39nn89x28 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x28 .
+
+km-dev:PredicateObjectMap_4409ed54-9c93-4d9c-9f41-b91115c7e332 rr:objectMap _:node1ba39nn89x28 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_4409ed54-9c93-4d9c-9f41-b91115c7e332 .
+
+km-dev:PredicateObjectMap_4409ed54-9c93-4d9c-9f41-b91115c7e332 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4409ed54-9c93-4d9c-9f41-b91115c7e332 .
+
+km-dev:PredicateObjectMap_b74bf069-c7e0-4720-af61-5fca348cb07c rr:predicate schema:source .
+
+_:node1ba39nn89x29 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x29 .
+
+km-dev:PredicateObjectMap_b74bf069-c7e0-4720-af61-5fca348cb07c rr:objectMap _:node1ba39nn89x29 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_b74bf069-c7e0-4720-af61-5fca348cb07c .
+
+km-dev:PredicateObjectMap_b74bf069-c7e0-4720-af61-5fca348cb07c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b74bf069-c7e0-4720-af61-5fca348cb07c .
+
+km-dev:PredicateObjectMap_4940425d-2a48-47cf-8f43-2f2ff2cd1534 rr:predicate schema:mentions .
+
+km-dev:RefObjectMap_5a59016c-d1d5-4f9b-9f10-b14a9dee282a a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_5a59016c-d1d5-4f9b-9f10-b14a9dee282a .
+
+km-dev:PredicateObjectMap_4940425d-2a48-47cf-8f43-2f2ff2cd1534 rr:objectMap km-dev:RefObjectMap_5a59016c-d1d5-4f9b-9f10-b14a9dee282a .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_4940425d-2a48-47cf-8f43-2f2ff2cd1534 .
+
+km-dev:PredicateObjectMap_4940425d-2a48-47cf-8f43-2f2ff2cd1534 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4940425d-2a48-47cf-8f43-2f2ff2cd1534 .
+
+km-dev:PredicateObjectMap_193fd6ca-053b-44d8-8970-f7b1f16108c1 rr:predicate memex:dateRecorded .
+
+_:node1ba39nn89x30 rr:column "dateRecorded" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x30 .
+
+km-dev:PredicateObjectMap_193fd6ca-053b-44d8-8970-f7b1f16108c1 rr:objectMap _:node1ba39nn89x30 .
+
+km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c rr:predicateObjectMap km-dev:PredicateObjectMap_193fd6ca-053b-44d8-8970-f7b1f16108c1 .
+
+km-dev:PredicateObjectMap_193fd6ca-053b-44d8-8970-f7b1f16108c1 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_193fd6ca-053b-44d8-8970-f7b1f16108c1 .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f a rr:TriplesMap .
+
+_:node1ba39nn89x1 km-dev:hasTriplesMap km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x31 rr:tableName "hackingposts-for-karma.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasLogicalTable _:node1ba39nn89x31 .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f rr:logicalTable _:node1ba39nn89x31 ;
+	rr:subjectMap _:node1ba39nn89x32 .
+
+_:node1ba39nn89x1 km-dev:hasSubjectMap _:node1ba39nn89x32 .
+
+_:node1ba39nn89x32 km-dev:isPartOfMapping _:node1ba39nn89x1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Vulnerability1" ;
 	rr:class memex:Vulnerability ;
 	rr:template "{[\"json_rep\",\"cve\",\"cve_id\"]}" .
 
-km-dev:PredicateObjectMap_a3cb4094-f856-4b2d-bfbc-c4deefc05b5a rr:predicate memex:isMentionedIn .
+km-dev:PredicateObjectMap_ac69b26a-212a-4157-a694-dcc1fe37759d rr:predicate memex:dateRecorded .
 
-km-dev:RefObjectMap_6288a58a-ac41-4894-838c-50681ffa89d2 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_33841f99-4660-47eb-9058-06db8b641ae2 ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+_:node1ba39nn89x33 rr:column "dateRecorded" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_6288a58a-ac41-4894-838c-50681ffa89d2 .
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x33 .
 
-km-dev:PredicateObjectMap_a3cb4094-f856-4b2d-bfbc-c4deefc05b5a rr:objectMap km-dev:RefObjectMap_6288a58a-ac41-4894-838c-50681ffa89d2 .
+km-dev:PredicateObjectMap_ac69b26a-212a-4157-a694-dcc1fe37759d rr:objectMap _:node1ba39nn89x33 .
 
-km-dev:TriplesMap_32df3b35-ab48-4550-9b14-e2afe125bc08 rr:predicateObjectMap km-dev:PredicateObjectMap_a3cb4094-f856-4b2d-bfbc-c4deefc05b5a .
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f rr:predicateObjectMap km-dev:PredicateObjectMap_ac69b26a-212a-4157-a694-dcc1fe37759d .
 
-km-dev:PredicateObjectMap_a3cb4094-f856-4b2d-bfbc-c4deefc05b5a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1b8d6an8lx1 .
+km-dev:PredicateObjectMap_ac69b26a-212a-4157-a694-dcc1fe37759d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
 
-_:node1b8d6an8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a3cb4094-f856-4b2d-bfbc-c4deefc05b5a .
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ac69b26a-212a-4157-a694-dcc1fe37759d .
+
+km-dev:PredicateObjectMap_4cc97796-a066-47fa-849a-2a0f6aa129cf rr:predicate schema:publisher .
+
+_:node1ba39nn89x34 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x34 .
+
+km-dev:PredicateObjectMap_4cc97796-a066-47fa-849a-2a0f6aa129cf rr:objectMap _:node1ba39nn89x34 .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f rr:predicateObjectMap km-dev:PredicateObjectMap_4cc97796-a066-47fa-849a-2a0f6aa129cf .
+
+km-dev:PredicateObjectMap_4cc97796-a066-47fa-849a-2a0f6aa129cf a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4cc97796-a066-47fa-849a-2a0f6aa129cf .
+
+km-dev:PredicateObjectMap_c69c36f6-e528-4b7a-9f4f-f389528d752c rr:predicate memex:isMentionedIn .
+
+km-dev:RefObjectMap_5fcc2c0d-7979-4482-bf8d-f50999186cb3 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_de746797-8923-4b09-8cce-9f7b66f2213c ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap km-dev:RefObjectMap_5fcc2c0d-7979-4482-bf8d-f50999186cb3 .
+
+km-dev:PredicateObjectMap_c69c36f6-e528-4b7a-9f4f-f389528d752c rr:objectMap km-dev:RefObjectMap_5fcc2c0d-7979-4482-bf8d-f50999186cb3 .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f rr:predicateObjectMap km-dev:PredicateObjectMap_c69c36f6-e528-4b7a-9f4f-f389528d752c .
+
+km-dev:PredicateObjectMap_c69c36f6-e528-4b7a-9f4f-f389528d752c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c69c36f6-e528-4b7a-9f4f-f389528d752c .
+
+km-dev:PredicateObjectMap_70e2b519-be99-442c-9904-5b043d0eaea5 rr:predicate schema:source .
+
+_:node1ba39nn89x35 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasObjectMap _:node1ba39nn89x35 .
+
+km-dev:PredicateObjectMap_70e2b519-be99-442c-9904-5b043d0eaea5 rr:objectMap _:node1ba39nn89x35 .
+
+km-dev:TriplesMap_575492e0-6185-4415-9cdc-302667fb825f rr:predicateObjectMap km-dev:PredicateObjectMap_70e2b519-be99-442c-9904-5b043d0eaea5 .
+
+km-dev:PredicateObjectMap_70e2b519-be99-442c-9904-5b043d0eaea5 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ba39nn89x1 .
+
+_:node1ba39nn89x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_70e2b519-be99-442c-9904-5b043d0eaea5 .
