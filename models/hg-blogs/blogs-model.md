@@ -1,4 +1,4 @@
-# blogsCDR.jl
+# blogsCDR-extractions.jl
 
 ## Add Column
 
@@ -29,22 +29,30 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
+#### _cve_uri_
+From column: _extractions / cve / result / value_
+``` python
+return "vulnerability/"+getValue("value").upper()
+```
+
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source` | `schema:Blog1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `schema:Blog1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _datePublishedBestKnown_ | `schema:datePublished` | `schema:Blog1`|
 | _link_ | `schema:url` | `schema:Blog1`|
 | _link_uri_ | `uri` | `schema:Blog1`|
-| _source_name_ | `schema:publisher` | `schema:Blog1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Blog1`|
 | _text_ | `schema:text` | `schema:Blog1`|
-| _timestamp_iso_ | `memex:dateRecorded` | `schema:Blog1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Blog1`|
 | _title_ | `schema:title` | `schema:Blog1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `schema:Blog1` | `schema:mentions` | `memex:Vulnerability1`|
