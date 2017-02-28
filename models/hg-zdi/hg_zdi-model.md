@@ -3,16 +3,6 @@
 ## Add Column
 
 ## Add Node/Literal
-#### Literal Node: `http://effect.isi.edu/identifier/database`
-Literal Type: ``
-<br/>Language: ``
-<br/>isUri: `true`
-
-#### Literal Node: `http://effect.isi.edu/identifier/source`
-Literal Type: ``
-<br/>Language: ``
-<br/>isUri: `true`
-
 
 ## PyTransforms
 #### _cdr_id_
@@ -61,10 +51,10 @@ return getValue("source_name")
 | _date_iso_ | `schema:startDate` | `memex:Vulnerability1`|
 | _integrity_impact_ | `memex:cvssIntegrity` | `memex:CVSS1`|
 | _link_ | `schema:url` | `memex:Vulnerability1`|
-| _source_name_id_ | `schema:publisher` | `memex:Vulnerability1`|
-| _timestamp_ | `memex:dateRecorded` | `memex:Vulnerability1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Vulnerability1`|
+| _timestamp_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _title_ | `schema:title` | `memex:Vulnerability1`|
-| _uri_id_ | `schema:source` | `memex:Vulnerability1`|
+| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _values_ | `schema:name` | `memex:SoftwareSystem1`|
 | _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
@@ -75,5 +65,5 @@ return getValue("source_name")
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
 | `memex:Vulnerability1` | `memex:vulnerabilityOf` | `memex:SoftwareSystem1`|
+| `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
