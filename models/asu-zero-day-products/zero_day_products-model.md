@@ -77,5 +77,6 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:Exploit1` | `schema:category` | `zero-day-exploit`|
-| `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization1`|
 | `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
+| `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization1`|
+| `schema:PriceSpecification1` | `schema:priceCurrency` | `USD`|
