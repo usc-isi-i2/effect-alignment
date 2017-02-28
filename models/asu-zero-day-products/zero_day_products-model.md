@@ -3,16 +3,6 @@
 ## Add Column
 
 ## Add Node/Literal
-#### Literal Node: `http://effect.isi.edu/identifier/database`
-Literal Type: ``
-<br/>Language: ``
-<br/>isUri: `true`
-
-#### Literal Node: `http://effect.isi.edu/identifier/source`
-Literal Type: ``
-<br/>Language: ``
-<br/>isUri: `true`
-
 #### Literal Node: `zero-day-exploit`
 Literal Type: ``
 <br/>Language: ``
@@ -70,7 +60,7 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source` | `memex:Exploit1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
 | _clusterName_ | `memex:hasType` | `memex:Exploit1`|
 | _description_ | `schema:description` | `memex:Exploit1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
@@ -79,14 +69,13 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization1`|
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher` | `memex:Exploit1`|
-| _timestamp_iso_ | `memex:dateRecorded` | `memex:Exploit1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Exploit1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Exploit1` | `schema:category` | `xsd:zero-day-exploit`|
-| `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
+| `memex:Exploit1` | `schema:category` | `zero-day-exploit`|
 | `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization1`|
-| `schema:PriceSpecification1` | `schema:priceCurrency` | `xsd:USD`|
+| `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
