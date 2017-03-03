@@ -32,7 +32,10 @@ return DM.iso8601date(getValue("timestamp"))
 #### _cve_uri_
 From column: _extractions / cve / result / value_
 ``` python
-return "vulnerability/"+getValue("value").upper()
+x= getValue("value")
+if len(x) > 0:
+  return "vulnerability/"+getValue("value").upper()
+return ''
 ```
 
 
