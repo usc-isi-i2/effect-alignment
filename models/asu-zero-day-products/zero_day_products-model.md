@@ -60,7 +60,7 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `schema:PriceSpecification1`|
 | _clusterName_ | `memex:hasType` | `memex:Exploit1`|
 | _description_ | `schema:description` | `memex:Exploit1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
@@ -69,8 +69,8 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization1`|
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:PriceSpecification1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:PriceSpecification1`|
 
 
 ## Links
