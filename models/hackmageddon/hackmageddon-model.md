@@ -117,12 +117,12 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | _date_iso_ | `schema:startDate` | `memex:AttackEvent1`|
 | _description_ | `schema:description` | `memex:AttackEvent1`|
 | _link_ | `schema:url` | `memex:AttackEvent1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place1`|
 | _target_class_cleaned_ | `schema:subtype` | `memex:PersonOrOrganization2`|
 | _target_name_cleaned_ | `schema:name` | `memex:PersonOrOrganization2`|
 | _target_name_uri_ | `uri` | `memex:PersonOrOrganization2`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:AttackEvent1`|
-| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place1`|
+| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place1`|
 
 
 ## Links
