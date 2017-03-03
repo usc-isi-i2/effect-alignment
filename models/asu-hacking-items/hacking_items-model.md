@@ -92,10 +92,10 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place2`|
 | _clusterName_ | `memex:hasType` | `memex:Exploit1`|
 | _cve_id_split_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Vulnerability1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place2`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
@@ -108,7 +108,7 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place2`|
 | _toPlace_uri_ | `uri` | `schema:Place2`|
 | _vendor_id_ | `uri` | `memex:PersonOrOrganization1`|
 
