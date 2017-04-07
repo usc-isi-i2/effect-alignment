@@ -26,9 +26,9 @@ return ''
 #### _ip_uri_
 From column: _json_rep / observable / value_
 ``` python
-x = getValue("value")
-if len(x) > 0:
-  return "ipaddress/" + x
+x = getValue("title")
+if x.startswith("IP:"):
+   return "ipaddress/" + x[3:].strip()
 ```
 
 #### _obseved_timestamp_
@@ -54,6 +54,17 @@ if len(x) > 0:
    return "organization/" + SM.fingerprint_string(x)
 ```
 
+#### _domain_url_
+From column: _json_rep / observable / ip_uri_
+``` python
+x = getValue("title")
+if x.startswith("Domain:"):
+  domain = x[7:].strip()
+  if not domain.startswith("http"):
+    domain = "http://" + domain
+  return domain
+```
+
 
 ## Selections
 
@@ -65,6 +76,7 @@ if len(x) > 0:
 | _behavior_type_ | `memex:hasType` | `memex:Malware1`|
 | _description_ | `schema:description` | `memex:Malware1`|
 | _domain_ | `schema:url` | `memex:Malware1`|
+| _domain_url_ | `schema:url` | `memex:Malware1`|
 | _ip_uri_ | `uri` | `memex:IPAddress1`|
 | _malware_uri_ | `uri` | `memex:Malware1`|
 | _obseved_timestamp_ | `memex:observedDate` | `memex:Malware1`|
@@ -79,5 +91,5 @@ if len(x) > 0:
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Malware1` | `memex:reportedBy` | `memex:PersonOrOrganization1`|
 | `memex:Malware1` | `memex:hostedAt` | `memex:IPAddress1`|
+| `memex:Malware1` | `memex:reportedBy` | `memex:PersonOrOrganization1`|
