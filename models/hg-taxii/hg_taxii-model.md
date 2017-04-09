@@ -19,8 +19,12 @@ return ''
 From column: _json_rep / observable / OR / title_
 ``` python
 x = getValue("title")
+domain = ''
 if x.startswith("Domain:"):
   domain = x[7:].strip()
+elif x.startswith("URL:"):
+  domain = x[4:].strip()
+if len(domain) > 0:
   if not domain.startswith("http"):
     domain = "http://" + domain
   return domain
@@ -43,6 +47,8 @@ x = getValue("title")
 result = ''
 if x.startswith("Domain:"):
    result = x[7:].strip()
+elif x.startswith("URL:"):
+   result = x[4:].strip()
 if len(result) == 0:
    result = getValueFromNestedColumnByIndex("observable", "OR/domain2", getRowIndex())
 if len(result) > 0:
