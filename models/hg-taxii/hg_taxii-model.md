@@ -66,17 +66,11 @@ From column: _json_rep / observable / ip_addr_
 ``` python
 x = getValue("ip_addr")
 if len(x) > 0:
-    return "ipaddress" + x
+    return "ipaddress/" + x
 ```
 
 #### _dateRecorded_
 From column: _timestamp_
-``` python
-return DM.iso8601date(getValue("timestamp"))
-```
-
-#### _observed_timestamp_
-From column: _json_rep / ttps / timestamp_
 ``` python
 return DM.iso8601date(getValue("timestamp"))
 ```
@@ -99,11 +93,17 @@ if len(x) > 0:
 #### _malware_uri2_
 From column: _json_rep / producer_uri_
 ``` python
-x = getValueFromNestedColumnByIndex("ttps", "id", getRowIndex())
+x = getValue("id")
 if len(x) > 0:
    domain_url = getValueFromNestedColumnByIndex("observable", "domain", getRowIndex())
    return UM.uri_from_fields("malware/", x, domain_url)
 
+```
+
+#### _observedTime_iso_
+From column: _json_rep / timestamp_
+``` python
+return DM.iso8601date(getValue("timestamp"))
 ```
 
 
@@ -121,7 +121,7 @@ if len(x) > 0:
 | _ip_addr_ | `schema:name` | `memex:IPAddress1`|
 | _ip_uri_ | `uri` | `memex:IPAddress1`|
 | _malware_uri2_ | `uri` | `memex:Malware1`|
-| _observed_timestamp_ | `memex:observedDate` | `memex:Malware1`|
+| _observedTime_iso_ | `memex:observedDate` | `memex:Malware1`|
 | _producer_ | `schema:name` | `memex:PersonOrOrganization1`|
 | _producer_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Malware1`|
