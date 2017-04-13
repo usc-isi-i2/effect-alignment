@@ -1,6 +1,10 @@
-## hackmageddon-for-karma.jl
+# hackmageddon-for-karma.jl
 
-### PyTransforms
+## Add Column
+
+## Add Node/Literal
+
+## PyTransforms
 #### _cdr_id_
 From column: __id_
 ``` python
@@ -89,8 +93,17 @@ else:
     return "organization/"+SM.fingerprint_string(t)
 ```
 
+#### _timestamp_iso_
+From column: _timestamp_
+``` python
+return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 
-### Semantic Types
+```
+
+
+## Selections
+
+## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _Values_ | `schema:keywords` | `memex:AttackEvent1`|
@@ -104,14 +117,15 @@ else:
 | _date_iso_ | `schema:startDate` | `memex:AttackEvent1`|
 | _description_ | `schema:description` | `memex:AttackEvent1`|
 | _link_ | `schema:url` | `memex:AttackEvent1`|
-| _source_name_id_ | `schema:publisher` | `memex:AttackEvent1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place1`|
 | _target_class_cleaned_ | `schema:subtype` | `memex:PersonOrOrganization2`|
 | _target_name_cleaned_ | `schema:name` | `memex:PersonOrOrganization2`|
 | _target_name_uri_ | `uri` | `memex:PersonOrOrganization2`|
-| _uri_id_ | `schema:source` | `memex:AttackEvent1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place1`|
+| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place1`|
 
 
-### Links
+## Links
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:AttackEvent1` | `memex:affected` | `memex:PersonOrOrganization2`|

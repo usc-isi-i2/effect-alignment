@@ -18,6 +18,13 @@ t = getValue("Story Date")
 return DM.iso8601date(t,"%Y-%m-%d")
 ```
 
+#### _timestamp_iso_
+From column: _timestamp_
+``` python
+return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
+
+```
+
 
 ## Selections
 
@@ -32,6 +39,7 @@ return DM.iso8601date(t,"%Y-%m-%d")
 | _event_id_ | `uri` | `schema:Event1`|
 | _source_name_ | `schema:publisher` | `schema:Event1`|
 | _story_date_ | `schema:datePublished` | `schema:CreativeWork1`|
+| _timestamp_iso_ | `memex:dateRecorded` | `schema:Event1`|
 
 
 ## Links
