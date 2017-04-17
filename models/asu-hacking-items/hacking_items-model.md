@@ -19,9 +19,7 @@ return "item/"+getValue("itemId")
 #### _vendor_id_
 From column: _json_rep / vendorId_
 ``` python
-v = getValue("vendorId")
-if len(v) > 0:
-   return "vendor_id/"+ v
+return "vendor_id/"+getValue("vendorId")
 ```
 
 #### _marketplace_id_
@@ -61,15 +59,15 @@ return ','.join(answer)
 #### _cve_id_split_
 From column: _json_rep / item_cve_final / Values_
 ``` python
-return "vulnerability/"+getValue("Values").upper()
+t = getValue("Values").upper()
+if len(t) > 0:
+  return "vulnerability/"+ t
 ```
 
 #### _price_uri_
 From column: _json_rep / sellingPriceUsd_
 ``` python
-p =  getValue("sellingPriceUsd")
-if len(p) > 0:
-    return "price/" + p + "USD"
+return "price/" + getValue("sellingPriceUsd") + "USD"
 ```
 
 #### _fromplace_uri_
@@ -90,15 +88,6 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ```
 
-#### _dateRecorded_iso_
-From column: _json_rep / recordedDate_
-``` python
-t = getValue("recordedDate")
-if len(t) == 0:
-   t =  getValue("postedDate")
-return DM.iso8601date(t,"%m-%d-%Y")
-```
-
 
 ## Selections
 
@@ -109,7 +98,6 @@ return DM.iso8601date(t,"%m-%d-%Y")
 | _clusterName_ | `memex:hasType` | `memex:Exploit1`|
 | _cve_id_split_ | `uri` | `memex:Vulnerability1`|
 | _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place2`|
-| _dateRecorded_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
@@ -119,6 +107,7 @@ return DM.iso8601date(t,"%m-%d-%Y")
 | _itemVendorRating_ | `schema:ratingValue` | `memex:PersonOrOrganization1`|
 | _item_id_ | `uri` | `memex:Exploit1`|
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization2`|
+| _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
 | _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place2`|
