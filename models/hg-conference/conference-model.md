@@ -34,13 +34,14 @@ return ''
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Conference1`|
 | _conference_uri_ | `uri` | `memex:Conference1`|
-| _datePublsihedISO_ | `schema:datePublished` | `memex:Conference1`|
+| _datePublsihedISO_ | `schema:startDate` | `memex:Conference1`|
 | _meta_description_ | `schema:description` | `memex:Conference1`|
 | _meta_keywords_ | `schema:keywords` | `memex:Conference1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Conference1`|
 | _text_ | `schema:text` | `memex:Conference1`|
 | _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Conference1`|
-| _title_ | `schema:title` | `memex:Conference1`|
+| _title_ | `schema:name` | `memex:Conference1`|
+| _url_ | `schema:url` | `memex:Conference1`|
 
 
 ## Links
