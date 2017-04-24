@@ -1,0 +1,46 @@
+digraph n0 {
+fontcolor="blue"
+remincross="true"
+label="twitterCDR.jl"
+subgraph cluster {
+label="model"
+n2[style="filled",color="white",fillcolor="lightgray",label="LoginCredentials1"];
+n3[shape="plaintext",style="filled",fillcolor="gold",label="user_login_uri"];
+n4[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n5[shape="plaintext",style="filled",fillcolor="gold",label="username_clean"];
+n6[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
+n8[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
+n9[shape="plaintext",style="filled",fillcolor="gold",label="person_uri"];
+n10[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
+n11[shape="plaintext",style="filled",fillcolor="gold",label="mentions_uri"];
+n12[style="filled",color="white",fillcolor="lightgray",label="SocialMediaPosting1"];
+n13[shape="plaintext",style="filled",fillcolor="gold",label="tweet_uri"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="favorites"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="content_type"];
+n16[shape="plaintext",style="filled",fillcolor="gold",label="retweet"];
+n17[shape="plaintext",style="filled",fillcolor="gold",label="recorded_time_iso"];
+n18[shape="plaintext",style="filled",fillcolor="gold",label="tags_clean"];
+n19[shape="plaintext",style="filled",fillcolor="gold",label="tweetContent"];
+}
+n2 -> n3[color="brown",fontcolor="black",label="classLink"]
+n2 -> n4[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n5[color="brown",fontcolor="black",label="username"]
+n2 -> n6[color="brown",fontcolor="black",label="publisher"]
+n2 -> n7[color="brown",fontcolor="black",label="source"]
+n8 -> n9[color="brown",fontcolor="black",label="classLink"]
+n8 -> n2[color="brown",fontcolor="black",label="hasLoginCredentials"]
+n10 -> n11[color="brown",fontcolor="black",label="classLink"]
+n12 -> n13[color="brown",fontcolor="black",label="classLink"]
+n12 -> n4[color="brown",fontcolor="black",label="dateRecorded"]
+n12 -> n14[color="brown",fontcolor="black",label="favoriteCount"]
+n12 -> n15[color="brown",fontcolor="black",label="hasType"]
+n12 -> n16[color="brown",fontcolor="black",label="repostCount"]
+n12 -> n17[color="brown",fontcolor="black",label="datePublished"]
+n12 -> n18[color="brown",fontcolor="black",label="keywords"]
+n12 -> n19[color="brown",fontcolor="black",label="text"]
+n12 -> n8[color="brown",fontcolor="black",label="author"]
+n12 -> n10[color="brown",fontcolor="black",label="mentions"]
+n12 -> n7[color="brown",fontcolor="black",label="source"]
+n12 -> n6[color="brown",fontcolor="black",label="publisher"]
+}
