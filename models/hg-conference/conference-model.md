@@ -26,6 +26,14 @@ if len(date) > 0:
 return ''
 ```
 
+#### _cve_uri_
+From column: _extractions / cve / result / value_
+``` python
+cve = getValue("value")
+if len(cve) > 0:
+   return "vulnerability/" + cve.upper()
+```
+
 
 ## Selections
 
@@ -34,6 +42,7 @@ return ''
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Conference1`|
 | _conference_uri_ | `uri` | `memex:Conference1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _datePublsihedISO_ | `schema:startDate` | `memex:Conference1`|
 | _meta_description_ | `schema:description` | `memex:Conference1`|
 | _meta_keywords_ | `schema:keywords` | `memex:Conference1`|
@@ -47,3 +56,4 @@ return ''
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `memex:Conference1` | `schema:mentions` | `memex:Vulnerability1`|
