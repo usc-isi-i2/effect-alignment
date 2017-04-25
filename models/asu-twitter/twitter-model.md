@@ -28,7 +28,7 @@ From column: _json_rep / username_clean_
 ``` python
 x = getValue("username_clean")
 if len(x) > 0:
-   return "logincredentials/" + x
+   return "logincredentials/twitter/" + x
 ```
 
 #### _person_uri_
@@ -36,7 +36,7 @@ From column: _json_rep / user_login_uri_
 ``` python
 x = getValue("username_clean")
 if len(x) > 0:
-   return "personOrOrganization/" + x
+   return "personOrOrganization/twitter/" + x
 ```
 
 #### _tags_clean_
@@ -82,6 +82,14 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
+#### _username_uri_
+From column: _json_rep / user_login_uri_
+``` python
+x = getValue("username_clean")
+if len(x) > 0:
+   return "username/twitter/" + x
+```
+
 
 ## Selections
 
@@ -101,12 +109,14 @@ return DM.iso8601date(getValue("timestamp"))
 | _tweetContent_ | `schema:text` | `schema:SocialMediaPosting1`|
 | _tweet_uri_ | `uri` | `schema:SocialMediaPosting1`|
 | _user_login_uri_ | `uri` | `memex:LoginCredentials1`|
-| _username_clean_ | `memex:username` | `memex:LoginCredentials1`|
+| _username_clean_ | `schema:name` | `memex:UserName1`|
+| _username_uri_ | `uri` | `memex:UserName1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
 | `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
-| `schema:SocialMediaPosting1` | `schema:mentions` | `memex:PersonOrOrganization2`|
+| `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
