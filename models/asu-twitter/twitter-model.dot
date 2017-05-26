@@ -1,50 +1,63 @@
 digraph n0 {
 fontcolor="blue"
 remincross="true"
-label="twitterCDR.jl"
+label="twitter-extractions.jl"
 subgraph cluster {
 label="model"
-n2[style="filled",color="white",fillcolor="lightgray",label="LoginCredentials1"];
-n3[shape="plaintext",style="filled",fillcolor="gold",label="user_login_uri"];
-n4[style="filled",color="white",fillcolor="lightgray",label="UserName1"];
-n5[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
-n6[shape="plaintext",style="filled",fillcolor="gold",label="person_uri"];
-n7[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
-n8[shape="plaintext",style="filled",fillcolor="gold",label="mentions_uri"];
-n9[shape="plaintext",style="filled",fillcolor="gold",label="username_uri"];
-n10[shape="plaintext",style="filled",fillcolor="gold",label="username_clean"];
-n11[style="filled",color="white",fillcolor="lightgray",label="SocialMediaPosting1"];
-n12[shape="plaintext",style="filled",fillcolor="gold",label="tweet_uri"];
-n13[shape="plaintext",style="filled",fillcolor="gold",label="favorites"];
-n14[shape="plaintext",style="filled",fillcolor="gold",label="content_type"];
-n15[shape="plaintext",style="filled",fillcolor="gold",label="retweet"];
-n16[shape="plaintext",style="filled",fillcolor="gold",label="recorded_time_iso"];
-n17[shape="plaintext",style="filled",fillcolor="gold",label="tags_clean"];
-n18[shape="plaintext",style="filled",fillcolor="gold",label="tweetContent"];
-n19[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
-n20[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
-n21[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
+n2[style="filled",color="white",fillcolor="lightgray",label="Extraction1"];
+n3[shape="plaintext",style="filled",fillcolor="gold",label="extraction_uri"];
+n4[shape="plaintext",style="filled",fillcolor="gold",label="extractor"];
+n5[shape="plaintext",style="filled",fillcolor="gold",label="label"];
+n6[shape="plaintext",style="filled",fillcolor="gold",label="text"];
+n7[style="filled",color="white",fillcolor="lightgray",label="LoginCredentials1"];
+n8[shape="plaintext",style="filled",fillcolor="gold",label="user_login_uri"];
+n9[style="filled",color="white",fillcolor="lightgray",label="UserName1"];
+n10[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
+n11[shape="plaintext",style="filled",fillcolor="gold",label="person_uri"];
+n12[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
+n13[shape="plaintext",style="filled",fillcolor="gold",label="mentions_uri"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="username_uri"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n16[shape="plaintext",style="filled",fillcolor="gold",label="username_clean"];
+n17[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n18[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
+n19[style="filled",color="white",fillcolor="lightgray",label="SocialMediaPosting1"];
+n20[shape="plaintext",style="filled",fillcolor="gold",label="tweet_uri"];
+n21[shape="plaintext",style="filled",fillcolor="gold",label="favorites"];
+n22[shape="plaintext",style="filled",fillcolor="gold",label="content_type"];
+n23[shape="plaintext",style="filled",fillcolor="gold",label="retweet"];
+n24[shape="plaintext",style="filled",fillcolor="gold",label="recorded_time_iso"];
+n25[shape="plaintext",style="filled",fillcolor="gold",label="tags_clean"];
+n26[shape="plaintext",style="filled",fillcolor="gold",label="tweetContent"];
 }
 n2 -> n3[color="brown",fontcolor="black",label="classLink"]
-n2 -> n4[color="brown",fontcolor="black",label="username"]
-n5 -> n6[color="brown",fontcolor="black",label="classLink"]
-n5 -> n2[color="brown",fontcolor="black",label="hasLoginCredentials"]
+n2 -> n4[color="brown",fontcolor="black",label="extractor"]
+n2 -> n5[color="brown",fontcolor="black",label="hasType"]
+n2 -> n6[color="brown",fontcolor="black",label="text"]
 n7 -> n8[color="brown",fontcolor="black",label="classLink"]
-n4 -> n9[color="brown",fontcolor="black",label="classLink"]
-n4 -> n10[color="brown",fontcolor="black",label="name"]
-n11 -> n12[color="brown",fontcolor="black",label="classLink"]
-n11 -> n13[color="brown",fontcolor="black",label="favoriteCount"]
-n11 -> n14[color="brown",fontcolor="black",label="hasType"]
-n11 -> n15[color="brown",fontcolor="black",label="repostCount"]
-n11 -> n5[color="brown",fontcolor="black",label="author"]
-n11 -> n16[color="brown",fontcolor="black",label="datePublished"]
-n11 -> n17[color="brown",fontcolor="black",label="keywords"]
-n11 -> n18[color="brown",fontcolor="black",label="text"]
-n11 -> n19[color="brown",fontcolor="black",label="dateRecorded"]
-n4 -> n20[color="brown",fontcolor="black",label="publisher"]
-n4 -> n21[color="brown",fontcolor="black",label="source"]
-n11 -> n20[color="brown",fontcolor="black",label="publisher"]
-n11 -> n7[color="brown",fontcolor="black",label="mentionsPersonOrOrganization"]
-n4 -> n19[color="brown",fontcolor="black",label="dateRecorded"]
-n11 -> n21[color="brown",fontcolor="black",label="source"]
+n7 -> n9[color="brown",fontcolor="black",label="username"]
+n10 -> n11[color="brown",fontcolor="black",label="classLink"]
+n12 -> n13[color="brown",fontcolor="black",label="classLink"]
+n9 -> n14[color="brown",fontcolor="black",label="classLink"]
+n9 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
+n9 -> n16[color="brown",fontcolor="black",label="name"]
+n9 -> n17[color="brown",fontcolor="black",label="publisher"]
+n9 -> n18[color="brown",fontcolor="black",label="source"]
+n19 -> n20[color="brown",fontcolor="black",label="classLink"]
+n19 -> n21[color="brown",fontcolor="black",label="favoriteCount"]
+n19 -> n2[color="brown",fontcolor="black",label="hasExtraction"]
+n19 -> n22[color="brown",fontcolor="black",label="hasType"]
+n19 -> n12[color="brown",fontcolor="black",label="mentionsPersonOrOrganization"]
+n19 -> n23[color="brown",fontcolor="black",label="repostCount"]
+n19 -> n10[color="brown",fontcolor="black",label="author"]
+n19 -> n24[color="brown",fontcolor="black",label="datePublished"]
+n19 -> n25[color="brown",fontcolor="black",label="keywords"]
+n19 -> n17[color="brown",fontcolor="black",label="publisher"]
+n19 -> n26[color="brown",fontcolor="black",label="text"]
+n10 -> n7[color="brown",fontcolor="black",label="hasLoginCredentials"]
+n19 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n18[color="brown",fontcolor="black",label="source"]
+n2 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
+n19 -> n18[color="brown",fontcolor="black",label="source"]
+n2 -> n17[color="brown",fontcolor="black",label="publisher"]
 }
