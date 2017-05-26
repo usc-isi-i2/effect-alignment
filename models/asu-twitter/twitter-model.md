@@ -1,4 +1,4 @@
-# twitterCDR.jl
+# twitter-extractions.jl
 
 ## Add Column
 
@@ -90,6 +90,22 @@ if len(x) > 0:
    return "username/twitter/" + x
 ```
 
+#### _tweet_uri2_
+From column: _extractions / json_rep.tweetContent_
+``` python
+return getValueFromNestedColumnByIndex("json_rep", "tweet_uri", getRowIndex())
+```
+
+#### _extraction_uri_
+From column: _extractions / json_rep.tweetContent / text_
+``` python
+tweet_uri = getValue("tweet_uri2")
+x = getValue("text").strip()
+if len(x) > 0:
+   x = re.sub('[^A-Za-z0-9]+', '', x)
+   return tweet_uri + "/extraction/" + getValue("label") + "/" + x
+```
+
 
 ## Selections
 
@@ -98,13 +114,17 @@ if len(x) > 0:
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `schema:SocialMediaPosting1`|
 | _content_type_ | `memex:hasType` | `schema:SocialMediaPosting1`|
+| _extraction_uri_ | `uri` | `memex:Extraction1`|
+| _extractor_ | `memex:extractor` | `memex:Extraction1`|
 | _favorites_ | `memex:favoriteCount` | `schema:SocialMediaPosting1`|
+| _label_ | `memex:hasType` | `memex:Extraction1`|
 | _mentions_uri_ | `uri` | `memex:PersonOrOrganization2`|
 | _person_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _recorded_time_iso_ | `schema:datePublished` | `schema:SocialMediaPosting1`|
 | _retweet_ | `memex:repostCount` | `schema:SocialMediaPosting1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:SocialMediaPosting1`|
 | _tags_clean_ | `schema:keywords` | `schema:SocialMediaPosting1`|
+| _text_ | `schema:text` | `memex:Extraction1`|
 | _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:SocialMediaPosting1`|
 | _tweetContent_ | `schema:text` | `schema:SocialMediaPosting1`|
 | _tweet_uri_ | `uri` | `schema:SocialMediaPosting1`|
@@ -118,5 +138,6 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
-| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `schema:SocialMediaPosting1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
+| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
