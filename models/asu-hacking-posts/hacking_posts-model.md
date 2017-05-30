@@ -1,4 +1,4 @@
-# hackingposts-for-karma.jl
+# hackingpostsCDR-extractions.jl
 
 ## Add Column
 
@@ -48,19 +48,18 @@ From column: __id_
 return getValue("_id")
 ```
 
-#### _cve_id_
-From column: _json_rep / cve / Values_
-``` python
-cve = getValue("Values")
-if cve:
-  return "vulnerability/" + cve.upper() 
-return ''
-```
-
 #### _dateRecorded_
 From column: _timestamp_
 ``` python
 return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
+```
+
+#### _cve_uri_
+From column: _extractions / cve / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+   return "vulnerability/" + x.upper()
 ```
 
 
@@ -70,7 +69,7 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Topic1`|
-| _cve_id_ | `uri` | `memex:Vulnerability1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Post1`|
 | _forum_id_ | `uri` | `memex:Forum1`|
 | _language_ | `schema:language` | `memex:Post1`|
