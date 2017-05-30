@@ -1,4 +1,4 @@
-# twitter-extractions.jl
+# twitterCDR-extractions.jl
 
 ## Add Column
 
@@ -106,6 +106,14 @@ if len(x) > 0:
    return tweet_uri + "/extraction/" + getValue("label") + "/" + x
 ```
 
+#### _cve_uri_
+From column: _extractions / cve / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+   return "vulnerability/" + x.upper()
+```
+
 
 ## Selections
 
@@ -114,6 +122,7 @@ if len(x) > 0:
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `schema:SocialMediaPosting1`|
 | _content_type_ | `memex:hasType` | `schema:SocialMediaPosting1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _extraction_uri_ | `uri` | `memex:Extraction1`|
 | _extractor_ | `memex:extractor` | `memex:Extraction1`|
 | _favorites_ | `memex:favoriteCount` | `schema:SocialMediaPosting1`|
@@ -138,6 +147,7 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
+| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `schema:SocialMediaPosting1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:SocialMediaPosting1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
-| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
