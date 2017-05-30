@@ -1,4 +1,4 @@
-# hackingitems-for-karma.jl
+# hackingitemsCDR-extractions.jl
 
 ## Add Column
 
@@ -47,23 +47,6 @@ From column: __id_
 return getValue("_id")
 ```
 
-#### _itemCve_split_comma_
-From column: _json_rep / itemCve_
-``` python
-line= getValue("itemCve")
-n= 13
-answer = [line[i:i+n] for i in range(0, len(line), n)]
-return ','.join(answer)
-```
-
-#### _cve_id_split_
-From column: _json_rep / item_cve_final / Values_
-``` python
-t = getValue("Values").upper()
-if len(t) > 0:
-  return "vulnerability/"+ t
-```
-
 #### _price_uri_
 From column: _json_rep / sellingPriceUsd_
 ``` python
@@ -88,6 +71,14 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ```
 
+#### _cve_uri_
+From column: _extractions / cve / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+  return "vulnerability/" + x.upper()
+```
+
 
 ## Selections
 
@@ -95,7 +86,7 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
-| _cve_id_split_ | `uri` | `memex:Vulnerability1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
@@ -117,8 +108,8 @@ return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
 | `memex:Exploit1` | `schema:toLocation` | `schema:Place2`|
+| `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
 | `memex:Exploit1` | `schema:vendor` | `memex:PersonOrOrganization1`|
 | `memex:Exploit1` | `schema:fromLocation` | `schema:Place1`|
 | `memex:Exploit1` | `memex:exploitsVulnerability` | `memex:Vulnerability1`|
