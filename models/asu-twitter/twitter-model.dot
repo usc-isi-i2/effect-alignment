@@ -1,26 +1,26 @@
 digraph n0 {
 fontcolor="blue"
 remincross="true"
-label="twitter-extractions.jl"
+label="twitterCDR-extractions.jl"
 subgraph cluster {
 label="model"
 n2[style="filled",color="white",fillcolor="lightgray",label="Extraction1"];
 n3[shape="plaintext",style="filled",fillcolor="gold",label="extraction_uri"];
 n4[shape="plaintext",style="filled",fillcolor="gold",label="extractor"];
 n5[shape="plaintext",style="filled",fillcolor="gold",label="label"];
-n6[shape="plaintext",style="filled",fillcolor="gold",label="text"];
-n7[style="filled",color="white",fillcolor="lightgray",label="LoginCredentials1"];
-n8[shape="plaintext",style="filled",fillcolor="gold",label="user_login_uri"];
-n9[style="filled",color="white",fillcolor="lightgray",label="UserName1"];
-n10[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
-n11[shape="plaintext",style="filled",fillcolor="gold",label="person_uri"];
-n12[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
-n13[shape="plaintext",style="filled",fillcolor="gold",label="mentions_uri"];
-n14[shape="plaintext",style="filled",fillcolor="gold",label="username_uri"];
-n15[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n6[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="text"];
+n8[style="filled",color="white",fillcolor="lightgray",label="LoginCredentials1"];
+n9[shape="plaintext",style="filled",fillcolor="gold",label="user_login_uri"];
+n10[style="filled",color="white",fillcolor="lightgray",label="UserName1"];
+n11[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
+n12[shape="plaintext",style="filled",fillcolor="gold",label="person_uri"];
+n13[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="mentions_uri"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="username_uri"];
 n16[shape="plaintext",style="filled",fillcolor="gold",label="username_clean"];
-n17[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
-n18[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
+n17[style="filled",color="white",fillcolor="lightgray",label="Vulnerability1"];
+n18[shape="plaintext",style="filled",fillcolor="gold",label="cve_uri"];
 n19[style="filled",color="white",fillcolor="lightgray",label="SocialMediaPosting1"];
 n20[shape="plaintext",style="filled",fillcolor="gold",label="tweet_uri"];
 n21[shape="plaintext",style="filled",fillcolor="gold",label="favorites"];
@@ -29,35 +29,39 @@ n23[shape="plaintext",style="filled",fillcolor="gold",label="retweet"];
 n24[shape="plaintext",style="filled",fillcolor="gold",label="recorded_time_iso"];
 n25[shape="plaintext",style="filled",fillcolor="gold",label="tags_clean"];
 n26[shape="plaintext",style="filled",fillcolor="gold",label="tweetContent"];
+n27[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n28[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
 }
 n2 -> n3[color="brown",fontcolor="black",label="classLink"]
 n2 -> n4[color="brown",fontcolor="black",label="extractor"]
 n2 -> n5[color="brown",fontcolor="black",label="hasType"]
-n2 -> n6[color="brown",fontcolor="black",label="text"]
-n7 -> n8[color="brown",fontcolor="black",label="classLink"]
-n7 -> n9[color="brown",fontcolor="black",label="username"]
-n10 -> n11[color="brown",fontcolor="black",label="classLink"]
-n12 -> n13[color="brown",fontcolor="black",label="classLink"]
-n9 -> n14[color="brown",fontcolor="black",label="classLink"]
-n9 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
-n9 -> n16[color="brown",fontcolor="black",label="name"]
-n9 -> n17[color="brown",fontcolor="black",label="publisher"]
-n9 -> n18[color="brown",fontcolor="black",label="source"]
+n2 -> n6[color="brown",fontcolor="black",label="publisher"]
+n2 -> n7[color="brown",fontcolor="black",label="text"]
+n8 -> n9[color="brown",fontcolor="black",label="classLink"]
+n8 -> n10[color="brown",fontcolor="black",label="username"]
+n11 -> n12[color="brown",fontcolor="black",label="classLink"]
+n11 -> n8[color="brown",fontcolor="black",label="hasLoginCredentials"]
+n13 -> n14[color="brown",fontcolor="black",label="classLink"]
+n10 -> n15[color="brown",fontcolor="black",label="classLink"]
+n10 -> n16[color="brown",fontcolor="black",label="name"]
+n17 -> n18[color="brown",fontcolor="black",label="classLink"]
 n19 -> n20[color="brown",fontcolor="black",label="classLink"]
 n19 -> n21[color="brown",fontcolor="black",label="favoriteCount"]
-n19 -> n2[color="brown",fontcolor="black",label="hasExtraction"]
 n19 -> n22[color="brown",fontcolor="black",label="hasType"]
-n19 -> n12[color="brown",fontcolor="black",label="mentionsPersonOrOrganization"]
 n19 -> n23[color="brown",fontcolor="black",label="repostCount"]
-n19 -> n10[color="brown",fontcolor="black",label="author"]
+n19 -> n11[color="brown",fontcolor="black",label="author"]
 n19 -> n24[color="brown",fontcolor="black",label="datePublished"]
 n19 -> n25[color="brown",fontcolor="black",label="keywords"]
-n19 -> n17[color="brown",fontcolor="black",label="publisher"]
 n19 -> n26[color="brown",fontcolor="black",label="text"]
-n10 -> n7[color="brown",fontcolor="black",label="hasLoginCredentials"]
-n19 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
-n2 -> n18[color="brown",fontcolor="black",label="source"]
-n2 -> n15[color="brown",fontcolor="black",label="dateRecorded"]
-n19 -> n18[color="brown",fontcolor="black",label="source"]
-n2 -> n17[color="brown",fontcolor="black",label="publisher"]
+n2 -> n27[color="brown",fontcolor="black",label="dateRecorded"]
+n19 -> n6[color="brown",fontcolor="black",label="publisher"]
+n10 -> n28[color="brown",fontcolor="black",label="source"]
+n10 -> n27[color="brown",fontcolor="black",label="dateRecorded"]
+n19 -> n17[color="brown",fontcolor="black",label="mentions"]
+n2 -> n28[color="brown",fontcolor="black",label="source"]
+n10 -> n6[color="brown",fontcolor="black",label="publisher"]
+n19 -> n2[color="brown",fontcolor="black",label="hasExtraction"]
+n19 -> n13[color="brown",fontcolor="black",label="mentionsPersonOrOrganization"]
+n19 -> n28[color="brown",fontcolor="black",label="source"]
+n19 -> n27[color="brown",fontcolor="black",label="dateRecorded"]
 }
