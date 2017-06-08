@@ -54,6 +54,14 @@ if len(x) > 0:
   return blog_uri + "/extraction/" + getValue("label") + "/" + x
 ```
 
+#### _msid_uri_
+From column: _extractions / msid / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+   return "securityUpdate/" + x.upper()
+```
+
 
 ## Selections
 
@@ -68,6 +76,7 @@ if len(x) > 0:
 | _label_ | `memex:hasType` | `memex:Extraction1`|
 | _link_ | `schema:url` | `schema:Blog1`|
 | _link_uri_ | `uri` | `schema:Blog1`|
+| _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Blog1`|
 | _text_ | `schema:text` | `memex:Extraction1`|
 | _text_ | `schema:text` | `schema:Blog1`|
@@ -79,4 +88,5 @@ if len(x) > 0:
 | From | Property | To |
 |  --- | -------- | ---|
 | `schema:Blog1` | `memex:hasExtraction` | `memex:Extraction1`|
+| `schema:Blog1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:Blog1` | `schema:mentions` | `memex:Vulnerability1`|
