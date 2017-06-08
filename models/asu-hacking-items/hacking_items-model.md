@@ -79,15 +79,23 @@ if len(x) > 0:
   return "vulnerability/" + x.upper()
 ```
 
+#### _msid_uri_
+From column: _extractions / msid / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+   return "securityUpdate/" + x.upper()
+```
+
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place2`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place2`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
@@ -97,10 +105,11 @@ if len(x) > 0:
 | _itemVendorRating_ | `schema:ratingValue` | `memex:PersonOrOrganization1`|
 | _item_id_ | `uri` | `memex:Exploit1`|
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization2`|
+| _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place2`|
 | _toPlace_uri_ | `uri` | `schema:Place2`|
 | _vendor_id_ | `uri` | `memex:PersonOrOrganization1`|
 
@@ -108,11 +117,12 @@ if len(x) > 0:
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Exploit1` | `schema:toLocation` | `schema:Place2`|
+| `memex:Exploit1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `memex:Exploit1` | `schema:priceSpecification` | `schema:PriceSpecification1`|
-| `memex:Exploit1` | `schema:vendor` | `memex:PersonOrOrganization1`|
+| `memex:Exploit1` | `schema:toLocation` | `schema:Place2`|
 | `memex:Exploit1` | `schema:fromLocation` | `schema:Place1`|
 | `memex:Exploit1` | `memex:exploitsVulnerability` | `memex:Vulnerability1`|
 | `memex:Exploit1` | `schema:seller` | `memex:PersonOrOrganization2`|
+| `memex:Exploit1` | `schema:vendor` | `memex:PersonOrOrganization1`|
 | `memex:Vulnerability1` | `memex:hasExploit` | `memex:Exploit1`|
 | `schema:PriceSpecification1` | `schema:priceCurrency` | `USD`|
