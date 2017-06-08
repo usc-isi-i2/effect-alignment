@@ -114,6 +114,14 @@ if len(x) > 0:
    return "vulnerability/" + x.upper()
 ```
 
+#### _msid_uri_
+From column: _extractions / msid / result / value_
+``` python
+x = getValue("value").strip()
+if len(x) > 0:
+   return "securityUpdate/" + x.upper()
+```
+
 
 ## Selections
 
@@ -128,6 +136,7 @@ if len(x) > 0:
 | _favorites_ | `memex:favoriteCount` | `schema:SocialMediaPosting1`|
 | _label_ | `memex:hasType` | `memex:Extraction1`|
 | _mentions_uri_ | `uri` | `memex:PersonOrOrganization2`|
+| _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _person_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _recorded_time_iso_ | `schema:datePublished` | `schema:SocialMediaPosting1`|
 | _retweet_ | `memex:repostCount` | `schema:SocialMediaPosting1`|
@@ -147,7 +156,8 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
-| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
-| `schema:SocialMediaPosting1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:SocialMediaPosting1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
+| `schema:SocialMediaPosting1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
+| `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `schema:SocialMediaPosting1` | `schema:mentions` | `memex:Vulnerability1`|
