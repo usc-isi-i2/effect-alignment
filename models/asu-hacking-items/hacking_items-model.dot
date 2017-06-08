@@ -6,67 +6,71 @@ subgraph cluster {
 label="model"
 n2[style="filled",color="white",fillcolor="lightgray",label="Exploit1"];
 n3[shape="plaintext",style="filled",fillcolor="gold",label="item_id"];
-n4[shape="plaintext",style="filled",fillcolor="gold",label="itemCategory"];
-n5[shape="plaintext",style="filled",fillcolor="gold",label="posted_date_iso"];
-n6[shape="plaintext",style="filled",fillcolor="gold",label="itemDescription"];
-n7[shape="plaintext",style="filled",fillcolor="gold",label="itemName"];
-n8[shape="plaintext",style="filled",fillcolor="gold",label="source_name_id"];
+n4[style="filled",color="white",fillcolor="lightgray",label="SecurityUpdate1"];
+n5[shape="plaintext",style="filled",fillcolor="gold",label="itemCategory"];
+n6[shape="plaintext",style="filled",fillcolor="gold",label="posted_date_iso"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="itemDescription"];
+n8[shape="plaintext",style="filled",fillcolor="gold",label="itemName"];
 n9[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
 n10[shape="plaintext",style="filled",fillcolor="gold",label="vendor_id"];
-n11[shape="plaintext",style="filled",fillcolor="gold",label="itemVendorRating"];
-n12[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
-n13[shape="plaintext",style="filled",fillcolor="gold",label="marketplace_id"];
-n14[style="filled",color="white",fillcolor="lightgray",label="Vulnerability1"];
-n15[shape="plaintext",style="filled",fillcolor="gold",label="cve_uri"];
-n16[style="filled",color="white",fillcolor="lightgray",label="Place1"];
-n17[shape="plaintext",style="filled",fillcolor="gold",label="fromplace_uri"];
-n18[shape="plaintext",style="filled",fillcolor="gold",label="itemShippedFrom"];
-n19[style="filled",color="white",fillcolor="lightgray",label="Place2"];
-n20[shape="plaintext",style="filled",fillcolor="gold",label="toPlace_uri"];
-n21[shape="plaintext",style="filled",fillcolor="gold",label="itemShippedTo"];
-n22[style="filled",color="white",fillcolor="lightgray",label="PriceSpecification1"];
-n23[shape="plaintext",style="filled",fillcolor="gold",label="price_uri"];
-n24[shape="plaintext",style="filled",fillcolor="gold",label="dateRecorded"];
-n25[shape="plaintext",style="filled",fillcolor="gold",label="sellingPriceUsd"];
-n26[shape="plaintext",style="filled",fillcolor="#CC7799",label="USD"];
-n27[shape="plaintext",style="filled",fillcolor="gold",label="cdr_id"];
+n11[shape="plaintext",style="filled",fillcolor="gold",label="source_name_id"];
+n12[shape="plaintext",style="filled",fillcolor="gold",label="itemVendorRating"];
+n13[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization2"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="marketplace_id"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="msid_uri"];
+n16[style="filled",color="white",fillcolor="lightgray",label="Vulnerability1"];
+n17[shape="plaintext",style="filled",fillcolor="gold",label="cve_uri"];
+n18[style="filled",color="white",fillcolor="lightgray",label="Place1"];
+n19[shape="plaintext",style="filled",fillcolor="gold",label="fromplace_uri"];
+n20[shape="plaintext",style="filled",fillcolor="gold",label="itemShippedFrom"];
+n21[style="filled",color="white",fillcolor="lightgray",label="Place2"];
+n22[shape="plaintext",style="filled",fillcolor="gold",label="toPlace_uri"];
+n23[shape="plaintext",style="filled",fillcolor="gold",label="itemShippedTo"];
+n24[style="filled",color="white",fillcolor="lightgray",label="PriceSpecification1"];
+n25[shape="plaintext",style="filled",fillcolor="gold",label="price_uri"];
+n26[shape="plaintext",style="filled",fillcolor="gold",label="sellingPriceUsd"];
+n27[shape="plaintext",style="filled",fillcolor="#CC7799",label="USD"];
+n28[shape="plaintext",style="filled",fillcolor="gold",label="cdr_id"];
+n29[shape="plaintext",style="filled",fillcolor="gold",label="dateRecorded"];
 }
 n2 -> n3[color="brown",fontcolor="black",label="classLink"]
-n2 -> n4[color="brown",fontcolor="black",label="category"]
-n2 -> n5[color="brown",fontcolor="black",label="datePosted"]
-n2 -> n6[color="brown",fontcolor="black",label="description"]
-n2 -> n7[color="brown",fontcolor="black",label="name"]
-n2 -> n8[color="brown",fontcolor="black",label="publisher"]
+n2 -> n4[color="brown",fontcolor="black",label="mentionsSecurityUpdate"]
+n2 -> n5[color="brown",fontcolor="black",label="category"]
+n2 -> n6[color="brown",fontcolor="black",label="datePosted"]
+n2 -> n7[color="brown",fontcolor="black",label="description"]
+n2 -> n8[color="brown",fontcolor="black",label="name"]
 n9 -> n10[color="brown",fontcolor="black",label="classLink"]
-n9 -> n8[color="brown",fontcolor="black",label="publisher"]
-n9 -> n11[color="brown",fontcolor="black",label="ratingValue"]
-n12 -> n13[color="brown",fontcolor="black",label="classLink"]
-n14 -> n15[color="brown",fontcolor="black",label="classLink"]
+n9 -> n11[color="brown",fontcolor="black",label="publisher"]
+n9 -> n12[color="brown",fontcolor="black",label="ratingValue"]
+n13 -> n14[color="brown",fontcolor="black",label="classLink"]
+n4 -> n15[color="brown",fontcolor="black",label="classLink"]
 n16 -> n17[color="brown",fontcolor="black",label="classLink"]
-n16 -> n18[color="brown",fontcolor="black",label="name"]
-n16 -> n8[color="brown",fontcolor="black",label="publisher"]
-n19 -> n20[color="brown",fontcolor="black",label="classLink"]
-n19 -> n21[color="brown",fontcolor="black",label="name"]
-n19 -> n8[color="brown",fontcolor="black",label="publisher"]
-n22 -> n23[color="brown",fontcolor="black",label="classLink"]
-n22 -> n24[color="brown",fontcolor="black",label="dateRecorded"]
-n22 -> n25[color="brown",fontcolor="black",label="price"]
-n22 -> n26[color="brown",fontcolor="black",label="priceCurrency"]
-n22 -> n8[color="brown",fontcolor="black",label="publisher"]
-n22 -> n27[color="brown",fontcolor="black",label="source"]
-n2 -> n19[color="brown",fontcolor="black",label="toLocation"]
-n2 -> n22[color="brown",fontcolor="black",label="priceSpecification"]
-n9 -> n24[color="brown",fontcolor="black",label="dateRecorded"]
+n18 -> n19[color="brown",fontcolor="black",label="classLink"]
+n18 -> n20[color="brown",fontcolor="black",label="name"]
+n18 -> n11[color="brown",fontcolor="black",label="publisher"]
+n21 -> n22[color="brown",fontcolor="black",label="classLink"]
+n21 -> n23[color="brown",fontcolor="black",label="name"]
+n21 -> n11[color="brown",fontcolor="black",label="publisher"]
+n24 -> n25[color="brown",fontcolor="black",label="classLink"]
+n24 -> n26[color="brown",fontcolor="black",label="price"]
+n24 -> n27[color="brown",fontcolor="black",label="priceCurrency"]
+n24 -> n11[color="brown",fontcolor="black",label="publisher"]
+n2 -> n24[color="brown",fontcolor="black",label="priceSpecification"]
+n2 -> n21[color="brown",fontcolor="black",label="toLocation"]
+n21 -> n28[color="brown",fontcolor="black",label="source"]
+n2 -> n18[color="brown",fontcolor="black",label="fromLocation"]
+n16 -> n2[color="brown",fontcolor="black",label="hasExploit"]
+n18 -> n29[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n16[color="brown",fontcolor="black",label="exploitsVulnerability"]
+n2 -> n13[color="brown",fontcolor="black",label="seller"]
+n2 -> n29[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n11[color="brown",fontcolor="black",label="publisher"]
+n2 -> n28[color="brown",fontcolor="black",label="source"]
+n9 -> n28[color="brown",fontcolor="black",label="source"]
+n9 -> n29[color="brown",fontcolor="black",label="dateRecorded"]
+n24 -> n29[color="brown",fontcolor="black",label="dateRecorded"]
 n2 -> n9[color="brown",fontcolor="black",label="vendor"]
-n19 -> n24[color="brown",fontcolor="black",label="dateRecorded"]
-n2 -> n27[color="brown",fontcolor="black",label="source"]
-n2 -> n16[color="brown",fontcolor="black",label="fromLocation"]
-n14 -> n2[color="brown",fontcolor="black",label="hasExploit"]
-n2 -> n14[color="brown",fontcolor="black",label="exploitsVulnerability"]
-n2 -> n12[color="brown",fontcolor="black",label="seller"]
-n16 -> n24[color="brown",fontcolor="black",label="dateRecorded"]
-n2 -> n24[color="brown",fontcolor="black",label="dateRecorded"]
-n9 -> n27[color="brown",fontcolor="black",label="source"]
-n16 -> n27[color="brown",fontcolor="black",label="source"]
-n19 -> n27[color="brown",fontcolor="black",label="source"]
+n18 -> n28[color="brown",fontcolor="black",label="source"]
+n24 -> n28[color="brown",fontcolor="black",label="source"]
+n21 -> n29[color="brown",fontcolor="black",label="dateRecorded"]
 }
