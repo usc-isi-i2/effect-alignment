@@ -49,6 +49,14 @@ From column: _json_rep / date_
 return DM.iso8601date(getValue("date"))
 ```
 
+#### _cve_uri_
+From column: _json_rep / cve_id_
+``` python
+x =  getValue("cve_id")
+if len(x) > 0:
+   return "vulnerability/" + x.upper()
+```
+
 
 ## Selections
 
@@ -61,15 +69,16 @@ return DM.iso8601date(getValue("date"))
 | _availability_impact_ | `memex:cvssAvailability` | `memex:CVSS1`|
 | _cdr_id_ | `uri` | `memex:Vulnerability1`|
 | _confidentiality_impact_ | `memex:cvssConfidentiality` | `memex:CVSS1`|
+| _cve_uri_ | `uri` | `memex:Vulnerability2`|
 | _cvss_scoring_ | `uri` | `memex:CVSS1`|
-| _dateRecorded_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:CVSS1`|
+| _dateRecorded_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _date_iso_ | `schema:startDate` | `memex:Vulnerability1`|
 | _integrity_impact_ | `memex:cvssIntegrity` | `memex:CVSS1`|
 | _link_ | `schema:url` | `memex:Vulnerability1`|
 | _software_uri_ | `uri` | `memex:SoftwareSystem1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:CVSS1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _title_ | `schema:title` | `memex:Vulnerability1`|
-| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `memex:CVSS1`|
+| _uri_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _values_ | `schema:name` | `memex:SoftwareSystem1`|
 | _values_ | `schema:seller` | `memex:SoftwareSystem1`|
 | _values_ | `schema:sourcedFrom` | `memex:Vulnerability1`|
@@ -82,3 +91,4 @@ return DM.iso8601date(getValue("date"))
 |  --- | -------- | ---|
 | `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
 | `memex:Vulnerability1` | `memex:vulnerabilityOf` | `memex:SoftwareSystem1`|
+| `memex:Vulnerability1` | `schema:sameAs` | `memex:Vulnerability2`|
