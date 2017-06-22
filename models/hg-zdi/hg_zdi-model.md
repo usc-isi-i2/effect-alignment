@@ -69,7 +69,7 @@ if len(x) > 0:
 | _availability_impact_ | `memex:cvssAvailability` | `memex:CVSS1`|
 | _cdr_id_ | `uri` | `memex:Vulnerability1`|
 | _confidentiality_impact_ | `memex:cvssConfidentiality` | `memex:CVSS1`|
-| _cve_uri_ | `uri` | `memex:Vulnerability2`|
+| _cve_id_ | `schema:alternateName` | `memex:Vulnerability1`|
 | _cvss_scoring_ | `uri` | `memex:CVSS1`|
 | _dateRecorded_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Vulnerability1`|
 | _date_iso_ | `schema:startDate` | `memex:Vulnerability1`|
@@ -91,4 +91,3 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:Vulnerability1` | `memex:hasCVSS` | `memex:CVSS1`|
 | `memex:Vulnerability1` | `memex:vulnerabilityOf` | `memex:SoftwareSystem1`|
-| `memex:Vulnerability1` | `schema:sameAs` | `memex:Vulnerability2`|
