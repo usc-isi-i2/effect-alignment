@@ -93,9 +93,9 @@ if len(x) > 0:
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place2`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place2`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
@@ -109,8 +109,11 @@ if len(x) > 0:
 | _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place2`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
 | _toPlace_uri_ | `uri` | `schema:Place2`|
+| _values_ | `memex:financialTags` | `memex:Exploit1`|
+| _values_ | `memex:softwareTags` | `memex:Exploit1`|
+| _values_ | `schema:keywords` | `memex:Exploit1`|
 | _vendor_id_ | `uri` | `memex:PersonOrOrganization1`|
 
 
