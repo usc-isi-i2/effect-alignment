@@ -76,9 +76,9 @@ if len(x) > 0:
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Topic1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Post1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Post1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Topic1`|
 | _forum_id_ | `uri` | `memex:Forum1`|
 | _language_ | `schema:language` | `memex:Post1`|
 | _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
@@ -87,13 +87,13 @@ if len(x) > 0:
 | _postContent_ | `schema:text` | `memex:Post1`|
 | _post_date_iso_ | `schema:datePublished` | `memex:Post1`|
 | _post_id_ | `uri` | `memex:Post1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Topic1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Post1`|
 | _topic_id_ | `uri` | `memex:Topic1`|
 | _topicsName_ | `schema:name` | `memex:Topic1`|
 | _user_id_ | `uri` | `memex:PersonOrOrganization1`|
+| _values_ | `memex:financialTags` | `memex:Post1`|
 | _values_ | `memex:softwareTags` | `memex:Post1`|
 | _values_ | `schema:keywords` | `memex:Post1`|
-| _values_ | `memex:financialTags` | `memex:Post1`|
 
 
 ## Links
