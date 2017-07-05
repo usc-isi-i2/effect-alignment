@@ -70,6 +70,15 @@ if len(x) > 0:
    return "securityUpdate/" + x.upper()
 ```
 
+#### _recordedDateTimeISO_
+From column: _json_rep / recordedTime_
+``` python
+rt = getValue("recordedDate") + "T" + getValue("recordedTime")
+if len(rt) > 0:
+   return DM.iso8601date(rt)
+return ''
+```
+
 
 ## Selections
 
@@ -85,8 +94,8 @@ if len(x) > 0:
 | _originalContent_ | `schema:translationOfWork` | `memex:Post1`|
 | _person_id_ | `uri` | `memex:LoginCredentials1`|
 | _postContent_ | `schema:text` | `memex:Post1`|
-| _post_date_iso_ | `schema:datePublished` | `memex:Post1`|
 | _post_id_ | `uri` | `memex:Post1`|
+| _recordedDateTimeISO_ | `schema:datePublished` | `memex:Post1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Post1`|
 | _topic_id_ | `uri` | `memex:Topic1`|
 | _topicsName_ | `schema:name` | `memex:Topic1`|
@@ -101,9 +110,9 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:Forum1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
-| `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
-| `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
+| `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Topic1` | `memex:hasPost` | `memex:Post1`|
 | `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
