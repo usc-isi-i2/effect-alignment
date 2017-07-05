@@ -87,6 +87,15 @@ if len(x) > 0:
    return "securityUpdate/" + x.upper()
 ```
 
+#### _recordedDateTimeISO_
+From column: _json_rep / recordedTime_
+``` python
+rt = getValue("recordedDate") + "T" + getValue("recordedTime")
+if len(rt) > 0:
+   return DM.iso8601date(rt)
+return ''
+```
+
 
 ## Selections
 
@@ -106,8 +115,8 @@ if len(x) > 0:
 | _item_id_ | `uri` | `memex:Exploit1`|
 | _marketplace_id_ | `uri` | `memex:PersonOrOrganization2`|
 | _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
-| _posted_date_iso_ | `schema:datePosted` | `memex:Exploit1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
+| _recordedDateTimeISO_ | `schema:datePosted` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
 | _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
 | _toPlace_uri_ | `uri` | `schema:Place2`|
