@@ -1,0 +1,901 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix memex: <http://schema.dig.isi.edu/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1blbnlbhmx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "cerber-domains-for-karma.jl" ;
+	km-dev:modelPublicationTime "1500411244086"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"domain\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"date\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"source_name\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"malware_url_hash\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"malware_url\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"date_iso\"}]]" ;
+	km-dev:hasModelLabel "cerber-domains" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"date\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"date_iso\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"date\\\")\\nreturn DM.iso8601date(x)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"date\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"timestamp\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"timestamp_iso\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return DM.iso8601date(getValue(\\\"timestamp\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"domain\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"malware_url\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"domain\\\").strip()\\nif len(x) > 0:\\n  return \\\"http://\\\" + x\\nreturn ''\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"domain\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"malware_url\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"malware_url_hash\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"malware_url\\\")\\nif len(x) > 0:\\n  return  \\\"malware/\\\" + SM.md5_hash(x)\\n\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url_hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
+                    \"graphLabel\": \"cerber-domains\",
+                    \"hasBaseURI\": false
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"_id\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/source\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": true,
+                    \"DomainLabel\": \"memex:Malware1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/publisher\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": true,
+                    \"DomainLabel\": \"memex:Malware1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"timestamp_iso\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": true,
+                    \"DomainLabel\": \"memex:Malware1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"date_iso\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.dig.isi.edu/ontology/observedDate\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Malware1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"date_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"malware_url\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/url\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Malware1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"malware_url_hash\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Malware\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:Malware1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url_hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"malware_url_hash\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"label\",
+                \"value\": \"memex:Malware1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"uri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Malware\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"id\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"value\": \"Cerber\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"value\": \"xsd:string\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLiteralNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://www.w3.org/2001/XMLSchema#string\",
+                    \"edgeId\": \"http://schema.org/name\",
+                    \"edgeTargetId\": \"Cerber1\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Malware1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Malware\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e a rr:TriplesMap .
+
+_:node1blbnlbhmx1 km-dev:hasTriplesMap km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx2 rr:tableName "cerber-domains-for-karma.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasLogicalTable _:node1blbnlbhmx2 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:logicalTable _:node1blbnlbhmx2 ;
+	rr:subjectMap _:node1blbnlbhmx3 .
+
+_:node1blbnlbhmx1 km-dev:hasSubjectMap _:node1blbnlbhmx3 .
+
+_:node1blbnlbhmx3 km-dev:isPartOfMapping _:node1blbnlbhmx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Malware1" ;
+	rr:class memex:Malware ;
+	rr:template "{[\"json_rep\",\"malware_url_hash\"]}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_a3b37807-693a-49d3-b258-fecd6c8c5058 rr:predicate memex:dateRecorded .
+
+_:node1blbnlbhmx4 rr:column "timestamp_iso" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx4 .
+
+km-dev:PredicateObjectMap_a3b37807-693a-49d3-b258-fecd6c8c5058 rr:objectMap _:node1blbnlbhmx4 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_a3b37807-693a-49d3-b258-fecd6c8c5058 .
+
+km-dev:PredicateObjectMap_a3b37807-693a-49d3-b258-fecd6c8c5058 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a3b37807-693a-49d3-b258-fecd6c8c5058 .
+
+km-dev:PredicateObjectMap_d1e81794-250e-4c6c-a64b-ab5093c4fd7b rr:predicate memex:observedDate .
+
+_:node1blbnlbhmx5 rr:column "[\"json_rep\",\"date_iso\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx5 .
+
+km-dev:PredicateObjectMap_d1e81794-250e-4c6c-a64b-ab5093c4fd7b rr:objectMap _:node1blbnlbhmx5 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_d1e81794-250e-4c6c-a64b-ab5093c4fd7b .
+
+km-dev:PredicateObjectMap_d1e81794-250e-4c6c-a64b-ab5093c4fd7b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d1e81794-250e-4c6c-a64b-ab5093c4fd7b .
+
+km-dev:PredicateObjectMap_f05f68d7-f8f6-4fa5-9830-57d8104d6ae2 rr:predicate schema:name .
+
+_:node1blbnlbhmx6 rr:constant "Cerber" ;
+	rr:datatype "http://www.w3.org/2001/XMLSchema#string" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx6 .
+
+km-dev:PredicateObjectMap_f05f68d7-f8f6-4fa5-9830-57d8104d6ae2 rr:objectMap _:node1blbnlbhmx6 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_f05f68d7-f8f6-4fa5-9830-57d8104d6ae2 .
+
+km-dev:PredicateObjectMap_f05f68d7-f8f6-4fa5-9830-57d8104d6ae2 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f05f68d7-f8f6-4fa5-9830-57d8104d6ae2 .
+
+km-dev:PredicateObjectMap_d0e54368-1d1a-461d-a67f-2598d01f3ade rr:predicate schema:publisher .
+
+_:node1blbnlbhmx7 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx7 .
+
+km-dev:PredicateObjectMap_d0e54368-1d1a-461d-a67f-2598d01f3ade rr:objectMap _:node1blbnlbhmx7 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_d0e54368-1d1a-461d-a67f-2598d01f3ade .
+
+km-dev:PredicateObjectMap_d0e54368-1d1a-461d-a67f-2598d01f3ade a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d0e54368-1d1a-461d-a67f-2598d01f3ade .
+
+km-dev:PredicateObjectMap_9978843f-7423-494e-afef-ef15ca634fcc rr:predicate schema:source .
+
+_:node1blbnlbhmx8 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx8 .
+
+km-dev:PredicateObjectMap_9978843f-7423-494e-afef-ef15ca634fcc rr:objectMap _:node1blbnlbhmx8 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_9978843f-7423-494e-afef-ef15ca634fcc .
+
+km-dev:PredicateObjectMap_9978843f-7423-494e-afef-ef15ca634fcc a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9978843f-7423-494e-afef-ef15ca634fcc .
+
+km-dev:PredicateObjectMap_ccc12871-39d9-4fb9-8615-faef95068ff0 rr:predicate schema:url .
+
+_:node1blbnlbhmx9 rr:column "[\"json_rep\",\"malware_url\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasObjectMap _:node1blbnlbhmx9 .
+
+km-dev:PredicateObjectMap_ccc12871-39d9-4fb9-8615-faef95068ff0 rr:objectMap _:node1blbnlbhmx9 .
+
+km-dev:TriplesMap_a4f75b97-974e-4650-92bc-7f8f178a3e3e rr:predicateObjectMap km-dev:PredicateObjectMap_ccc12871-39d9-4fb9-8615-faef95068ff0 .
+
+km-dev:PredicateObjectMap_ccc12871-39d9-4fb9-8615-faef95068ff0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1blbnlbhmx1 .
+
+_:node1blbnlbhmx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ccc12871-39d9-4fb9-8615-faef95068ff0 .
