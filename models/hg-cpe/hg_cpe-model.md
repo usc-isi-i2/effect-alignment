@@ -47,22 +47,29 @@ if x == "*":
 return x
 ```
 
+#### _modification_date_iso_
+From column: _json_rep / modification_date_
+``` python
+return DM.iso8601date(getValue("modification_date"))
+```
+
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source` | `memex:SoftwareSystem1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
 | _item_name_ | `uri` | `memex:SoftwareSystem1`|
 | _language_ | `schema:language` | `memex:SoftwareSystem1`|
+| _modification_date_iso_ | `schema:dateModified` | `memex:SoftwareSystem1`|
 | _product_ | `schema:name` | `memex:SoftwareSystem1`|
-| _source_name_ | `schema:publisher` | `memex:SoftwareSystem1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
 | _target_hardware_clean_ | `schema:name` | `memex:ComputerHardware1`|
 | _target_hardware_id_ | `uri` | `memex:ComputerHardware1`|
 | _target_software_clean_ | `schema:name` | `memex:SoftwareSystem2`|
 | _target_software_id_ | `uri` | `memex:SoftwareSystem2`|
-| _timestamp_iso_ | `memex:dateRecorded` | `memex:SoftwareSystem1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
 | _title_ | `schema:title` | `memex:SoftwareSystem1`|
 | _vendor_ | `schema:vendor` | `memex:SoftwareSystem1`|
 | _version_ | `schema:version` | `memex:SoftwareSystem1`|
