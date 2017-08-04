@@ -11,15 +11,6 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"), "%Y-%m-%d %H:%M:%S.%f")
 ```
 
-#### _target_hardware_id_
-From column: _json_rep / cpe / target_hardware_
-``` python
-x = getValue("target_hardware_clean")
-if len(x) > 0:
-   return "computerhardware/" + x
-return ''
-```
-
 #### _target_hardware_clean_
 From column: _json_rep / cpe / target_hardware_
 ``` python
@@ -27,6 +18,15 @@ x = getValue("target_harware")
 if x == "*":
     return ''
 return x
+```
+
+#### _target_hardware_id_
+From column: _json_rep / cpe / target_hardware_
+``` python
+x = getValue("target_hardware_clean")
+if len(x) > 0:
+   return "computerHardware/" + x
+return ''
 ```
 
 #### _target_software_clean_
