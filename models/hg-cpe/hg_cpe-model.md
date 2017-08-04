@@ -20,15 +20,6 @@ if len(x) > 0:
 return ''
 ```
 
-#### _target_software_id_
-From column: _json_rep / cpe / target_software_
-``` python
-x = getValue("target_software_clean")
-if len(x) > 0:
-   return "softwareSystem/" + x
-return ''
-```
-
 #### _target_hardware_clean_
 From column: _json_rep / cpe / target_hardware_
 ``` python
@@ -47,6 +38,15 @@ if x == "*":
 return x
 ```
 
+#### _target_software_id_
+From column: _json_rep / cpe / target_software_
+``` python
+x = getValue("target_software_clean")
+if len(x) > 0:
+   return "softwareSystem/" + x
+return ''
+```
+
 #### _modification_date_iso_
 From column: _json_rep / modification_date_
 ``` python
@@ -60,6 +60,7 @@ return DM.iso8601date(getValue("modification_date"))
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
+| _cpe_23_name_ | `schema:productID` | `memex:SoftwareSystem1`|
 | _item_name_ | `uri` | `memex:SoftwareSystem1`|
 | _language_ | `schema:language` | `memex:SoftwareSystem1`|
 | _modification_date_iso_ | `schema:dateModified` | `memex:SoftwareSystem1`|
