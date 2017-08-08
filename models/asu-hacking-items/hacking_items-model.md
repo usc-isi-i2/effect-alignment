@@ -10,22 +10,27 @@ Literal Type: ``
 
 
 ## PyTransforms
-#### _item_id_
-From column: _json_rep / itemId_
+#### _marketplace_id_
+From column: _json_rep / marketplaceId_
 ``` python
-return "item/"+getValue("itemId")
+x = getValue("marketplaceId")
+if len(x) > 0:
+  return "marketplace/"+ x
+x = getValue("marketPlaceId")
+if len(x) > 0:
+   return "marketplace/"+ x
 ```
 
 #### _vendor_id_
 From column: _json_rep / uid_
 ``` python
-return "vendor_id/"+getValue("uid")
+return getValue("marketplace_id") + "/vendor_id/"+getValue("uid")
 ```
 
-#### _marketplace_id_
-From column: _json_rep / marketplaceId_
+#### _item_id_
+From column: _json_rep / itemId_
 ``` python
-return "marketplace/"+getValue("marketplaceId")
+return getValue("marketplace_id") + "/exploit/"+getValue("itemId")
 ```
 
 #### _posted_date_iso_
