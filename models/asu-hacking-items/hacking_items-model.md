@@ -19,7 +19,12 @@ return "vendor_id/"+getValue("uid")
 #### _marketplace_id_
 From column: _json_rep / marketplaceId_
 ``` python
-return "marketplace/"+getValue("marketplaceId")
+x = getValue("marketplaceId")
+if len(x) > 0:
+  return "marketplace/"+ x
+x = getValue("marketPlaceId")
+if len(x) > 0:
+   return "marketplace/"+ x
 ```
 
 #### _item_id_
