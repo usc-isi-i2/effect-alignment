@@ -71,19 +71,19 @@ if len(cpe) > 0:
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:SoftwareSystem1`|
 | _cpe_23_name_ | `schema:productID` | `memex:SoftwareSystem1`|
 | _cpe_prefix_ | `uri` | `memex:SoftwareSystemClass1`|
 | _item_name_ | `uri` | `memex:SoftwareSystem1`|
 | _language_ | `schema:language` | `memex:SoftwareSystem1`|
 | _modification_date_iso_ | `schema:dateModified` | `memex:SoftwareSystem1`|
 | _product_ | `schema:name` | `memex:SoftwareSystem1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:SoftwareSystem1`|
 | _target_hardware_clean_ | `schema:name` | `memex:ComputerHardware1`|
 | _target_hardware_id_ | `uri` | `memex:ComputerHardware1`|
 | _target_software_clean_ | `schema:name` | `memex:SoftwareSystem2`|
 | _target_software_id_ | `uri` | `memex:SoftwareSystem2`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:ComputerHardware1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:SoftwareSystem1`|
 | _title_ | `schema:title` | `memex:SoftwareSystem1`|
 | _vendor_ | `schema:vendor` | `memex:SoftwareSystem1`|
 | _version_ | `schema:version` | `memex:SoftwareSystem1`|
