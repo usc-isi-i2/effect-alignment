@@ -51,16 +51,16 @@ return getValue("company_uri") + UM.uri_from_fields("/extraction/", getValue("va
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `schema:Organization1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _company_ | `schema:name` | `schema:Organization1`|
 | _company_uri_ | `uri` | `schema:Organization1`|
 | _cpe_prefix_uri_ | `uri` | `memex:SoftwareSystemClass1`|
 | _mentions_uri_ | `uri` | `memex:Extraction1`|
-| _prefix_name_ | `schema:name` | `memex:SoftwareSystemClass1`|
 | _prefix_name_ | `memex:hasType` | `memex:Extraction1`|
+| _prefix_name_ | `schema:name` | `memex:SoftwareSystemClass1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _source_name_ | `memex:extractor` | `memex:Extraction1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:SoftwareSystemClass1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Organization1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _values_lower_ | `schema:text` | `memex:Extraction1`|
 
 
@@ -68,5 +68,5 @@ return getValue("company_uri") + UM.uri_from_fields("/extraction/", getValue("va
 | From | Property | To |
 |  --- | -------- | ---|
 | `memex:SoftwareSystemClass1` | `memex:softwareIsUsedIn` | `schema:Organization1`|
-| `schema:Organization1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:Organization1` | `memex:usesSoftware` | `memex:SoftwareSystemClass1`|
+| `schema:Organization1` | `memex:hasExtraction` | `memex:Extraction1`|
