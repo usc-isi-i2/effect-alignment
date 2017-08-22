@@ -213,12 +213,52 @@
             }
           }
         },
+        "attackOnSoftwareCluster": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
         "dateRecorded": {
           "format": "dateOptionalTime",
           "type": "date"
         },
         "description": {
           "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "endDate": {
+          "format": "dateOptionalTime",
+          "type": "date"
         },
         "hasType": {
           "index": "not_analyzed",
@@ -353,6 +393,9 @@
             }
           },
           "type": "string"
+        },
+        "probabilityOfOccurance": {
+          "type": "double"
         },
         "publisher": {
           "index": "not_analyzed",
@@ -1612,81 +1655,12 @@
                   "type": "string"
                 },
                 "dateModified": {
-                  "type": "string"
+                  "format": "dateOptionalTime",
+                  "type": "date"
                 },
                 "dateRecorded": {
                   "format": "dateOptionalTime",
                   "type": "date"
-                },
-                "hasVulnerability": {
-                  "properties": {
-                    "a": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "alternateName": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "dateRecorded": {
-                      "format": "dateOptionalTime",
-                      "type": "date"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "publisher": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "source": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "sourcedFrom": {
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "format": "dateOptionalTime",
-                      "type": "date"
-                    },
-                    "title": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "uri": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "url": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    }
-                  }
                 },
                 "language": {
                   "type": "string"
@@ -2224,7 +2198,7 @@
                   "type": "string"
                 },
                 "cvssScore": {
-                  "type": "string"
+                  "type": "double"
                 },
                 "datePublished": {
                   "format": "dateOptionalTime",
@@ -3083,7 +3057,7 @@
               "type": "string"
             },
             "cvssScore": {
-              "type": "string"
+              "type": "double"
             },
             "datePublished": {
               "format": "dateOptionalTime",
