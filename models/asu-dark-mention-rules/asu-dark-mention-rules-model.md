@@ -21,18 +21,6 @@ From column: _json_rep / dateRuleUpdated_
 return DM.iso8601date(getValue("dateRuleUpdated"), "%Y-%m-%d %H:%M:%S.%f")
 ```
 
-#### _rule_end_date_
-From column: _json_rep / timeLagDays_
-``` python
-x = getValue("dateRuleUpdated_iso")
-startDate = datetime.strptime(x, "%Y-%m-%dT%H:%M:%S")
-lag = getValue("timeLagDays")
-delta = timedelta(days=int(lag))
-endDate = startDate + delta
-return endDate.isoformat()
-return default_time
-```
-
 #### _targetSystem_uri_
 From column: _json_rep / targetSystem_
 ``` python
@@ -55,23 +43,29 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
+#### _attack_uri_
+From column: _json_rep / targetSystem_uri_
+``` python
+return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays")
+```
+
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
+| _attack_uri_ | `uri` | `memex:AttackEvent1`|
 | _cpe_cluster_uri_ | `uri` | `memex:SoftwareSystemCluster1`|
-| _dateRuleUpdated_iso_ | `schema:startDate` | `memex:AttackEvent1`|
+| _dateRuleUpdated_iso_ | `schema:dateCreated` | `memex:AttackEvent1`|
 | _eventType_ | `memex:hasType` | `memex:AttackEvent1`|
 | _probability_ | `memex:probabilityOfOccurance` | `memex:AttackEvent1`|
-| _rule_end_date_ | `schema:endDate` | `memex:AttackEvent1`|
 | _source_name_ | `schema:publisher` | `memex:AttackEvent1`|
 | _targetSystem_ | `schema:name` | `memex:PersonOrOrganization1`|
 | _targetSystem_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _timeLagDays_iso_ | `schema:duration` | `memex:AttackEvent1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 
 
 ## Links
