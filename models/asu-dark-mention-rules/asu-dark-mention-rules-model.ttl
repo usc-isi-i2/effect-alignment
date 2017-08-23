@@ -14,13 +14,14 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1bo60fur4x1 a km-dev:R2RMLMapping ;
+_:node1bo6cjlnox1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "dark-mention-rules-cdr.jl" ;
-	km-dev:modelPublicationTime "1503440403300"^^xsd:long ;
+	km-dev:modelPublicationTime "1503453107960"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
-	km-dev:hasInputColumns "[[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"dateRuleUpdated\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"timeLagDays\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"eventType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cpeGroup\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"probability\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"timestamp\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"timeLagDays_iso\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"eventType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"rule_end_date\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cpe_cluster_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"probability\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"dateRuleUpdated_iso\"}]]" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"eventType\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"timeLagDays\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"dateRuleUpdated\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"probability\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cpeGroup\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"eventType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"cpe_cluster_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"targetSystem_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"dateRuleUpdated_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"attack_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"probability\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"timeLagDays_iso\"}],[{\"columnName\":\"_id\"}]]" ;
 	km-dev:hasModelLabel "asu-dark-mention-rules" ;
+	km-dev:hasBaseURI "http://localhost:8080/source/" ;
 	km-dev:hasWorksheetHistory """[
     {
         \"tags\": [\"Transformation\"],
@@ -127,61 +128,6 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"outputColumns\",
                 \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"dateRuleUpdated_iso\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            }
-        ],
-        \"commandName\": \"SubmitPythonTransformationCommand\"
-    },
-    {
-        \"tags\": [\"Transformation\"],
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"hNodeId\",
-                \"value\": [
-                    {\"columnName\": \"json_rep\"},
-                    {\"columnName\": \"timeLagDays\"}
-                ],
-                \"type\": \"hNodeId\"
-            },
-            {
-                \"name\": \"worksheetId\",
-                \"value\": \"W\",
-                \"type\": \"worksheetId\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"value\": \"DEFAULT_TEST\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"newColumnName\",
-                \"value\": \"rule_end_date\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"transformationCode\",
-                \"value\": \"x = getValue(\\\"dateRuleUpdated_iso\\\")\\nstartDate = datetime.strptime(x, \\\"%Y-%m-%dT%H:%M:%S\\\")\\nlag = getValue(\\\"timeLagDays\\\")\\ndelta = timedelta(days=int(lag))\\nendDate = startDate + delta\\nreturn endDate.isoformat()\\nreturn default_time\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"errorDefaultValue\",
-                \"value\": \"\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"isJSONOutput\",
-                \"value\": \"false\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"timeLagDays\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"dateRuleUpdated_iso\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"rule_end_date\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             }
         ],
@@ -391,6 +337,61 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
         \"model\": \"new\",
         \"inputParameters\": [
             {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"targetSystem_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"attack_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"attack/\\\" + getValue(\\\"targetSystem\\\").lower() + \\\"/type/\\\" + getValue(\\\"eventType\\\") + \\\"/\\\" + getValue(\\\"cpe_cluster_uri\\\") + \\\"/lag/\\\" + getValue(\\\"timeLagDays\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"eventType\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"timeLagDays\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cpe_cluster_uri\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"targetSystem\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"attack_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
                 \"name\": \"worksheetId\",
                 \"value\": \"W\",
                 \"type\": \"worksheetId\"
@@ -406,8 +407,8 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
                     \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
                     \"graphLabel\": \"\",
-                    \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-dark-mention-rules\",
                     \"hasGithubURL\": true,
+                    \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/asu-dark-mention-rules\",
                     \"hasBaseURI\": false,
                     \"baseURI\": \"\"
                 },
@@ -590,7 +591,7 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/startDate\",
+                    \"FullType\": \"http://schema.org/dateCreated\",
                     \"isPrimary\": true,
                     \"isProvenance\": false,
                     \"DomainLabel\": \"memex:AttackEvent1\",
@@ -622,68 +623,6 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"outputColumns\",
                 \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"dateRuleUpdated_iso\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            }
-        ],
-        \"commandName\": \"SetSemanticTypeCommand\"
-    },
-    {
-        \"tags\": [\"SemanticType\"],
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"hNodeId\",
-                \"value\": [
-                    {\"columnName\": \"json_rep\"},
-                    {\"columnName\": \"rule_end_date\"}
-                ],
-                \"type\": \"hNodeId\"
-            },
-            {
-                \"name\": \"worksheetId\",
-                \"value\": \"W\",
-                \"type\": \"worksheetId\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"value\": \"DEFAULT_TEST\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"SemanticTypesArray\",
-                \"value\": [{
-                    \"FullType\": \"http://schema.org/endDate\",
-                    \"isPrimary\": true,
-                    \"isProvenance\": false,
-                    \"DomainLabel\": \"memex:AttackEvent1\",
-                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
-                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
-                }],
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"trainAndShowUpdates\",
-                \"value\": true,
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"rdfLiteralType\",
-                \"value\": \"\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"language\",
-                \"value\": \"\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"rule_end_date\\\"}]}]\",
-                \"type\": \"hNodeIdList\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"rule_end_date\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             }
         ],
@@ -1052,12 +991,12 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:AttackEvent1\",
-                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
-                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
                     },
                     {
                         \"isProvenance\": true,
@@ -1068,12 +1007,12 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SoftwareSystemCluster\"
                     },
                     {
-                        \"FullType\": \"http://schema.org/source\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
                         \"DomainLabel\": \"memex:AttackEvent1\",
-                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
-                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     }
                 ],
                 \"type\": \"other\"
@@ -1188,12 +1127,12 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:AttackEvent1\",
-                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
-                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
                     },
                     {
                         \"isProvenance\": true,
@@ -1204,12 +1143,12 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SoftwareSystemCluster\"
                     },
                     {
-                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
                         \"DomainLabel\": \"memex:AttackEvent1\",
-                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
-                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     }
                 ],
                 \"type\": \"other\"
@@ -1241,6 +1180,83 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
             }
         ],
         \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"attack_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/AttackEvent\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:AttackEvent1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/AttackEvent1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/AttackEvent\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"attack_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"attack_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
     },
     {
         \"tags\": [\"Modeling\"],
@@ -1310,293 +1326,275 @@ _:node1bo60fur4x1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 a rr:TriplesMap .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 a rr:TriplesMap .
 
-_:node1bo60fur4x1 km-dev:hasTriplesMap km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 .
+_:node1bo6cjlnox1 km-dev:hasTriplesMap km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x2 rr:tableName "dark-mention-rules-cdr.jl" ;
+_:node1bo6cjlnox2 rr:tableName "dark-mention-rules-cdr.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasLogicalTable _:node1bo60fur4x2 .
+_:node1bo6cjlnox1 km-dev:hasLogicalTable _:node1bo6cjlnox2 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:logicalTable _:node1bo60fur4x2 ;
-	rr:subjectMap _:node1bo60fur4x3 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:logicalTable _:node1bo6cjlnox2 ;
+	rr:subjectMap _:node1bo6cjlnox3 .
 
-_:node1bo60fur4x1 km-dev:hasSubjectMap _:node1bo60fur4x3 .
+_:node1bo6cjlnox1 km-dev:hasSubjectMap _:node1bo6cjlnox3 .
 
-_:node1bo60fur4x3 km-dev:isPartOfMapping _:node1bo60fur4x1 ;
+_:node1bo6cjlnox3 km-dev:isPartOfMapping _:node1bo6cjlnox1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/AttackEvent1" ;
 	rr:class memex:AttackEvent ;
-	rr:termType rr:BlankNode ;
-	km-dev:namePrefix "memex:AttackEvent1" ;
+	rr:template "{[\"json_rep\",\"attack_uri\"]}" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_be72121a-3ab8-4ed3-8b1a-60ecb4095d23 rr:predicate memex:affected .
+km-dev:PredicateObjectMap_811dbebb-ee3c-4945-96a8-236e41a050b8 rr:predicate memex:affected .
 
-km-dev:RefObjectMap_ee457769-e50f-41a2-8586-da038afb4d26 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:RefObjectMap_965d3869-acaf-4b7c-bb40-8ac9d5a0e590 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap km-dev:RefObjectMap_ee457769-e50f-41a2-8586-da038afb4d26 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap km-dev:RefObjectMap_965d3869-acaf-4b7c-bb40-8ac9d5a0e590 .
 
-km-dev:PredicateObjectMap_be72121a-3ab8-4ed3-8b1a-60ecb4095d23 rr:objectMap km-dev:RefObjectMap_ee457769-e50f-41a2-8586-da038afb4d26 .
+km-dev:PredicateObjectMap_811dbebb-ee3c-4945-96a8-236e41a050b8 rr:objectMap km-dev:RefObjectMap_965d3869-acaf-4b7c-bb40-8ac9d5a0e590 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_be72121a-3ab8-4ed3-8b1a-60ecb4095d23 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_811dbebb-ee3c-4945-96a8-236e41a050b8 .
 
-km-dev:PredicateObjectMap_be72121a-3ab8-4ed3-8b1a-60ecb4095d23 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_811dbebb-ee3c-4945-96a8-236e41a050b8 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_be72121a-3ab8-4ed3-8b1a-60ecb4095d23 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_811dbebb-ee3c-4945-96a8-236e41a050b8 .
 
-km-dev:PredicateObjectMap_b34857c2-d54c-44bd-aa3f-653ac09caa66 rr:predicate memex:attackOnSoftwareCluster .
+km-dev:PredicateObjectMap_3de24fdc-31d7-40df-8f46-c0c9c647b8bb rr:predicate memex:attackOnSoftwareCluster .
 
-km-dev:RefObjectMap_f5d9e05c-99e2-404a-ae75-429f96a8007a a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_23272962-abbf-4a39-810e-09aaa4203208 ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:RefObjectMap_309706ec-6757-48e3-9eb6-3f50673f39c7 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_5b9d62b9-addb-4a0c-a3b0-e297b389027e ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap km-dev:RefObjectMap_f5d9e05c-99e2-404a-ae75-429f96a8007a .
+_:node1bo6cjlnox1 km-dev:hasObjectMap km-dev:RefObjectMap_309706ec-6757-48e3-9eb6-3f50673f39c7 .
 
-km-dev:PredicateObjectMap_b34857c2-d54c-44bd-aa3f-653ac09caa66 rr:objectMap km-dev:RefObjectMap_f5d9e05c-99e2-404a-ae75-429f96a8007a .
+km-dev:PredicateObjectMap_3de24fdc-31d7-40df-8f46-c0c9c647b8bb rr:objectMap km-dev:RefObjectMap_309706ec-6757-48e3-9eb6-3f50673f39c7 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_b34857c2-d54c-44bd-aa3f-653ac09caa66 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_3de24fdc-31d7-40df-8f46-c0c9c647b8bb .
 
-km-dev:PredicateObjectMap_b34857c2-d54c-44bd-aa3f-653ac09caa66 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_3de24fdc-31d7-40df-8f46-c0c9c647b8bb a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b34857c2-d54c-44bd-aa3f-653ac09caa66 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3de24fdc-31d7-40df-8f46-c0c9c647b8bb .
 
-km-dev:PredicateObjectMap_eef56e4e-4749-4349-b7d8-ab31dda9f8dc rr:predicate memex:hasType .
+km-dev:PredicateObjectMap_b3cbeee2-719e-44e5-8ff7-65a93996a15f rr:predicate memex:dateRecorded .
 
-_:node1bo60fur4x4 rr:column "[\"json_rep\",\"eventType\"]" ;
+_:node1bo6cjlnox4 rr:column "timestamp_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x4 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox4 .
 
-km-dev:PredicateObjectMap_eef56e4e-4749-4349-b7d8-ab31dda9f8dc rr:objectMap _:node1bo60fur4x4 .
+km-dev:PredicateObjectMap_b3cbeee2-719e-44e5-8ff7-65a93996a15f rr:objectMap _:node1bo6cjlnox4 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_eef56e4e-4749-4349-b7d8-ab31dda9f8dc .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_b3cbeee2-719e-44e5-8ff7-65a93996a15f .
 
-km-dev:PredicateObjectMap_eef56e4e-4749-4349-b7d8-ab31dda9f8dc a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_b3cbeee2-719e-44e5-8ff7-65a93996a15f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_eef56e4e-4749-4349-b7d8-ab31dda9f8dc .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b3cbeee2-719e-44e5-8ff7-65a93996a15f .
 
-km-dev:PredicateObjectMap_c5081fb9-6ea6-43ab-87cc-6db68e7fceb4 rr:predicate memex:probabilityOfOccurance .
+km-dev:PredicateObjectMap_5673169f-0f27-4841-a695-cb0dc33a214c rr:predicate memex:hasType .
 
-_:node1bo60fur4x5 rr:column "[\"json_rep\",\"probability\"]" ;
+_:node1bo6cjlnox5 rr:column "[\"json_rep\",\"eventType\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x5 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox5 .
 
-km-dev:PredicateObjectMap_c5081fb9-6ea6-43ab-87cc-6db68e7fceb4 rr:objectMap _:node1bo60fur4x5 .
+km-dev:PredicateObjectMap_5673169f-0f27-4841-a695-cb0dc33a214c rr:objectMap _:node1bo6cjlnox5 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_c5081fb9-6ea6-43ab-87cc-6db68e7fceb4 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_5673169f-0f27-4841-a695-cb0dc33a214c .
 
-km-dev:PredicateObjectMap_c5081fb9-6ea6-43ab-87cc-6db68e7fceb4 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_5673169f-0f27-4841-a695-cb0dc33a214c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c5081fb9-6ea6-43ab-87cc-6db68e7fceb4 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5673169f-0f27-4841-a695-cb0dc33a214c .
 
-km-dev:PredicateObjectMap_6e5919ce-88b4-4411-a550-7fbf5625584a rr:predicate schema:duration .
+km-dev:PredicateObjectMap_85dc0112-9ff5-456e-a320-07eee670f89c rr:predicate memex:probabilityOfOccurance .
 
-_:node1bo60fur4x6 rr:column "[\"json_rep\",\"timeLagDays_iso\"]" ;
+_:node1bo6cjlnox6 rr:column "[\"json_rep\",\"probability\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x6 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox6 .
 
-km-dev:PredicateObjectMap_6e5919ce-88b4-4411-a550-7fbf5625584a rr:objectMap _:node1bo60fur4x6 .
+km-dev:PredicateObjectMap_85dc0112-9ff5-456e-a320-07eee670f89c rr:objectMap _:node1bo6cjlnox6 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_6e5919ce-88b4-4411-a550-7fbf5625584a .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_85dc0112-9ff5-456e-a320-07eee670f89c .
 
-km-dev:PredicateObjectMap_6e5919ce-88b4-4411-a550-7fbf5625584a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_85dc0112-9ff5-456e-a320-07eee670f89c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6e5919ce-88b4-4411-a550-7fbf5625584a .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_85dc0112-9ff5-456e-a320-07eee670f89c .
 
-km-dev:PredicateObjectMap_f6bd483b-fb6e-43c4-91bd-381f949da804 rr:predicate schema:endDate .
+km-dev:PredicateObjectMap_dc68bd98-a1fb-40f6-9b62-29fcc2fe2134 rr:predicate schema:dateCreated .
 
-_:node1bo60fur4x7 rr:column "[\"json_rep\",\"rule_end_date\"]" ;
+_:node1bo6cjlnox7 rr:column "[\"json_rep\",\"dateRuleUpdated_iso\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x7 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox7 .
 
-km-dev:PredicateObjectMap_f6bd483b-fb6e-43c4-91bd-381f949da804 rr:objectMap _:node1bo60fur4x7 .
+km-dev:PredicateObjectMap_dc68bd98-a1fb-40f6-9b62-29fcc2fe2134 rr:objectMap _:node1bo6cjlnox7 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_f6bd483b-fb6e-43c4-91bd-381f949da804 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_dc68bd98-a1fb-40f6-9b62-29fcc2fe2134 .
 
-km-dev:PredicateObjectMap_f6bd483b-fb6e-43c4-91bd-381f949da804 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_dc68bd98-a1fb-40f6-9b62-29fcc2fe2134 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f6bd483b-fb6e-43c4-91bd-381f949da804 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_dc68bd98-a1fb-40f6-9b62-29fcc2fe2134 .
 
-km-dev:PredicateObjectMap_f5769fdf-839e-432a-81a2-d086ec98e503 rr:predicate schema:publisher .
+km-dev:PredicateObjectMap_2adba8b8-139a-4c9a-aa64-d1d9450ae7c9 rr:predicate schema:duration .
 
-_:node1bo60fur4x8 rr:column "source_name" ;
+_:node1bo6cjlnox8 rr:column "[\"json_rep\",\"timeLagDays_iso\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x8 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox8 .
 
-km-dev:PredicateObjectMap_f5769fdf-839e-432a-81a2-d086ec98e503 rr:objectMap _:node1bo60fur4x8 .
+km-dev:PredicateObjectMap_2adba8b8-139a-4c9a-aa64-d1d9450ae7c9 rr:objectMap _:node1bo6cjlnox8 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_f5769fdf-839e-432a-81a2-d086ec98e503 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_2adba8b8-139a-4c9a-aa64-d1d9450ae7c9 .
 
-km-dev:PredicateObjectMap_f5769fdf-839e-432a-81a2-d086ec98e503 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_2adba8b8-139a-4c9a-aa64-d1d9450ae7c9 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f5769fdf-839e-432a-81a2-d086ec98e503 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2adba8b8-139a-4c9a-aa64-d1d9450ae7c9 .
 
-km-dev:PredicateObjectMap_8d1c824d-53b9-401c-9364-a22566c2fa0d rr:predicate schema:startDate .
+km-dev:PredicateObjectMap_d3c292dc-83fa-47e3-aa55-d9fcca0b2b0a rr:predicate schema:publisher .
 
-_:node1bo60fur4x9 rr:column "[\"json_rep\",\"dateRuleUpdated_iso\"]" ;
+_:node1bo6cjlnox9 rr:column "source_name" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x9 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox9 .
 
-km-dev:PredicateObjectMap_8d1c824d-53b9-401c-9364-a22566c2fa0d rr:objectMap _:node1bo60fur4x9 .
+km-dev:PredicateObjectMap_d3c292dc-83fa-47e3-aa55-d9fcca0b2b0a rr:objectMap _:node1bo6cjlnox9 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_8d1c824d-53b9-401c-9364-a22566c2fa0d .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_d3c292dc-83fa-47e3-aa55-d9fcca0b2b0a .
 
-km-dev:PredicateObjectMap_8d1c824d-53b9-401c-9364-a22566c2fa0d a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_d3c292dc-83fa-47e3-aa55-d9fcca0b2b0a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8d1c824d-53b9-401c-9364-a22566c2fa0d .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d3c292dc-83fa-47e3-aa55-d9fcca0b2b0a .
 
-km-dev:PredicateObjectMap_418b4e89-5aa7-4fd9-b988-475703869033 rr:predicate memex:dateRecorded .
+km-dev:PredicateObjectMap_d211210a-d462-43a8-a90b-5cd653e41d2a rr:predicate schema:source .
 
-_:node1bo60fur4x10 rr:column "timestamp_iso" ;
+_:node1bo6cjlnox10 rr:column "_id" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x10 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox10 .
 
-km-dev:PredicateObjectMap_418b4e89-5aa7-4fd9-b988-475703869033 rr:objectMap _:node1bo60fur4x10 .
+km-dev:PredicateObjectMap_d211210a-d462-43a8-a90b-5cd653e41d2a rr:objectMap _:node1bo6cjlnox10 .
 
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_418b4e89-5aa7-4fd9-b988-475703869033 .
+km-dev:TriplesMap_26e4662a-463c-4215-b8af-02ca024c63b6 rr:predicateObjectMap km-dev:PredicateObjectMap_d211210a-d462-43a8-a90b-5cd653e41d2a .
 
-km-dev:PredicateObjectMap_418b4e89-5aa7-4fd9-b988-475703869033 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_d211210a-d462-43a8-a90b-5cd653e41d2a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_418b4e89-5aa7-4fd9-b988-475703869033 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d211210a-d462-43a8-a90b-5cd653e41d2a .
 
-km-dev:PredicateObjectMap_5adec7df-81fb-4241-a9af-b9b0634528fa rr:predicate schema:source .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 a rr:TriplesMap .
 
-_:node1bo60fur4x11 rr:column "_id" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+_:node1bo6cjlnox1 km-dev:hasTriplesMap km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x11 .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-km-dev:PredicateObjectMap_5adec7df-81fb-4241-a9af-b9b0634528fa rr:objectMap _:node1bo60fur4x11 .
-
-km-dev:TriplesMap_2ea06ec9-405c-4130-9830-57073b539b79 rr:predicateObjectMap km-dev:PredicateObjectMap_5adec7df-81fb-4241-a9af-b9b0634528fa .
-
-km-dev:PredicateObjectMap_5adec7df-81fb-4241-a9af-b9b0634528fa a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
-
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5adec7df-81fb-4241-a9af-b9b0634528fa .
-
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 a rr:TriplesMap .
-
-_:node1bo60fur4x1 km-dev:hasTriplesMap km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 .
-
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 km-dev:isPartOfMapping _:node1bo60fur4x1 .
-
-_:node1bo60fur4x12 rr:tableName "dark-mention-rules-cdr.jl" ;
+_:node1bo6cjlnox11 rr:tableName "dark-mention-rules-cdr.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasLogicalTable _:node1bo60fur4x12 .
+_:node1bo6cjlnox1 km-dev:hasLogicalTable _:node1bo6cjlnox11 .
 
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 rr:logicalTable _:node1bo60fur4x12 ;
-	rr:subjectMap _:node1bo60fur4x13 .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 rr:logicalTable _:node1bo6cjlnox11 ;
+	rr:subjectMap _:node1bo6cjlnox12 .
 
-_:node1bo60fur4x1 km-dev:hasSubjectMap _:node1bo60fur4x13 .
+_:node1bo6cjlnox1 km-dev:hasSubjectMap _:node1bo6cjlnox12 .
 
-_:node1bo60fur4x13 km-dev:isPartOfMapping _:node1bo60fur4x1 ;
+_:node1bo6cjlnox12 km-dev:isPartOfMapping _:node1bo6cjlnox1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization1" ;
 	rr:class memex:PersonOrOrganization ;
 	rr:template "{[\"json_rep\",\"targetSystem_uri\"]}" .
 
-km-dev:PredicateObjectMap_2e61e744-8612-4c78-9eb8-ed829f386420 rr:predicate schema:name .
+km-dev:PredicateObjectMap_13a4e108-1eb2-4a1f-b742-4d35a2f302b7 rr:predicate schema:name .
 
-_:node1bo60fur4x14 rr:column "[\"json_rep\",\"targetSystem\"]" ;
+_:node1bo6cjlnox13 rr:column "[\"json_rep\",\"targetSystem\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x14 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox13 .
 
-km-dev:PredicateObjectMap_2e61e744-8612-4c78-9eb8-ed829f386420 rr:objectMap _:node1bo60fur4x14 .
+km-dev:PredicateObjectMap_13a4e108-1eb2-4a1f-b742-4d35a2f302b7 rr:objectMap _:node1bo6cjlnox13 .
 
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 rr:predicateObjectMap km-dev:PredicateObjectMap_2e61e744-8612-4c78-9eb8-ed829f386420 .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 rr:predicateObjectMap km-dev:PredicateObjectMap_13a4e108-1eb2-4a1f-b742-4d35a2f302b7 .
 
-km-dev:PredicateObjectMap_2e61e744-8612-4c78-9eb8-ed829f386420 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_13a4e108-1eb2-4a1f-b742-4d35a2f302b7 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2e61e744-8612-4c78-9eb8-ed829f386420 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_13a4e108-1eb2-4a1f-b742-4d35a2f302b7 .
 
-km-dev:PredicateObjectMap_470e21d9-51ee-4d22-aac6-b19ddae50e39 rr:predicate memex:dateRecorded .
+km-dev:PredicateObjectMap_e2bad98e-aaca-4896-803c-5f28636bf0c3 rr:predicate memex:dateRecorded .
 
-_:node1bo60fur4x15 rr:column "timestamp_iso" ;
+_:node1bo6cjlnox14 rr:column "timestamp_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x15 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox14 .
 
-km-dev:PredicateObjectMap_470e21d9-51ee-4d22-aac6-b19ddae50e39 rr:objectMap _:node1bo60fur4x15 .
+km-dev:PredicateObjectMap_e2bad98e-aaca-4896-803c-5f28636bf0c3 rr:objectMap _:node1bo6cjlnox14 .
 
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 rr:predicateObjectMap km-dev:PredicateObjectMap_470e21d9-51ee-4d22-aac6-b19ddae50e39 .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 rr:predicateObjectMap km-dev:PredicateObjectMap_e2bad98e-aaca-4896-803c-5f28636bf0c3 .
 
-km-dev:PredicateObjectMap_470e21d9-51ee-4d22-aac6-b19ddae50e39 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_e2bad98e-aaca-4896-803c-5f28636bf0c3 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_470e21d9-51ee-4d22-aac6-b19ddae50e39 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e2bad98e-aaca-4896-803c-5f28636bf0c3 .
 
-km-dev:PredicateObjectMap_1fc103f6-9a87-4e9c-b42a-10ba0a12db51 rr:predicate schema:source .
+km-dev:PredicateObjectMap_c65365f9-3141-424d-b749-50009bda6e2c rr:predicate schema:source .
 
-_:node1bo60fur4x16 rr:column "_id" ;
+_:node1bo6cjlnox15 rr:column "_id" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasObjectMap _:node1bo60fur4x16 .
+_:node1bo6cjlnox1 km-dev:hasObjectMap _:node1bo6cjlnox15 .
 
-km-dev:PredicateObjectMap_1fc103f6-9a87-4e9c-b42a-10ba0a12db51 rr:objectMap _:node1bo60fur4x16 .
+km-dev:PredicateObjectMap_c65365f9-3141-424d-b749-50009bda6e2c rr:objectMap _:node1bo6cjlnox15 .
 
-km-dev:TriplesMap_40fd812c-1bb0-457f-bede-3df4185f31c7 rr:predicateObjectMap km-dev:PredicateObjectMap_1fc103f6-9a87-4e9c-b42a-10ba0a12db51 .
+km-dev:TriplesMap_c2faccec-e218-407c-8b45-025f2bee4502 rr:predicateObjectMap km-dev:PredicateObjectMap_c65365f9-3141-424d-b749-50009bda6e2c .
 
-km-dev:PredicateObjectMap_1fc103f6-9a87-4e9c-b42a-10ba0a12db51 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:PredicateObjectMap_c65365f9-3141-424d-b749-50009bda6e2c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1fc103f6-9a87-4e9c-b42a-10ba0a12db51 .
+_:node1bo6cjlnox1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c65365f9-3141-424d-b749-50009bda6e2c .
 
-km-dev:TriplesMap_23272962-abbf-4a39-810e-09aaa4203208 a rr:TriplesMap .
+km-dev:TriplesMap_5b9d62b9-addb-4a0c-a3b0-e297b389027e a rr:TriplesMap .
 
-_:node1bo60fur4x1 km-dev:hasTriplesMap km-dev:TriplesMap_23272962-abbf-4a39-810e-09aaa4203208 .
+_:node1bo6cjlnox1 km-dev:hasTriplesMap km-dev:TriplesMap_5b9d62b9-addb-4a0c-a3b0-e297b389027e .
 
-km-dev:TriplesMap_23272962-abbf-4a39-810e-09aaa4203208 km-dev:isPartOfMapping _:node1bo60fur4x1 .
+km-dev:TriplesMap_5b9d62b9-addb-4a0c-a3b0-e297b389027e km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x17 rr:tableName "dark-mention-rules-cdr.jl" ;
+_:node1bo6cjlnox16 rr:tableName "dark-mention-rules-cdr.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1bo60fur4x1 .
+	km-dev:isPartOfMapping _:node1bo6cjlnox1 .
 
-_:node1bo60fur4x1 km-dev:hasLogicalTable _:node1bo60fur4x17 .
+_:node1bo6cjlnox1 km-dev:hasLogicalTable _:node1bo6cjlnox16 .
 
-km-dev:TriplesMap_23272962-abbf-4a39-810e-09aaa4203208 rr:logicalTable _:node1bo60fur4x17 ;
-	rr:subjectMap _:node1bo60fur4x18 .
+km-dev:TriplesMap_5b9d62b9-addb-4a0c-a3b0-e297b389027e rr:logicalTable _:node1bo6cjlnox16 ;
+	rr:subjectMap _:node1bo6cjlnox17 .
 
-_:node1bo60fur4x1 km-dev:hasSubjectMap _:node1bo60fur4x18 .
+_:node1bo6cjlnox1 km-dev:hasSubjectMap _:node1bo6cjlnox17 .
 
-_:node1bo60fur4x18 km-dev:isPartOfMapping _:node1bo60fur4x1 ;
+_:node1bo6cjlnox17 km-dev:isPartOfMapping _:node1bo6cjlnox1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/SoftwareSystemCluster1" ;
 	rr:class memex:SoftwareSystemCluster ;
