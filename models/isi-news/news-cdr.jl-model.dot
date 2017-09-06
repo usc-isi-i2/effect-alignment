@@ -1,0 +1,35 @@
+digraph n0 {
+fontcolor="blue"
+remincross="true"
+label="news-cdr.jl"
+subgraph cluster {
+label="model"
+n2[style="filled",color="white",fillcolor="lightgray",label="SecurityUpdate1"];
+n3[shape="plaintext",style="filled",fillcolor="gold",label="value"];
+n4[style="filled",color="white",fillcolor="lightgray",label="Vulnerability1"];
+n5[shape="plaintext",style="filled",fillcolor="gold",label="value"];
+n6[style="filled",color="white",fillcolor="lightgray",label="NewsArticle1"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="news_uri"];
+n8[shape="plaintext",style="filled",fillcolor="gold",label="source"];
+n9[shape="plaintext",style="filled",fillcolor="gold",label="author"];
+n10[shape="plaintext",style="filled",fillcolor="gold",label="category"];
+n11[shape="plaintext",style="filled",fillcolor="gold",label="date_published"];
+n12[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n13[shape="plaintext",style="filled",fillcolor="gold",label="readable_text"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="readable_title"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="url"];
+}
+n2 -> n3[color="brown",fontcolor="black",label="classLink"]
+n4 -> n5[color="brown",fontcolor="black",label="classLink"]
+n6 -> n7[color="brown",fontcolor="black",label="classLink"]
+n6 -> n8[color="brown",fontcolor="black",label="hostedAt"]
+n6 -> n2[color="brown",fontcolor="black",label="mentionsSecurityUpdate"]
+n6 -> n9[color="brown",fontcolor="black",label="author"]
+n6 -> n10[color="brown",fontcolor="black",label="category"]
+n6 -> n11[color="brown",fontcolor="black",label="datePublished"]
+n6 -> n4[color="brown",fontcolor="black",label="mentions"]
+n6 -> n12[color="brown",fontcolor="black",label="publisher"]
+n6 -> n13[color="brown",fontcolor="black",label="text"]
+n6 -> n14[color="brown",fontcolor="black",label="title"]
+n6 -> n15[color="brown",fontcolor="black",label="url"]
+}
