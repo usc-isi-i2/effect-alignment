@@ -1,4 +1,4 @@
-# news-cdr.jl
+# news_data-cdr.jl
 
 ## Add Column
 
@@ -58,7 +58,7 @@ return DM.iso8601date(getValue("timestamp"))
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `schema:NewsArticle1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _author_ | `schema:author` | `schema:NewsArticle1`|
 | _category_ | `schema:category` | `schema:NewsArticle1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
@@ -69,9 +69,9 @@ return DM.iso8601date(getValue("timestamp"))
 | _ms_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _news_uri_ | `uri` | `schema:NewsArticle1`|
 | _readable_text_ | `schema:text` | `schema:NewsArticle1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:NewsArticle1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _text_ | `schema:text` | `memex:Extraction1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:NewsArticle1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _title_ | `schema:title` | `schema:NewsArticle1`|
 | _url_ | `schema:url` | `schema:NewsArticle1`|
 
