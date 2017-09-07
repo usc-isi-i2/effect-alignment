@@ -69,6 +69,7 @@ return DM.iso8601date(getValue("timestamp"))
 | _ms_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _news_uri_ | `uri` | `schema:NewsArticle1`|
 | _readable_text_ | `schema:text` | `schema:NewsArticle1`|
+| _source_ | `schema:producer` | `schema:NewsArticle1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _text_ | `schema:text` | `memex:Extraction1`|
 | _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Extraction1`|
@@ -79,6 +80,6 @@ return DM.iso8601date(getValue("timestamp"))
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `schema:NewsArticle1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:NewsArticle1` | `memex:hasExtraction` | `memex:Extraction1`|
+| `schema:NewsArticle1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
