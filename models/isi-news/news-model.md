@@ -8,7 +8,7 @@
 #### _datePublished_iso_
 From column: _json_rep / date_published_
 ``` python
-return DM.iso8601date(getValue("date_published"), "%Y-%m-%dT%H:%M:%S+00:00")
+return DM.iso8601date(getValue("date_published"), "%Y-%m-%dT%H:%M:%S%Z")
 ```
 
 #### _cve_uri_
