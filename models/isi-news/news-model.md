@@ -52,6 +52,14 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
+#### _person_uri_
+From column: _json_rep / author_
+``` python
+x = UM.person_name_uri(getValue("author"))
+if len(x) > 0:
+  return "person/" + x
+```
+
 
 ## Selections
 
@@ -59,7 +67,7 @@ return DM.iso8601date(getValue("timestamp"))
 | Column | Property | Class |
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Extraction1`|
-| _author_ | `schema:author` | `schema:NewsArticle1`|
+| _author_ | `schema:name` | `memex:PersonOrOrganization1`|
 | _category_ | `schema:category` | `schema:NewsArticle1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
 | _datePublished_iso_ | `schema:datePublished` | `schema:NewsArticle1`|
@@ -68,6 +76,7 @@ return DM.iso8601date(getValue("timestamp"))
 | _label_ | `memex:hasType` | `memex:Extraction1`|
 | _ms_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _news_uri_ | `uri` | `schema:NewsArticle1`|
+| _person_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _readable_text_ | `schema:text` | `schema:NewsArticle1`|
 | _source_ | `schema:producer` | `schema:NewsArticle1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
@@ -80,6 +89,7 @@ return DM.iso8601date(getValue("timestamp"))
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:NewsArticle1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:NewsArticle1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
+| `schema:NewsArticle1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
