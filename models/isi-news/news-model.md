@@ -89,7 +89,7 @@ if len(x) > 0:
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:NewsArticle1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:NewsArticle1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:NewsArticle1` | `schema:author` | `memex:PersonOrOrganization1`|
-| `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
