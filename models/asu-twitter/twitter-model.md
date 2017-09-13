@@ -20,15 +20,15 @@ x = getValue("userName")
 if len(x) > 0:
   if x.startswith("@"):
     x = x[1:]
-    return x
+  return x
 ```
 
-#### _user_login_uri_
-From column: _json_rep / username_clean_
+#### _username_uri_
+From column: _json_rep / user_login_uri_
 ``` python
 x = getValue("username_clean")
 if len(x) > 0:
-   return "logincredentials/twitter/" + x
+   return "username/twitter/" + x
 ```
 
 #### _person_uri_
@@ -37,6 +37,14 @@ From column: _json_rep / user_login_uri_
 x = getValue("username_clean")
 if len(x) > 0:
    return "personOrOrganization/twitter/" + x
+```
+
+#### _user_login_uri_
+From column: _json_rep / username_clean_
+``` python
+x = getValue("username_clean")
+if len(x) > 0:
+   return "logincredentials/twitter/" + x
 ```
 
 #### _tags_clean_
@@ -80,14 +88,6 @@ return DM.iso8601date(getValue("recorded_time_seconds"), "%a %b %d %H:%M:%S UTC 
 From column: _timestamp_
 ``` python
 return DM.iso8601date(getValue("timestamp"))
-```
-
-#### _username_uri_
-From column: _json_rep / user_login_uri_
-``` python
-x = getValue("username_clean")
-if len(x) > 0:
-   return "username/twitter/" + x
 ```
 
 #### _tweet_uri2_
@@ -156,8 +156,8 @@ if len(x) > 0:
 |  --- | -------- | ---|
 | `memex:LoginCredentials1` | `memex:username` | `memex:UserName1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
-| `schema:SocialMediaPosting1` | `memex:hasExtraction` | `memex:Extraction1`|
-| `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
 | `schema:SocialMediaPosting1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:SocialMediaPosting1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `schema:SocialMediaPosting1` | `schema:mentions` | `memex:Vulnerability1`|
+| `schema:SocialMediaPosting1` | `memex:hasExtraction` | `memex:Extraction1`|
+| `schema:SocialMediaPosting1` | `memex:mentionsPersonOrOrganization` | `memex:PersonOrOrganization2`|
