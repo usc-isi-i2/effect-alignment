@@ -18,7 +18,10 @@ Literal Type: `xsd:string`
 From column: _json_rep / date_
 ``` python
 x = getValue("date")
-return DM.iso8601date(x)
+iso_date = DM.iso8601date(x)
+if len(iso_date) == 0:
+   iso_date = DM.iso8601date(x, "%y-%m-%d")
+return iso_date
 ```
 
 #### _timestamp_iso_
