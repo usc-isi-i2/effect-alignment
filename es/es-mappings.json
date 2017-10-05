@@ -213,12 +213,56 @@
             }
           }
         },
+        "attackOnSoftwareCluster": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "dateCreated": {
+          "format": "dateOptionalTime",
+          "type": "date"
+        },
         "dateRecorded": {
           "format": "dateOptionalTime",
           "type": "date"
         },
         "description": {
           "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "endDate": {
+          "format": "dateOptionalTime",
+          "type": "date"
         },
         "hasType": {
           "index": "not_analyzed",
@@ -354,6 +398,9 @@
           },
           "type": "string"
         },
+        "probabilityOfOccurance": {
+          "type": "double"
+        },
         "publisher": {
           "index": "not_analyzed",
           "type": "string"
@@ -390,6 +437,9 @@
         "datePublished": {
           "format": "dateOptionalTime",
           "type": "date"
+        },
+        "datePublishedConfidence": {
+          "type": "double"
         },
         "dateRecorded": {
           "format": "dateOptionalTime",
@@ -495,6 +545,9 @@
                   "type": "string"
                 }
               },
+              "type": "string"
+            },
+            "weaknessEnumeration": {
               "type": "string"
             }
           }
@@ -680,6 +733,9 @@
                   "type": "string"
                 }
               },
+              "type": "string"
+            },
+            "weaknessEnumeration": {
               "type": "string"
             }
           }
@@ -873,6 +929,9 @@
                   "type": "string"
                 }
               },
+              "type": "string"
+            },
+            "weaknessEnumeration": {
               "type": "string"
             }
           }
@@ -1543,6 +1602,410 @@
         }
       }
     },
+    "news": {
+      "properties": {
+        "a": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "author": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "hasLoginCredentials": {
+              "properties": {
+                "a": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "dateRecorded": {
+                  "format": "dateOptionalTime",
+                  "type": "date"
+                },
+                "email": {
+                  "properties": {
+                    "a": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "dateRecorded": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                    },
+                    "domainName": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "name": {
+                      "fields": {
+                        "raw": {
+                          "index": "not_analyzed",
+                          "type": "string"
+                        }
+                      },
+                      "type": "string"
+                    },
+                    "nameSHA1": {
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "source": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "uri": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "password": {
+                  "properties": {
+                    "a": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "dateRecorded": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                    },
+                    "name": {
+                      "fields": {
+                        "raw": {
+                          "index": "not_analyzed",
+                          "type": "string"
+                        }
+                      },
+                      "type": "string"
+                    },
+                    "nameSHA1": {
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "source": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "uri": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "publisher": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "source": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "uri": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "username": {
+                  "properties": {
+                    "a": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "dateRecorded": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                    },
+                    "name": {
+                      "fields": {
+                        "raw": {
+                          "index": "not_analyzed",
+                          "type": "string"
+                        }
+                      },
+                      "type": "string"
+                    },
+                    "nameSHA1": {
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "source": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "uri": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "category": {
+          "type": "string"
+        },
+        "datePublished": {
+          "format": "dateOptionalTime",
+          "type": "date"
+        },
+        "dateRecorded": {
+          "format": "dateOptionalTime",
+          "type": "date"
+        },
+        "hasExtraction": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "extractor": {
+              "type": "string"
+            },
+            "hasType": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "text": {
+              "fields": {
+                "stemmed": {
+                  "type": "string",
+                  "analyzer": "stemming_analyzer"
+                }
+              },
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "language": {
+          "type": "string"
+        },
+        "mentions": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "sourcedFrom": {
+              "type": "string"
+            },
+            "startDate": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "title": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "url": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "weaknessEnumeration": {
+              "type": "string"
+            }
+          }
+        },
+        "mentionsSecurityUpdate": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "fixesVulnerability": {
+              "properties": {
+                "a": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "dateRecorded": {
+                  "format": "dateOptionalTime",
+                  "type": "date"
+                },
+                "name": {
+                  "fields": {
+                    "raw": {
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  },
+                  "type": "string"
+                },
+                "publisher": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "source": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              }
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "text": {
+              "fields": {
+                "stemmed": {
+                  "type": "string",
+                  "analyzer": "stemming_analyzer"
+                }
+              },
+              "type": "string"
+            }
+          }
+        },
+        "producer": {
+          "type": "string"
+        },
+        "publisher": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "source": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "text": {
+          "fields": {
+            "stemmed": {
+              "type": "string",
+              "analyzer": "stemming_analyzer"
+            }
+          },
+          "type": "string"
+        },
+        "title": {
+          "fields": {
+            "raw": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          },
+          "type": "string"
+        },
+        "uri": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "url": {
+          "fields": {
+            "raw": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          },
+          "type": "string"
+        }
+      }
+    },
     "organization": {
       "properties": {
         "a": {
@@ -1612,81 +2075,12 @@
                   "type": "string"
                 },
                 "dateModified": {
-                  "type": "string"
+                  "format": "dateOptionalTime",
+                  "type": "date"
                 },
                 "dateRecorded": {
                   "format": "dateOptionalTime",
                   "type": "date"
-                },
-                "hasVulnerability": {
-                  "properties": {
-                    "a": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "alternateName": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "dateRecorded": {
-                      "format": "dateOptionalTime",
-                      "type": "date"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "publisher": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "source": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "sourcedFrom": {
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "format": "dateOptionalTime",
-                      "type": "date"
-                    },
-                    "title": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    },
-                    "uri": {
-                      "index": "not_analyzed",
-                      "type": "string"
-                    },
-                    "url": {
-                      "fields": {
-                        "raw": {
-                          "index": "not_analyzed",
-                          "type": "string"
-                        }
-                      },
-                      "type": "string"
-                    }
-                  }
                 },
                 "language": {
                   "type": "string"
@@ -2073,6 +2467,9 @@
                 }
               },
               "type": "string"
+            },
+            "weaknessEnumeration": {
+              "type": "string"
             }
           }
         },
@@ -2224,7 +2621,7 @@
                   "type": "string"
                 },
                 "cvssScore": {
-                  "type": "string"
+                  "type": "double"
                 },
                 "datePublished": {
                   "format": "dateOptionalTime",
@@ -2413,6 +2810,9 @@
                   "type": "string"
                 }
               }
+            },
+            "weaknessEnumeration": {
+              "type": "string"
             }
           }
         },
@@ -2752,6 +3152,9 @@
                 }
               },
               "type": "string"
+            },
+            "weaknessEnumeration": {
+              "type": "string"
             }
           }
         },
@@ -3083,7 +3486,7 @@
               "type": "string"
             },
             "cvssScore": {
-              "type": "string"
+              "type": "double"
             },
             "datePublished": {
               "format": "dateOptionalTime",
@@ -3309,6 +3712,42 @@
               "type": "string"
             }
           }
+        },
+        "vulnerabilityOfCluster": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "weaknessEnumeration": {
+          "type": "string"
         }
       }
     }

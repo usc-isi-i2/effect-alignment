@@ -1,0 +1,45 @@
+digraph n0 {
+fontcolor="blue"
+remincross="true"
+label="phishtank-cdr.jl"
+subgraph cluster {
+label="model"
+n2[style="filled",color="white",fillcolor="lightgray",label="IPAddress1"];
+n3[shape="plaintext",style="filled",fillcolor="gold",label="ip_address_uri"];
+n4[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n5[shape="plaintext",style="filled",fillcolor="gold",label="ip_address"];
+n6[style="filled",color="white",fillcolor="lightgray",label="Malware1"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="phish_uri"];
+n8[shape="plaintext",style="filled",fillcolor="#CC7799",label="Phish"];
+n9[shape="plaintext",style="filled",fillcolor="gold",label="detail_time_iso"];
+n10[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
+n11[shape="plaintext",style="filled",fillcolor="gold",label="country"];
+n12[shape="plaintext",style="filled",fillcolor="gold",label="target"];
+n13[shape="plaintext",style="filled",fillcolor="gold",label="url"];
+n14[shape="plaintext",style="filled",fillcolor="gold",label="reported_by_uri"];
+n15[shape="plaintext",style="filled",fillcolor="gold",label="reported_by_name"];
+n16[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n17[shape="plaintext",style="filled",fillcolor="gold",label="_id"];
+}
+n2 -> n3[color="brown",fontcolor="black",label="classLink"]
+n2 -> n4[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n5[color="brown",fontcolor="black",label="name"]
+n6 -> n7[color="brown",fontcolor="black",label="classLink"]
+n6 -> n8[color="brown",fontcolor="black",label="hasType"]
+n6 -> n9[color="brown",fontcolor="black",label="observedDate"]
+n6 -> n10[color="brown",fontcolor="black",label="reportedBy"]
+n6 -> n11[color="brown",fontcolor="black",label="countryOfOrigin"]
+n6 -> n12[color="brown",fontcolor="black",label="targetName"]
+n6 -> n13[color="brown",fontcolor="black",label="url"]
+n10 -> n14[color="brown",fontcolor="black",label="classLink"]
+n10 -> n4[color="brown",fontcolor="black",label="dateRecorded"]
+n10 -> n15[color="brown",fontcolor="black",label="name"]
+n10 -> n16[color="brown",fontcolor="black",label="publisher"]
+n10 -> n17[color="brown",fontcolor="black",label="source"]
+n2 -> n17[color="brown",fontcolor="black",label="source"]
+n6 -> n16[color="brown",fontcolor="black",label="publisher"]
+n6 -> n17[color="brown",fontcolor="black",label="source"]
+n6 -> n2[color="brown",fontcolor="black",label="hostedAt"]
+n6 -> n4[color="brown",fontcolor="black",label="dateRecorded"]
+n2 -> n16[color="brown",fontcolor="black",label="publisher"]
+}
