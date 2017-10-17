@@ -36,16 +36,6 @@ if len(url) > 0:
    return UM.uri_from_fields("news/", url)
 ```
 
-#### _extraction_uri_
-From column: _extractions / json_rep.readable_text / text_
-``` python
-x = getValue("text").strip()
-uri = getValue("news_uri")
-if len(x) > 0:
-  x = re.sub('[^A-Za-z0-9]+', '', x)
-  return uri + "/extraction/" + getValue("label") + "/" + x
-```
-
 #### _timestamp_iso_
 From column: _timestamp_
 ``` python
@@ -58,6 +48,22 @@ From column: _json_rep / author_
 x = UM.person_name_uri(getValue("author"))
 if len(x) > 0:
   return "person/" + x
+```
+
+#### _news_uri_outer_
+From column: _raw_content_
+``` python
+return getValueFromNestedColumnByIndex("json_rep", "news_uri", getRowIndex())
+```
+
+#### _extraction_uri_
+From column: _extractions / json_rep.readable_text / text_
+``` python
+x = getValue("text").strip()
+uri = getValue("news_uri_outer")
+if len(x) > 0:
+  x = re.sub('[^A-Za-z0-9]+', '', x)
+  return uri + "/extraction/" + getValue("label") + "/" + x
 ```
 
 
