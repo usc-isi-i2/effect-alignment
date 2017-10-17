@@ -23,6 +23,18 @@ From column: _json_rep / postsId_
 return getValue("topic_id") + "/post/" + SM.sha1_hash(getValue("postContent"))
 ```
 
+#### _extraction_uri_
+From column: _extractions / json_rep.postContent / text_
+``` python
+x = getValue("text").strip()
+if len(x) >0:
+    x = re.sub('[^A-Za-z0-9]+', '', x)
+    post_uri = "post/" + SM.md5_hash(getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex()))
+    label_value = getValue("label")
+    return post_uri+'/extraction/'+label_value+'/'+x
+
+```
+
 #### _post_date_iso_
 From column: _json_rep / postedDate_
 ``` python
@@ -79,18 +91,6 @@ if len(rt) > 0:
 return ''
 ```
 
-#### _extraction_uri_
-From column: _extractions / json_rep.postContent / text_
-``` python
-x = getValue("text").strip()
-post_uri = getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex())
-label_value = getValue("label")
-if len(x) >0:
-    x = re.sub('[^A-Za-z0-9]+', '', x)
-    return post_uri+'/extraction/'+label_value+'/'+x
-
-```
-
 
 ## Selections
 
@@ -127,10 +127,10 @@ if len(x) >0:
 | `memex:Forum1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:PersonOrOrganization1` | `memex:hasLoginCredentials` | `memex:LoginCredentials1`|
 | `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
-| `memex:Post1` | `memex:hasExtraction` | `memex:Extraction1`|
-| `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
+| `memex:Post1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
 | `memex:Topic1` | `memex:hasPost` | `memex:Post1`|
 | `memex:Vulnerability1` | `memex:isMentionedIn` | `memex:Post1`|
