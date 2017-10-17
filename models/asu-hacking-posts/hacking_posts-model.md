@@ -23,18 +23,6 @@ From column: _json_rep / postsId_
 return getValue("topic_id") + "/post/" + SM.sha1_hash(getValue("postContent"))
 ```
 
-#### _extraction_uri_
-From column: _extractions / json_rep.postContent / text_
-``` python
-x = getValue("text").strip()
-if len(x) >0:
-    x = re.sub('[^A-Za-z0-9]+', '', x)
-    post_uri = "post/" + SM.md5_hash(getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex()))
-    label_value = getValue("label")
-    return post_uri+'/extraction/'+label_value+'/'+x
-
-```
-
 #### _post_date_iso_
 From column: _json_rep / postedDate_
 ``` python
@@ -91,6 +79,24 @@ if len(rt) > 0:
 return ''
 ```
 
+#### _post_uri_copy_
+From column: _extractions / json_rep.postContent_
+``` python
+return getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex())
+```
+
+#### _extraction_uri_
+From column: _extractions / json_rep.postContent / text_
+``` python
+x = getValue("text").strip()
+if len(x) >0:
+    x = re.sub('[^A-Za-z0-9]+', '', x)
+    post_uri = "post/" + SM.md5_hash(getValue("post_uri_copy"))
+    label_value = getValue("label")
+    return post_uri+'/extraction/'+label_value+'/'+x
+
+```
+
 
 ## Selections
 
@@ -131,6 +137,6 @@ return ''
 | `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Post1` | `memex:hasExtraction` | `memex:Extraction1`|
-| `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
 | `memex:Topic1` | `memex:hasPost` | `memex:Post1`|
+| `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
 | `memex:Vulnerability1` | `memex:isMentionedIn` | `memex:Post1`|
