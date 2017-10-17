@@ -48,9 +48,9 @@ return getValueFromNestedColumnByIndex("json_rep", "link_uri", getRowIndex())
 From column: _extractions / json_rep.text / text_
 ``` python
 x = getValue("text").strip()
-blog_uri = getValue("blog_uri")
 if len(x) > 0:
   x = re.sub('[^A-Za-z0-9]+', '', x)
+  blog_uri = "blogs/" + SM.md5_hash(getValue("blog_uri"))
   return blog_uri + "/extraction/" + getValue("label") + "/" + x
 ```
 
@@ -88,6 +88,6 @@ if len(x) > 0:
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `schema:Blog1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:Blog1` | `memex:hasExtraction` | `memex:Extraction1`|
+| `schema:Blog1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:Blog1` | `schema:mentions` | `memex:Vulnerability1`|
