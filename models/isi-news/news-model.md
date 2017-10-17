@@ -50,8 +50,8 @@ if len(x) > 0:
   return "person/" + x
 ```
 
-#### _news_uri_outer_
-From column: _raw_content_
+#### _news_uri_copy_
+From column: _extractions / json_rep.readable_text_
 ``` python
 return getValueFromNestedColumnByIndex("json_rep", "news_uri", getRowIndex())
 ```
@@ -60,9 +60,9 @@ return getValueFromNestedColumnByIndex("json_rep", "news_uri", getRowIndex())
 From column: _extractions / json_rep.readable_text / text_
 ``` python
 x = getValue("text").strip()
-uri = getValue("news_uri_outer")
 if len(x) > 0:
   x = re.sub('[^A-Za-z0-9]+', '', x)
+  uri = "news/" + SM.md5_hash(getValue("news_uri_copy"))
   return uri + "/extraction/" + getValue("label") + "/" + x
 ```
 
@@ -95,7 +95,7 @@ if len(x) > 0:
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `schema:NewsArticle1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `schema:NewsArticle1` | `schema:mentions` | `memex:Vulnerability1`|
 | `schema:NewsArticle1` | `memex:hasExtraction` | `memex:Extraction1`|
 | `schema:NewsArticle1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
+| `schema:NewsArticle1` | `schema:author` | `memex:PersonOrOrganization1`|
