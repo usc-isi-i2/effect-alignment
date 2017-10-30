@@ -79,22 +79,22 @@ if len(rt) > 0:
 return ''
 ```
 
-#### _post_uri_copy_
-From column: _extractions / json_rep.postContent_
-``` python
-return getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex())
-```
-
 #### _extraction_uri_
 From column: _extractions / json_rep.postContent / text_
 ``` python
 x = getValue("text").strip()
+post_uri = getValueFromNestedColumnByIndex("json_rep", "post_id", getRowIndex())
+label_value = getValue("label")
 if len(x) >0:
     x = re.sub('[^A-Za-z0-9]+', '', x)
-    post_uri = "post/" + SM.md5_hash(getValue("post_uri_copy"))
-    label_value = getValue("label")
     return post_uri+'/extraction/'+label_value+'/'+x
 
+```
+
+#### _scrapedDate_iso_
+From column: _json_rep / scrapedDate_
+``` python
+return DM.iso8601date(getValue("scrapedDate"))
 ```
 
 
@@ -103,9 +103,9 @@ if len(x) >0:
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Post1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Topic1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _extraction_uri_ | `uri` | `memex:Extraction1`|
 | _extractor_ | `memex:extractor` | `memex:Extraction1`|
 | _forum_id_ | `uri` | `memex:Forum1`|
@@ -117,7 +117,8 @@ if len(x) >0:
 | _postContent_ | `schema:text` | `memex:Post1`|
 | _post_id_ | `uri` | `memex:Post1`|
 | _recordedDateTimeISO_ | `schema:datePublished` | `memex:Post1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Post1`|
+| _scrapedDate_iso_ | `memex:sourceDateRecorded` | `memex:Post1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
 | _text_ | `schema:text` | `memex:Extraction1`|
 | _topic_id_ | `uri` | `memex:Topic1`|
 | _topicsName_ | `schema:name` | `memex:Topic1`|
