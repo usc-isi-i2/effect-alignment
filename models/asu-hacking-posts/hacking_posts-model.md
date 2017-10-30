@@ -91,21 +91,15 @@ if len(x) >0:
 
 ```
 
-#### _scrapedDate_iso_
-From column: _json_rep / scrapedDate_
-``` python
-return DM.iso8601date(getValue("scrapedDate"))
-```
-
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Extraction1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Post1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Extraction1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Topic1`|
 | _extraction_uri_ | `uri` | `memex:Extraction1`|
 | _extractor_ | `memex:extractor` | `memex:Extraction1`|
 | _forum_id_ | `uri` | `memex:Forum1`|
@@ -117,8 +111,7 @@ return DM.iso8601date(getValue("scrapedDate"))
 | _postContent_ | `schema:text` | `memex:Post1`|
 | _post_id_ | `uri` | `memex:Post1`|
 | _recordedDateTimeISO_ | `schema:datePublished` | `memex:Post1`|
-| _scrapedDate_iso_ | `memex:sourceDateRecorded` | `memex:Post1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Extraction1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Post1`|
 | _text_ | `schema:text` | `memex:Extraction1`|
 | _topic_id_ | `uri` | `memex:Topic1`|
 | _topicsName_ | `schema:name` | `memex:Topic1`|
