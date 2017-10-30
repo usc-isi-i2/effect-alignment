@@ -101,15 +101,24 @@ if len(rt) > 0:
 return ''
 ```
 
+#### _scrapeddate_iso_
+From column: _json_rep / scrapedDate_
+``` python
+rt = getValue("scrapedDate") 
+if len(rt) > 0:
+   return DM.iso8601date(rt)
+return ''
+```
+
 
 ## Selections
 
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _cdr_id_ | `schema:source`<BR> - _specified provenance_ | `schema:Place2`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
-| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
+| _dateRecorded_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Place2`|
 | _fromplace_uri_ | `uri` | `schema:Place1`|
 | _itemCategory_ | `schema:category` | `memex:Exploit1`|
 | _itemDescription_ | `schema:description` | `memex:Exploit1`|
@@ -122,8 +131,9 @@ return ''
 | _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _price_uri_ | `uri` | `schema:PriceSpecification1`|
 | _recordedDateTimeISO_ | `schema:datePosted` | `memex:Exploit1`|
+| _scrapeddate_iso_ | `memex:sourceDateRecorded` | `memex:Exploit1`|
 | _sellingPriceUsd_ | `schema:price` | `schema:PriceSpecification1`|
-| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Exploit1`|
+| _source_name_id_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Place2`|
 | _toPlace_uri_ | `uri` | `schema:Place2`|
 | _values_ | `memex:financialTags` | `memex:Exploit1`|
 | _values_ | `memex:softwareTags` | `memex:Exploit1`|
