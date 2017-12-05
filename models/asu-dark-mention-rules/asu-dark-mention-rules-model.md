@@ -67,7 +67,7 @@ From column: _json_rep / targetSystem_uri_
 restricted = ""
 if len(getValue("forumIds_clean")) > 0 or len(getValue("marketIds_clean")) > 0:
    restricted = "/restricted"
-return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays") + restricted
+return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays") + "/date/" + getValue("dateRuleAdded") + restricted
 ```
 
 #### _forum_uri_
