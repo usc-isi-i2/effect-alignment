@@ -89,7 +89,7 @@ From column: _json_rep / marketIds_clean_split / Values_
 ``` python
 x = getValue("Values").strip()
 if len(x) > 0:
-  return "marketplace/6" + x
+  return "marketplace/" + x
 ```
 
 
