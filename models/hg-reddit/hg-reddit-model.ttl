@@ -1,0 +1,2460 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix memex: <http://schema.dig.isi.edu/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1c0k1ch8lx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "reddit-cdr-extractions.jl" ;
+	km-dev:modelPublicationTime "1512501036309"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"links\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"title\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"permalink\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"author\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext_with_links\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"msid_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_uri\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"cve_uri\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_author\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"title\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_url\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_created_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}]]" ;
+	km-dev:hasModelLabel "reddit-cdr-extractions.jl" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"author\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"author_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"author\\\")\\nif len(x) > 0:\\n  return \\\"forum/reddit/user/\\\" + x\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"permalink\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"reddit_url\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"http://www.reddit.com\\\" + getValue(\\\"permalink\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"permalink\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"reddit_url\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"reddit_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return \\\"forum/reddit/post\\\" + getValue(\\\"permalink\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"permalink\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"created_utc\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"created_iso\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"utc = str(int(float(getValue(\\\"created_utc\\\"))))\\nreturn DM.iso8601date(utc)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_utc\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"selftext\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"selftext_with_links\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"links = json.loads(getValue(\\\"links\\\"))\\nall_links = []\\nfor x in links:\\n  all_links.append(x['values'])\\nreturn getValue(\\\"selftext\\\") + \\\" Links: \\\" + \\\", \\\".join(all_links)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"created_utc\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"comment_created_iso\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return DM.iso8601date(str(int(float(getValue(\\\"created_utc\\\")))))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"created_utc\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"id\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"comment_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return getValue(\\\"reddit_uri\\\") + \\\"comment/\\\" + getValue(\\\"id\\\")\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_uri\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [
+            \"Transformation\",
+            \"IgnoreInBatch\"
+        ],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"orderedColumns\",
+                \"value\": [
+                    {
+                        \"id\": [{\"columnName\": \"_id\"}],
+                        \"visible\": true,
+                        \"name\": \"_id\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"content_type\"}],
+                        \"visible\": false,
+                        \"name\": \"content_type\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"extractions\"}],
+                        \"visible\": true,
+                        \"name\": \"extractions\",
+                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"msid\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"}]\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"json_rep\"}],
+                        \"visible\": true,
+                        \"name\": \"json_rep\",
+                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"comments\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_fetched\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_fetched\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_info_params\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_info_params\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_mod\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_mod\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_reddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_reddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_replies\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_replies\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"_replies\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_submission\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_submission\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"archived\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"archived\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"author\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body_html\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body_html\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_gild\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_gild\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"controversiality\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"controversiality\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"created\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"created_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"cve\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"depth\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"depth\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"distinguished\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"distinguished\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"downs\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"downs\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"edited\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"edited\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"gilded\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"gilded\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comment_uri\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"comment_uri\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"is_submitter\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"is_submitter\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"likes\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"likes\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"link_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"link_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"links\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"links\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"mod_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"mod_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"num_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"num_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"parent_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"parent_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"permalink\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"permalink\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"removal_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"removal_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"report_reasons\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"report_reasons\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"saved\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"saved\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score_hidden\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score_hidden\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"stickied\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"stickied\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"ups\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"ups\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"user_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"user_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_fetched\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_fetched\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_flair\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_flair\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_info_params\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_info_params\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_mod\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_mod\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_reddit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_reddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"archived\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"archived\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author_uri\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"brand_safe\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"brand_safe\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_gild\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_gild\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_mod_post\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_mod_post\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"clicked\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"clicked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_limit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_limit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_sort\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"contest_mode\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"contest_mode\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"created\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_utc\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_iso\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"distinguished\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"distinguished\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"domain\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"downs\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"downs\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"edited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"edited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"gilded\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"gilded\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hidden\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hidden\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hide_score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hide_score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_crosspostable\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_crosspostable\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_reddit_media_domain\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_reddit_media_domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_self\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_self\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_video\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_video\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"likes\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"likes\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"links\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"locked\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"locked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media_embed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"mod_reports\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"mod_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"name\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"name\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_comments\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_comments\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_crossposts\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_crossposts\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"over_18\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"over_18\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parent_whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parent_whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parsed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parsed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"permalink\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"permalink\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"reddit_url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_uri\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"reddit_uri\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"pinned\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"pinned\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_hint\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"post_hint\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"preview\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"preview\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"quarantine\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"quarantine\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"removal_reason\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"removal_reason\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"report_reasons\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"report_reasons\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"saved\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"saved\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media_embed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_with_links\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_html\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_html\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"spoiler\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"spoiler\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"stickied\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"stickied\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_name_prefixed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_name_prefixed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_type\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_type\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"suggested_sort\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"suggested_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_height\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_height\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_width\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_width\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"title\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"ups\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"ups\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"upvote_ratio\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"upvote_ratio\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"user_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"view_count\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"view_count\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"visited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"visited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent_list\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent_list\\\"}]\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"raw_content\"}],
+                        \"visible\": false,
+                        \"name\": \"raw_content\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"source_name\"}],
+                        \"visible\": true,
+                        \"name\": \"source_name\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"team\"}],
+                        \"visible\": true,
+                        \"name\": \"team\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"timestamp\"}],
+                        \"visible\": true,
+                        \"name\": \"timestamp\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"url\"}],
+                        \"visible\": false,
+                        \"name\": \"url\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"version\"}],
+                        \"visible\": false,
+                        \"name\": \"version\"
+                    }
+                ],
+                \"type\": \"orderedColumns\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"OrganizeColumnsCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"author\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"comment_author\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"author\\\")\\nif len(x) > 0:\\n  return \\\"forum/reddit/user/\\\" + x\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"author\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_author\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"extractions\"},
+                    {\"columnName\": \"cve\"},
+                    {\"columnName\": \"result\"},
+                    {\"columnName\": \"value\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"cve_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x= getValue(\\\"value\\\")\\nif len(x) > 0:\\n  return \\\"vulnerability/\\\"+getValue(\\\"value\\\").upper()\\nreturn ''\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"value\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"cve_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"extractions\"},
+                    {\"columnName\": \"msid\"},
+                    {\"columnName\": \"result\"},
+                    {\"columnName\": \"value\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"msid_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"x = getValue(\\\"value\\\").strip()\\nif len(x) > 0:\\n   return \\\"securityUpdate/\\\" + x.upper()\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"value\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"msid_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"timestamp\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"timestamp_iso\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return DM.iso8601date(getValue(\\\"timestamp\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"author_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:PersonOrOrganization1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"reddit_url\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/url\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Post1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"reddit_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Post\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"title\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/title\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"created_iso\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/datePublished\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"selftext_with_links\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/text\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"memex:Post1\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"comment_created_iso\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/datePublished\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"schema:Comment1 (add)\",
+                    \"DomainId\": \"http://schema.org/Comment1\",
+                    \"DomainUri\": \"http://schema.org/Comment\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_created_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"body\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"FullType\": \"http://schema.org/text\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"DomainLabel\": \"schema:Comment1\",
+                    \"DomainId\": \"http://schema.org/Comment1\",
+                    \"DomainUri\": \"http://schema.org/Comment\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"body\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"body\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"comment_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Comment\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Comment1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Comment1\",
+                    \"DomainId\": \"http://schema.org/Comment1\",
+                    \"DomainUri\": \"http://schema.org/Comment\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"comments\"},
+                    {\"columnName\": \"comment_author\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:PersonOrOrganization2 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_author\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"},{\\\"columnName\\\":\\\"comment_author\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"extractions\"},
+                    {\"columnName\": \"cve\"},
+                    {\"columnName\": \"result\"},
+                    {\"columnName\": \"cve_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:Vulnerability1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"cve_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"cve_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"extractions\"},
+                    {\"columnName\": \"msid\"},
+                    {\"columnName\": \"result\"},
+                    {\"columnName\": \"msid_uri\"}
+                ],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"memex:SecurityUpdate1 (add)\",
+                    \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                    \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"msid_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"},{\\\"columnName\\\":\\\"result\\\"},{\\\"columnName\\\":\\\"msid_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"timestamp_iso\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.org/Comment1\",
+                        \"DomainUri\": \"http://schema.org/Comment\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"memex:SecurityUpdate1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
+                    }
+                ],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"timestamp_iso\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"source_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.org/Comment1\",
+                        \"DomainUri\": \"http://schema.org/Comment\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    }
+                ],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"source_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"SemanticType\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"_id\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.org/Comment1\",
+                        \"DomainUri\": \"http://schema.org/Comment\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
+                    },
+                    {
+                        \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
+                    },
+                    {
+                        \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
+                        \"DomainLabel\": \"memex:Post1\",
+                        \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                        \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                    }
+                ],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"language\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"_id\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                    \"edgeId\": \"http://schema.org/author\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.org/Comment\",
+                    \"edgeId\": \"http://schema.org/comment\",
+                    \"edgeTargetId\": \"http://schema.org/Comment1\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
+                    \"edgeId\": \"http://schema.org/author\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
+                    \"edgeSourceId\": \"http://schema.org/Comment1\",
+                    \"edgeSourceUri\": \"http://schema.org/Comment\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
+                    \"edgeId\": \"http://schema.org/mentions\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"edge\",
+                \"value\": {
+                    \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/mentionsSecurityUpdate\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                    \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLinkCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_1d578ff6-e821-4088-891b-c461f7a1ce9a a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_1d578ff6-e821-4088-891b-c461f7a1ce9a .
+
+km-dev:TriplesMap_1d578ff6-e821-4088-891b-c461f7a1ce9a km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx2 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx2 .
+
+km-dev:TriplesMap_1d578ff6-e821-4088-891b-c461f7a1ce9a rr:logicalTable _:node1c0k1ch8lx2 ;
+	rr:subjectMap _:node1c0k1ch8lx3 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx3 .
+
+_:node1c0k1ch8lx3 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization1" ;
+	rr:class memex:PersonOrOrganization ;
+	rr:template "{[\"json_rep\",\"author_uri\"]}" .
+
+km-dev:TriplesMap_851a8e0c-c965-47bd-a05e-30d451e1c994 a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_851a8e0c-c965-47bd-a05e-30d451e1c994 .
+
+km-dev:TriplesMap_851a8e0c-c965-47bd-a05e-30d451e1c994 km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx4 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx4 .
+
+km-dev:TriplesMap_851a8e0c-c965-47bd-a05e-30d451e1c994 rr:logicalTable _:node1c0k1ch8lx4 ;
+	rr:subjectMap _:node1c0k1ch8lx5 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx5 .
+
+_:node1c0k1ch8lx5 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization2" ;
+	rr:class memex:PersonOrOrganization ;
+	rr:template "{[\"json_rep\",\"comments\",\"comment_author\"]}" .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx6 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx6 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:logicalTable _:node1c0k1ch8lx6 ;
+	rr:subjectMap _:node1c0k1ch8lx7 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx7 .
+
+_:node1c0k1ch8lx7 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Post1" ;
+	rr:class memex:Post ;
+	rr:template "forum/reddit/post{[\"json_rep\",\"permalink\"]}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_d1bfa12d-b449-46e8-a00f-972e34f922ff rr:predicate schema:author .
+
+km-dev:RefObjectMap_becc972f-1207-42fe-aec4-e1e7f651b5fd a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_1d578ff6-e821-4088-891b-c461f7a1ce9a ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_becc972f-1207-42fe-aec4-e1e7f651b5fd .
+
+km-dev:PredicateObjectMap_d1bfa12d-b449-46e8-a00f-972e34f922ff rr:objectMap km-dev:RefObjectMap_becc972f-1207-42fe-aec4-e1e7f651b5fd .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_d1bfa12d-b449-46e8-a00f-972e34f922ff .
+
+km-dev:PredicateObjectMap_d1bfa12d-b449-46e8-a00f-972e34f922ff a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_d1bfa12d-b449-46e8-a00f-972e34f922ff .
+
+km-dev:PredicateObjectMap_a7a12a99-13c6-40f0-8d11-29147157c67f rr:predicate schema:datePublished .
+
+_:node1c0k1ch8lx8 rr:column "[\"json_rep\",\"created_iso\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx8 .
+
+km-dev:PredicateObjectMap_a7a12a99-13c6-40f0-8d11-29147157c67f rr:objectMap _:node1c0k1ch8lx8 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_a7a12a99-13c6-40f0-8d11-29147157c67f .
+
+km-dev:PredicateObjectMap_a7a12a99-13c6-40f0-8d11-29147157c67f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a7a12a99-13c6-40f0-8d11-29147157c67f .
+
+km-dev:PredicateObjectMap_c435db8d-970d-445f-ab98-ed1a883b7a6b rr:predicate schema:text .
+
+_:node1c0k1ch8lx9 rr:column "[\"json_rep\",\"selftext_with_links\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx9 .
+
+km-dev:PredicateObjectMap_c435db8d-970d-445f-ab98-ed1a883b7a6b rr:objectMap _:node1c0k1ch8lx9 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_c435db8d-970d-445f-ab98-ed1a883b7a6b .
+
+km-dev:PredicateObjectMap_c435db8d-970d-445f-ab98-ed1a883b7a6b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c435db8d-970d-445f-ab98-ed1a883b7a6b .
+
+km-dev:PredicateObjectMap_40050d85-5ab4-4f57-ac03-51da67a7b143 rr:predicate schema:title .
+
+_:node1c0k1ch8lx10 rr:column "[\"json_rep\",\"title\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx10 .
+
+km-dev:PredicateObjectMap_40050d85-5ab4-4f57-ac03-51da67a7b143 rr:objectMap _:node1c0k1ch8lx10 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_40050d85-5ab4-4f57-ac03-51da67a7b143 .
+
+km-dev:PredicateObjectMap_40050d85-5ab4-4f57-ac03-51da67a7b143 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_40050d85-5ab4-4f57-ac03-51da67a7b143 .
+
+km-dev:PredicateObjectMap_6d031ca9-921f-46c3-af4c-e4592b3459fb rr:predicate schema:url .
+
+_:node1c0k1ch8lx11 rr:constant "http://www.reddit.com{[\"json_rep\",\"permalink\"]}" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx11 .
+
+km-dev:PredicateObjectMap_6d031ca9-921f-46c3-af4c-e4592b3459fb rr:objectMap _:node1c0k1ch8lx11 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_6d031ca9-921f-46c3-af4c-e4592b3459fb .
+
+km-dev:PredicateObjectMap_6d031ca9-921f-46c3-af4c-e4592b3459fb a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6d031ca9-921f-46c3-af4c-e4592b3459fb .
+
+km-dev:PredicateObjectMap_2d87cbdc-7080-44be-aa4b-97e85bc1ffed rr:predicate memex:dateRecorded .
+
+_:node1c0k1ch8lx12 rr:column "timestamp_iso" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx12 .
+
+km-dev:PredicateObjectMap_2d87cbdc-7080-44be-aa4b-97e85bc1ffed rr:objectMap _:node1c0k1ch8lx12 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_2d87cbdc-7080-44be-aa4b-97e85bc1ffed .
+
+km-dev:PredicateObjectMap_2d87cbdc-7080-44be-aa4b-97e85bc1ffed a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2d87cbdc-7080-44be-aa4b-97e85bc1ffed .
+
+km-dev:PredicateObjectMap_2842f593-da51-4d3c-a544-437765bdea3e rr:predicate schema:source .
+
+_:node1c0k1ch8lx13 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx13 .
+
+km-dev:PredicateObjectMap_2842f593-da51-4d3c-a544-437765bdea3e rr:objectMap _:node1c0k1ch8lx13 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_2842f593-da51-4d3c-a544-437765bdea3e .
+
+km-dev:PredicateObjectMap_2842f593-da51-4d3c-a544-437765bdea3e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2842f593-da51-4d3c-a544-437765bdea3e .
+
+km-dev:PredicateObjectMap_3ec54898-939c-4af6-9f50-f215d90232af rr:predicate schema:publisher .
+
+_:node1c0k1ch8lx14 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx14 .
+
+km-dev:PredicateObjectMap_3ec54898-939c-4af6-9f50-f215d90232af rr:objectMap _:node1c0k1ch8lx14 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_3ec54898-939c-4af6-9f50-f215d90232af .
+
+km-dev:PredicateObjectMap_3ec54898-939c-4af6-9f50-f215d90232af a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3ec54898-939c-4af6-9f50-f215d90232af .
+
+km-dev:PredicateObjectMap_f4723b7e-00b1-4071-9dfb-acab73930e6d rr:predicate memex:mentionsSecurityUpdate .
+
+km-dev:RefObjectMap_7b27e535-4b63-4d4b-b1ba-1576f4e0a589 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_f5e190d1-e76b-458c-bf07-494c5e1fe0dc ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_7b27e535-4b63-4d4b-b1ba-1576f4e0a589 .
+
+km-dev:PredicateObjectMap_f4723b7e-00b1-4071-9dfb-acab73930e6d rr:objectMap km-dev:RefObjectMap_7b27e535-4b63-4d4b-b1ba-1576f4e0a589 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_f4723b7e-00b1-4071-9dfb-acab73930e6d .
+
+km-dev:PredicateObjectMap_f4723b7e-00b1-4071-9dfb-acab73930e6d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f4723b7e-00b1-4071-9dfb-acab73930e6d .
+
+km-dev:PredicateObjectMap_96cf0151-6a8a-4afa-a409-e10372857620 rr:predicate schema:mentions .
+
+km-dev:RefObjectMap_61c10d19-a854-4ff7-b329-9d1b1da3a7de a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c735487f-a1c1-467d-86e4-3dca0e49e1cc ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_61c10d19-a854-4ff7-b329-9d1b1da3a7de .
+
+km-dev:PredicateObjectMap_96cf0151-6a8a-4afa-a409-e10372857620 rr:objectMap km-dev:RefObjectMap_61c10d19-a854-4ff7-b329-9d1b1da3a7de .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_96cf0151-6a8a-4afa-a409-e10372857620 .
+
+km-dev:PredicateObjectMap_96cf0151-6a8a-4afa-a409-e10372857620 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_96cf0151-6a8a-4afa-a409-e10372857620 .
+
+km-dev:PredicateObjectMap_37b1bd2d-ec45-4138-a20a-8c38682d6da6 rr:predicate schema:comment .
+
+km-dev:RefObjectMap_d6656bb4-e417-450f-bdae-a0011f70dbb1 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_d6656bb4-e417-450f-bdae-a0011f70dbb1 .
+
+km-dev:PredicateObjectMap_37b1bd2d-ec45-4138-a20a-8c38682d6da6 rr:objectMap km-dev:RefObjectMap_d6656bb4-e417-450f-bdae-a0011f70dbb1 .
+
+km-dev:TriplesMap_1d1010eb-e2fa-49e9-98a9-1f670809394e rr:predicateObjectMap km-dev:PredicateObjectMap_37b1bd2d-ec45-4138-a20a-8c38682d6da6 .
+
+km-dev:PredicateObjectMap_37b1bd2d-ec45-4138-a20a-8c38682d6da6 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_37b1bd2d-ec45-4138-a20a-8c38682d6da6 .
+
+km-dev:TriplesMap_f5e190d1-e76b-458c-bf07-494c5e1fe0dc a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_f5e190d1-e76b-458c-bf07-494c5e1fe0dc .
+
+km-dev:TriplesMap_f5e190d1-e76b-458c-bf07-494c5e1fe0dc km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx15 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx15 .
+
+km-dev:TriplesMap_f5e190d1-e76b-458c-bf07-494c5e1fe0dc rr:logicalTable _:node1c0k1ch8lx15 ;
+	rr:subjectMap _:node1c0k1ch8lx16 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx16 .
+
+_:node1c0k1ch8lx16 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/SecurityUpdate1" ;
+	rr:class memex:SecurityUpdate ;
+	rr:template "{[\"extractions\",\"msid\",\"result\",\"msid_uri\"]}" .
+
+km-dev:TriplesMap_c735487f-a1c1-467d-86e4-3dca0e49e1cc a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_c735487f-a1c1-467d-86e4-3dca0e49e1cc .
+
+km-dev:TriplesMap_c735487f-a1c1-467d-86e4-3dca0e49e1cc km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx17 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx17 .
+
+km-dev:TriplesMap_c735487f-a1c1-467d-86e4-3dca0e49e1cc rr:logicalTable _:node1c0k1ch8lx17 ;
+	rr:subjectMap _:node1c0k1ch8lx18 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx18 .
+
+_:node1c0k1ch8lx18 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Vulnerability1" ;
+	rr:class memex:Vulnerability ;
+	rr:template "{[\"extractions\",\"cve\",\"result\",\"cve_uri\"]}" .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b a rr:TriplesMap .
+
+_:node1c0k1ch8lx1 km-dev:hasTriplesMap km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx19 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasLogicalTable _:node1c0k1ch8lx19 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:logicalTable _:node1c0k1ch8lx19 ;
+	rr:subjectMap _:node1c0k1ch8lx20 .
+
+_:node1c0k1ch8lx1 km-dev:hasSubjectMap _:node1c0k1ch8lx20 .
+
+_:node1c0k1ch8lx20 km-dev:isPartOfMapping _:node1c0k1ch8lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Comment1" ;
+	rr:class schema:Comment ;
+	rr:template "{[\"json_rep\",\"reddit_uri\"]}comment/{[\"json_rep\",\"comments\",\"id\"]}" .
+
+km-dev:PredicateObjectMap_3e03e6ed-1b51-40c2-9c17-0541bfb6be54 rr:predicate schema:datePublished .
+
+_:node1c0k1ch8lx21 rr:column "[\"json_rep\",\"comments\",\"comment_created_iso\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx21 .
+
+km-dev:PredicateObjectMap_3e03e6ed-1b51-40c2-9c17-0541bfb6be54 rr:objectMap _:node1c0k1ch8lx21 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_3e03e6ed-1b51-40c2-9c17-0541bfb6be54 .
+
+km-dev:PredicateObjectMap_3e03e6ed-1b51-40c2-9c17-0541bfb6be54 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3e03e6ed-1b51-40c2-9c17-0541bfb6be54 .
+
+km-dev:PredicateObjectMap_a3977530-dd00-4a15-9047-35b9c13112de rr:predicate schema:publisher .
+
+_:node1c0k1ch8lx22 rr:column "source_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx22 .
+
+km-dev:PredicateObjectMap_a3977530-dd00-4a15-9047-35b9c13112de rr:objectMap _:node1c0k1ch8lx22 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_a3977530-dd00-4a15-9047-35b9c13112de .
+
+km-dev:PredicateObjectMap_a3977530-dd00-4a15-9047-35b9c13112de a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a3977530-dd00-4a15-9047-35b9c13112de .
+
+km-dev:PredicateObjectMap_888eac7d-7382-4c24-8302-523b3d2606a0 rr:predicate schema:text .
+
+_:node1c0k1ch8lx23 rr:column "[\"json_rep\",\"comments\",\"body\"]" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx23 .
+
+km-dev:PredicateObjectMap_888eac7d-7382-4c24-8302-523b3d2606a0 rr:objectMap _:node1c0k1ch8lx23 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_888eac7d-7382-4c24-8302-523b3d2606a0 .
+
+km-dev:PredicateObjectMap_888eac7d-7382-4c24-8302-523b3d2606a0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_888eac7d-7382-4c24-8302-523b3d2606a0 .
+
+km-dev:PredicateObjectMap_50943231-ef43-4434-82fe-61c7f2a46c4c rr:predicate memex:dateRecorded .
+
+_:node1c0k1ch8lx24 rr:column "timestamp_iso" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx24 .
+
+km-dev:PredicateObjectMap_50943231-ef43-4434-82fe-61c7f2a46c4c rr:objectMap _:node1c0k1ch8lx24 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_50943231-ef43-4434-82fe-61c7f2a46c4c .
+
+km-dev:PredicateObjectMap_50943231-ef43-4434-82fe-61c7f2a46c4c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_50943231-ef43-4434-82fe-61c7f2a46c4c .
+
+km-dev:PredicateObjectMap_cb74519a-e670-4401-81d8-364fce0d645d rr:predicate schema:author .
+
+km-dev:RefObjectMap_ac0e666b-9f41-4b30-9f40-d8673f5e5e70 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_851a8e0c-c965-47bd-a05e-30d451e1c994 ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap km-dev:RefObjectMap_ac0e666b-9f41-4b30-9f40-d8673f5e5e70 .
+
+km-dev:PredicateObjectMap_cb74519a-e670-4401-81d8-364fce0d645d rr:objectMap km-dev:RefObjectMap_ac0e666b-9f41-4b30-9f40-d8673f5e5e70 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_cb74519a-e670-4401-81d8-364fce0d645d .
+
+km-dev:PredicateObjectMap_cb74519a-e670-4401-81d8-364fce0d645d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_cb74519a-e670-4401-81d8-364fce0d645d .
+
+km-dev:PredicateObjectMap_1a14579e-6f3b-4434-81ab-d872725cd890 rr:predicate schema:source .
+
+_:node1c0k1ch8lx25 rr:column "_id" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasObjectMap _:node1c0k1ch8lx25 .
+
+km-dev:PredicateObjectMap_1a14579e-6f3b-4434-81ab-d872725cd890 rr:objectMap _:node1c0k1ch8lx25 .
+
+km-dev:TriplesMap_d8a8eb78-b80b-4375-a250-508a473a948b rr:predicateObjectMap km-dev:PredicateObjectMap_1a14579e-6f3b-4434-81ab-d872725cd890 .
+
+km-dev:PredicateObjectMap_1a14579e-6f3b-4434-81ab-d872725cd890 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c0k1ch8lx1 .
+
+_:node1c0k1ch8lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1a14579e-6f3b-4434-81ab-d872725cd890 .
