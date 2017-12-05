@@ -268,6 +268,39 @@
           "index": "not_analyzed",
           "type": "string"
         },
+        "isMentionedIn": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
         "keywords": {
           "type": "string"
         },
@@ -404,6 +437,46 @@
         "publisher": {
           "index": "not_analyzed",
           "type": "string"
+        },
+        "seller": {
+          "properties": {
+            "a": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "dateRecorded": {
+              "format": "dateOptionalTime",
+              "type": "date"
+            },
+            "name": {
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              },
+              "type": "string"
+            },
+            "publisher": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "ratingValue": {
+              "type": "string"
+            },
+            "source": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "uri": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "username": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
         },
         "source": {
           "index": "not_analyzed",
@@ -3886,11 +3959,11 @@
       }
     },
     "index": {
-      "number_of_replicas": "0",
-      "number_of_shards": "4",
       "allocation": {
         "max_retries": "20"
-      }
+      },
+      "number_of_replicas": "0",
+      "number_of_shards": "4"
     }
   }
 }
