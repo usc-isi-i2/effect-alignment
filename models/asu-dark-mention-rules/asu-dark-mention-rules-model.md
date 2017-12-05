@@ -43,12 +43,6 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
-#### _attack_uri_
-From column: _json_rep / targetSystem_uri_
-``` python
-return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays")
-```
-
 #### _forumIds_clean_
 From column: _json_rep / forumIds_
 ``` python
@@ -65,6 +59,15 @@ x = getValue("marketIds").strip()
 len_x = len(x)
 if len_x > 2:
   return x[1:len_x-1]
+```
+
+#### _attack_uri_
+From column: _json_rep / targetSystem_uri_
+``` python
+restricted = ""
+if len(getValue("forumIds_clean")) > 0 or len(getValue("marketIds_clean")) > 0:
+   restricted = "/restricted"
+return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays") + restricted
 ```
 
 #### _forum_uri_
