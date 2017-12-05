@@ -50,6 +50,9 @@ x = getValue("forumIds").strip()
 len_x = len(x)
 if len_x > 2:
   return x[1:len_x-1]
+x = getValue("restrictForums")
+if len(x) > 0 and x.lower() == "true":
+   return "NONE"
 ```
 
 #### _marketIds_clean_
@@ -59,6 +62,9 @@ x = getValue("marketIds").strip()
 len_x = len(x)
 if len_x > 2:
   return x[1:len_x-1]
+x = getValue("restrictMarketplaces")
+if len(x) > 0 and x.lower() == "true":
+   return "NONE"
 ```
 
 #### _attack_uri_
