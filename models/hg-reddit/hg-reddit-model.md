@@ -91,7 +91,7 @@ return DM.iso8601date(getValue("timestamp"))
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:Post1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `schema:Comment1`|
 | _author_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _body_ | `schema:text` | `schema:Comment1`|
 | _comment_author_ | `uri` | `memex:PersonOrOrganization2`|
@@ -103,8 +103,8 @@ return DM.iso8601date(getValue("timestamp"))
 | _reddit_uri_ | `uri` | `memex:Post1`|
 | _reddit_url_ | `schema:url` | `memex:Post1`|
 | _selftext_with_links_ | `schema:text` | `memex:Post1`|
-| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `memex:Post1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `schema:Comment1`|
+| _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Comment1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Post1`|
 | _title_ | `schema:title` | `memex:Post1`|
 
 
