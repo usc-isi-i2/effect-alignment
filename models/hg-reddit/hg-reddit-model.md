@@ -39,7 +39,7 @@ links = json.loads(getValue("links"))
 all_links = []
 for x in links:
   all_links.append(x['values'])
-return getValue("selftext") + " Links: " + ", ".join(all_links)
+return getValue("title") + "\n\n" + getValue("selftext") + " Links: " + ", ".join(all_links)
 ```
 
 #### _comment_created_iso_
@@ -105,14 +105,13 @@ return DM.iso8601date(getValue("timestamp"))
 | _selftext_with_links_ | `schema:text` | `memex:Post1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Comment1`|
 | _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Post1`|
-| _title_ | `schema:title` | `memex:Post1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Post1` | `schema:comment` | `schema:Comment1`|
 | `schema:Comment1` | `schema:author` | `memex:PersonOrOrganization2`|
