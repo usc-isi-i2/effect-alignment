@@ -19,12 +19,6 @@ From column: _json_rep / permalink_
 return "http://www.reddit.com" + getValue("permalink")
 ```
 
-#### _reddit_uri_
-From column: _json_rep / reddit_url_
-``` python
-return "forum/reddit/post" + getValue("permalink")
-```
-
 #### _created_iso_
 From column: _json_rep / created_utc_
 ``` python
@@ -46,12 +40,6 @@ return getValue("title") + "\n\n" + getValue("selftext") + " Links: " + ", ".joi
 From column: _json_rep / comments / created_utc_
 ``` python
 return DM.iso8601date(str(int(float(getValue("created_utc")))))
-```
-
-#### _comment_uri_
-From column: _json_rep / comments / id_
-``` python
-return getValue("reddit_uri") + "comment/" + getValue("id")
 ```
 
 #### _comment_author_
@@ -85,6 +73,30 @@ From column: _timestamp_
 return DM.iso8601date(getValue("timestamp"))
 ```
 
+#### _forum_uri_
+From column: _json_rep / media_embed_
+``` python
+return "forum/reddit"
+```
+
+#### _topic_uri_
+From column: _json_rep / forum_uri_
+``` python
+return getValue("forum_uri") + "/topic/" + getValue("id")
+```
+
+#### _reddit_uri_
+From column: _json_rep / reddit_url_
+``` python
+return getValue("topic_uri") + "/post"
+```
+
+#### _comment_uri_
+From column: _json_rep / comments / id_
+``` python
+return getValue("reddit_uri") + "comment/" + getValue("id")
+```
+
 
 ## Selections
 
@@ -99,19 +111,23 @@ return DM.iso8601date(getValue("timestamp"))
 | _comment_uri_ | `uri` | `schema:Comment1`|
 | _created_iso_ | `schema:datePublished` | `memex:Post1`|
 | _cve_uri_ | `uri` | `memex:Vulnerability1`|
+| _forum_uri_ | `uri` | `memex:Forum1`|
 | _msid_uri_ | `uri` | `memex:SecurityUpdate1`|
 | _reddit_uri_ | `uri` | `memex:Post1`|
 | _reddit_url_ | `schema:url` | `memex:Post1`|
 | _selftext_with_links_ | `schema:text` | `memex:Post1`|
 | _source_name_ | `schema:publisher`<BR> - _specified provenance_ | `schema:Comment1`|
 | _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:Post1`|
+| _topic_uri_ | `uri` | `memex:Topic1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
+| `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
+| `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Post1` | `schema:comment` | `schema:Comment1`|
+| `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
 | `schema:Comment1` | `schema:author` | `memex:PersonOrOrganization2`|
