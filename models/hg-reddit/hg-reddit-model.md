@@ -94,7 +94,7 @@ return getValue("topic_uri") + "/post"
 #### _comment_uri_
 From column: _json_rep / comments / id_
 ``` python
-return getValue("reddit_uri") + "comment/" + getValue("id")
+return getValue("reddit_uri") + "/comment/" + getValue("id")
 ```
 
 
