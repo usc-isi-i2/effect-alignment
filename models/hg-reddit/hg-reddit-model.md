@@ -33,6 +33,7 @@ links = json.loads(getValue("links"))
 all_links = []
 for x in links:
   all_links.append(x['values'])
+all_links.sort()
 return getValue("title") + "\n\n" + getValue("selftext") + " Links: " + ", ".join(all_links)
 ```
 
@@ -124,9 +125,9 @@ return getValue("reddit_uri") + "/comment/" + getValue("id")
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
+| `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `memex:Post1` | `memex:hasTopic` | `memex:Topic1`|
 | `memex:Post1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
-| `memex:Post1` | `schema:author` | `memex:PersonOrOrganization1`|
 | `memex:Post1` | `schema:mentions` | `memex:Vulnerability1`|
 | `memex:Post1` | `schema:comment` | `schema:Comment1`|
 | `memex:Topic1` | `memex:isTopicOf` | `memex:Forum1`|
