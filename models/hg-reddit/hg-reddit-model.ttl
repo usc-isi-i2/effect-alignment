@@ -14,12 +14,12 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1c169u4gjx1 a km-dev:R2RMLMapping ;
+_:node1c1dpmqbhx1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "reddit-cdr-extractions.jl" ;
-	km-dev:modelPublicationTime "1513113981460"^^xsd:long ;
+	km-dev:modelPublicationTime "1513365399921"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
-	km-dev:hasInputColumns "[[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"permalink\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"links\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"id\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"author\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"title\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext_with_links\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_created_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forum_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topic_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_uri\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_author\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author_uri\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"cve_uri\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_url\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"msid_uri\"}]]" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"permalink\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"links\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"created_utc\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"timestamp\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"title\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"id\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"author\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"value\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"author_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_created_iso\"}],[{\"columnName\":\"_id\"}],[{\"columnName\":\"source_name\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"msid\"},{\"columnName\":\"result\"},{\"columnName\":\"msid_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"selftext_with_links\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"comment_author\"}],[{\"columnName\":\"extractions\"},{\"columnName\":\"cve\"},{\"columnName\":\"result\"},{\"columnName\":\"cve_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"reddit_url\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"forum_uri\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"comments\"},{\"columnName\":\"body\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"created_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"topic_uri\"}]]" ;
 	km-dev:hasModelLabel "hg-reddit" ;
 	km-dev:hasWorksheetHistory """[
     {
@@ -216,7 +216,7 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"transformationCode\",
-                \"value\": \"links = json.loads(getValue(\\\"links\\\"))\\nall_links = []\\nfor x in links:\\n  all_links.append(x['values'])\\nreturn getValue(\\\"title\\\") + \\\"\\\\n\\\\n\\\" + getValue(\\\"selftext\\\") + \\\" Links: \\\" + \\\", \\\".join(all_links)\",
+                \"value\": \"links = json.loads(getValue(\\\"links\\\"))\\nall_links = []\\nfor x in links:\\n  all_links.append(x['values'])\\nall_links.sort()\\nreturn getValue(\\\"title\\\") + \\\"\\\\n\\\\n\\\" + getValue(\\\"selftext\\\") + \\\" Links: \\\" + \\\", \\\".join(all_links)\",
                 \"type\": \"other\"
             },
             {
@@ -231,7 +231,7 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}]}]\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             },
             {
@@ -577,8 +577,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                     \"hasServiceProperties\": false,
                     \"hasPrefix\": false,
                     \"graphLabel\": \"\",
-                    \"hasGithubURL\": true,
                     \"GithubURL\": \"https://github.com/usc-isi-i2/effect-alignment/tree/master/models/hg-reddit\",
+                    \"hasGithubURL\": true,
                     \"hasBaseURI\": false,
                     \"baseURI\": \"\"
                 },
@@ -596,94 +596,6 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             }
         ],
         \"commandName\": \"SetWorksheetPropertiesCommand\"
-    },
-    {
-        \"tags\": [
-            \"Transformation\",
-            \"IgnoreInBatch\"
-        ],
-        \"model\": \"new\",
-        \"inputParameters\": [
-            {
-                \"name\": \"worksheetId\",
-                \"value\": \"W\",
-                \"type\": \"worksheetId\"
-            },
-            {
-                \"name\": \"selectionName\",
-                \"value\": \"DEFAULT_TEST\",
-                \"type\": \"other\"
-            },
-            {
-                \"name\": \"orderedColumns\",
-                \"value\": [
-                    {
-                        \"id\": [{\"columnName\": \"_id\"}],
-                        \"visible\": true,
-                        \"name\": \"_id\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"content_type\"}],
-                        \"visible\": false,
-                        \"name\": \"content_type\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"extractions\"}],
-                        \"visible\": true,
-                        \"name\": \"extractions\",
-                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"msid\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"}]\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"json_rep\"}],
-                        \"visible\": true,
-                        \"name\": \"json_rep\",
-                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"comments\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_fetched\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_fetched\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_info_params\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_info_params\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_mod\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_mod\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_reddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_reddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_replies\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_replies\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"_replies\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_submission\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_submission\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"archived\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"archived\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"author\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body_html\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body_html\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_gild\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_gild\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"controversiality\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"controversiality\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"created\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"created_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"cve\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"depth\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"depth\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"distinguished\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"distinguished\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"downs\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"downs\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"edited\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"edited\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"gilded\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"gilded\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"is_submitter\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"is_submitter\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"likes\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"likes\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"link_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"link_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"links\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"links\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"mod_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"mod_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"num_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"num_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"parent_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"parent_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"permalink\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"permalink\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"removal_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"removal_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"report_reasons\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"report_reasons\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"saved\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"saved\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score_hidden\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score_hidden\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"stickied\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"stickied\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"ups\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"ups\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"user_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"user_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_fetched\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_fetched\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_flair\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_flair\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_info_params\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_info_params\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_mod\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_mod\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_reddit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_reddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"archived\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"archived\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author_uri\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"brand_safe\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"brand_safe\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_gild\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_gild\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_mod_post\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_mod_post\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"clicked\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"clicked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_limit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_limit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_sort\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"contest_mode\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"contest_mode\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"created\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_utc\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_iso\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"distinguished\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"distinguished\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"domain\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"downs\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"downs\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"edited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"edited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"gilded\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"gilded\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hidden\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hidden\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hide_score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hide_score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_crosspostable\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_crosspostable\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_reddit_media_domain\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_reddit_media_domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_self\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_self\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_video\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_video\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"likes\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"likes\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"links\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"locked\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"locked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media_embed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"mod_reports\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"mod_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"name\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"name\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_comments\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_comments\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_crossposts\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_crossposts\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"over_18\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"over_18\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parent_whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parent_whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parsed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parsed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"permalink\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"permalink\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"reddit_url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"pinned\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"pinned\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_hint\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"post_hint\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"preview\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"preview\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"quarantine\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"quarantine\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"removal_reason\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"removal_reason\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"report_reasons\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"report_reasons\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"saved\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"saved\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media_embed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_with_links\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_html\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_html\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"spoiler\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"spoiler\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"stickied\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"stickied\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_name_prefixed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_name_prefixed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_type\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_type\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"suggested_sort\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"suggested_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_height\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_height\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_width\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_width\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"title\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"ups\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"ups\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"upvote_ratio\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"upvote_ratio\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"user_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"view_count\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"view_count\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"visited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"visited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent_list\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent_list\\\"}]\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"raw_content\"}],
-                        \"visible\": false,
-                        \"name\": \"raw_content\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"source_name\"}],
-                        \"visible\": true,
-                        \"name\": \"source_name\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"team\"}],
-                        \"visible\": true,
-                        \"name\": \"team\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"timestamp\"}],
-                        \"visible\": true,
-                        \"name\": \"timestamp\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"url\"}],
-                        \"visible\": false,
-                        \"name\": \"url\"
-                    },
-                    {
-                        \"id\": [{\"columnName\": \"version\"}],
-                        \"visible\": false,
-                        \"name\": \"version\"
-                    }
-                ],
-                \"type\": \"orderedColumns\"
-            },
-            {
-                \"name\": \"inputColumns\",
-                \"value\": \"[]\",
-                \"type\": \"hNodeIdList\"
-            },
-            {
-                \"name\": \"outputColumns\",
-                \"value\": \"[]\",
-                \"type\": \"hNodeIdList\"
-            }
-        ],
-        \"commandName\": \"OrganizeColumnsCommand\"
     },
     {
         \"tags\": [\"Transformation\"],
@@ -784,7 +696,7 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             },
             {
                 \"name\": \"inputColumns\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_uri\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"id\\\"}]}]\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"id\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"forum_uri\\\"}]}]\",
                 \"type\": \"hNodeIdList\"
             },
             {
@@ -907,6 +819,94 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
         \"commandName\": \"SubmitPythonTransformationCommand\"
     },
     {
+        \"tags\": [
+            \"Transformation\",
+            \"IgnoreInBatch\"
+        ],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"orderedColumns\",
+                \"value\": [
+                    {
+                        \"id\": [{\"columnName\": \"_id\"}],
+                        \"visible\": true,
+                        \"name\": \"_id\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"content_type\"}],
+                        \"visible\": false,
+                        \"name\": \"content_type\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"extractions\"}],
+                        \"visible\": true,
+                        \"name\": \"extractions\",
+                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"extractions\\\"},{\\\"columnName\\\":\\\"msid\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"msid\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractor\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"extractor\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"result\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"result\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":false,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"children\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"end\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"field\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"context\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"}]\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"extractions\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"msid\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"result\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"value\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"extractions\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"msid\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"source\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"source\\\\\\\"}]\\\"}]\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"json_rep\"}],
+                        \"visible\": true,
+                        \"name\": \"json_rep\",
+                        \"children\": \"[{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comments\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"comments\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_fetched\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_fetched\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_info_params\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_info_params\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_mod\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"_mod\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_reddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_reddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_replies\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_replies\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"_replies\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"_submission\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"_submission\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"approved_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"approved_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"archived\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"archived\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"author\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_css_class\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_flair_text\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_at_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"banned_by\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"banned_by\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"body_html\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"body_html\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_gild\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_gild\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"can_mod_post\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"collapsed_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"controversiality\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"controversiality\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"created\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"created_utc\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"created_utc\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"comment_created_iso\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"cve\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"cve\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"depth\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"depth\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"distinguished\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"distinguished\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"downs\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"downs\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"edited\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"edited\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"gilded\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"gilded\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"is_submitter\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"is_submitter\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"likes\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"likes\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"link_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"link_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"links\\\\\\\",\\\\\\\"children\\\\\\\":\\\\\\\"[{\\\\\\\\\\\\\\\"id\\\\\\\\\\\\\\\":[{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"json_rep\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"comments\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"links\\\\\\\\\\\\\\\"},{\\\\\\\\\\\\\\\"columnName\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}],\\\\\\\\\\\\\\\"visible\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"values\\\\\\\\\\\\\\\"}]\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"mod_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"mod_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"name\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"name\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"num_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"num_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"parent_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"parent_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"permalink\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"permalink\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"removal_reason\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"removal_reason\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"report_reasons\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"report_reasons\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"saved\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"saved\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"score_hidden\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"score_hidden\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"stickied\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"stickied\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_id\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_name_prefixed\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"subreddit_type\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"ups\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"ups\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"user_reports\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"user_reports\\\\\\\"},{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"comments\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}],\\\\\\\"visible\\\\\\\":false,\\\\\\\"name\\\\\\\":\\\\\\\"author_cakeday\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_fetched\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_fetched\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_flair\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_flair\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_info_params\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_info_params\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_mod\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_mod\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"_reddit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"_reddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"approved_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"approved_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"archived\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"archived\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_uri\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"author_uri\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"author_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"author_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_at_utc\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_at_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"banned_by\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"banned_by\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"brand_safe\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"brand_safe\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_gild\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_gild\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"can_mod_post\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"can_mod_post\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"clicked\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"clicked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_limit\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_limit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"comment_sort\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"comment_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"contest_mode\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"contest_mode\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"created\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_utc\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_utc\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"created_iso\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"created_iso\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"cve\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"cve\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"cve\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"distinguished\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"distinguished\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"domain\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"downs\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"downs\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"edited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"edited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"gilded\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"gilded\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hidden\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hidden\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"hide_score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"hide_score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_crosspostable\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_crosspostable\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_reddit_media_domain\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_reddit_media_domain\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_self\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_self\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"is_video\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"is_video\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"likes\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"likes\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_css_class\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_css_class\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"link_flair_text\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"link_flair_text\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"links\\\",\\\"children\\\":\\\"[{\\\\\\\"id\\\\\\\":[{\\\\\\\"columnName\\\\\\\":\\\\\\\"json_rep\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"links\\\\\\\"},{\\\\\\\"columnName\\\\\\\":\\\\\\\"values\\\\\\\"}],\\\\\\\"visible\\\\\\\":true,\\\\\\\"name\\\\\\\":\\\\\\\"values\\\\\\\"}]\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"locked\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"locked\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"media_embed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"mod_reports\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"mod_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"name\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"name\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_comments\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_comments\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_crossposts\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_crossposts\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"num_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"num_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"over_18\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"over_18\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parent_whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parent_whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"parsed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"parsed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"permalink\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"permalink\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"reddit_url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"reddit_url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"pinned\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"pinned\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"post_hint\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"post_hint\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"preview\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"preview\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"quarantine\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"quarantine\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"removal_reason\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"removal_reason\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"report_reasons\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"report_reasons\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"saved\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"saved\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"score\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"score\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"secure_media_embed\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"secure_media_embed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_with_links\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_with_links\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"selftext_html\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"selftext_html\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"spoiler\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"spoiler\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"stickied\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"stickied\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_id\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_id\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_name_prefixed\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_name_prefixed\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"subreddit_type\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"subreddit_type\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"suggested_sort\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"suggested_sort\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_height\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_height\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"thumbnail_width\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"thumbnail_width\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"title\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"title\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"ups\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"ups\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"upvote_ratio\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"upvote_ratio\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"url\\\"}],\\\"visible\\\":true,\\\"name\\\":\\\"url\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"user_reports\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"user_reports\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"view_count\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"view_count\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"visited\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"visited\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"whitelist_status\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"whitelist_status\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent\\\"},{\\\"id\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"crosspost_parent_list\\\"}],\\\"visible\\\":false,\\\"name\\\":\\\"crosspost_parent_list\\\"}]\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"raw_content\"}],
+                        \"visible\": false,
+                        \"name\": \"raw_content\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"source_name\"}],
+                        \"visible\": true,
+                        \"name\": \"source_name\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"team\"}],
+                        \"visible\": true,
+                        \"name\": \"team\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"timestamp\"}],
+                        \"visible\": true,
+                        \"name\": \"timestamp\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"url\"}],
+                        \"visible\": false,
+                        \"name\": \"url\"
+                    },
+                    {
+                        \"id\": [{\"columnName\": \"version\"}],
+                        \"visible\": false,
+                        \"name\": \"version\"
+                    }
+                ],
+                \"type\": \"orderedColumns\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"OrganizeColumnsCommand\"
+    },
+    {
         \"tags\": [\"SemanticType\"],
         \"model\": \"new\",
         \"inputParameters\": [
@@ -946,9 +946,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:PersonOrOrganization1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
@@ -1008,9 +1008,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/url\",
-                    \"isPrimary\": true,
                     \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/url\",
                     \"DomainLabel\": \"memex:Post1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
@@ -1085,9 +1085,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:Post1\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
@@ -1147,9 +1147,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/datePublished\",
-                    \"isPrimary\": true,
                     \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/datePublished\",
                     \"DomainLabel\": \"memex:Post1\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
@@ -1209,9 +1209,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/text\",
-                    \"isPrimary\": true,
                     \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/text\",
                     \"DomainLabel\": \"memex:Post1\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
@@ -1272,9 +1272,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/datePublished\",
-                    \"isPrimary\": true,
                     \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/datePublished\",
                     \"DomainLabel\": \"schema:Comment1 (add)\",
                     \"DomainId\": \"http://schema.org/Comment1\",
                     \"DomainUri\": \"http://schema.org/Comment\"
@@ -1335,9 +1335,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"FullType\": \"http://schema.org/text\",
-                    \"isPrimary\": true,
                     \"isProvenance\": false,
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/text\",
                     \"DomainLabel\": \"schema:Comment1\",
                     \"DomainId\": \"http://schema.org/Comment1\",
                     \"DomainUri\": \"http://schema.org/Comment\"
@@ -1413,9 +1413,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"schema:Comment1\",
                     \"DomainId\": \"http://schema.org/Comment1\",
                     \"DomainUri\": \"http://schema.org/Comment\"
@@ -1491,9 +1491,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:PersonOrOrganization2 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
@@ -1570,9 +1570,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:Vulnerability1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
@@ -1649,9 +1649,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:SecurityUpdate1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
@@ -1709,65 +1709,65 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [
                     {
-                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
                     },
                     {
-                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
                     },
                     {
-                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.org/Comment1\",
                         \"DomainUri\": \"http://schema.org/Comment\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.dig.isi.edu/ontology/dateRecorded\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:SecurityUpdate1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
@@ -1826,65 +1826,65 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [
                     {
-                        \"FullType\": \"http://schema.org/publisher\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
                     },
                     {
-                        \"FullType\": \"http://schema.org/publisher\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
                     },
                     {
-                        \"FullType\": \"http://schema.org/publisher\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/publisher\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/publisher\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.org/Comment1\",
                         \"DomainUri\": \"http://schema.org/Comment\"
@@ -1943,65 +1943,65 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [
                     {
-                        \"FullType\": \"http://schema.org/source\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
                     },
                     {
-                        \"FullType\": \"http://schema.org/source\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
                     },
                     {
-                        \"FullType\": \"http://schema.org/source\",
-                        \"isPrimary\": true,
                         \"isProvenance\": true,
+                        \"isPrimary\": true,
+                        \"FullType\": \"http://schema.org/source\",
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                         \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\"
                     },
                     {
-                        \"isProvenance\": true,
-                        \"isPrimary\": true,
                         \"FullType\": \"http://schema.org/source\",
+                        \"isPrimary\": true,
+                        \"isProvenance\": true,
                         \"DomainLabel\": \"memex:Post1\",
                         \"DomainId\": \"http://schema.org/Comment1\",
                         \"DomainUri\": \"http://schema.org/Comment\"
@@ -2077,9 +2077,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:Forum1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Forum\"
@@ -2154,9 +2154,9 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"SemanticTypesArray\",
                 \"value\": [{
-                    \"isProvenance\": false,
-                    \"isPrimary\": true,
                     \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
                     \"DomainLabel\": \"memex:Topic1 (add)\",
                     \"DomainId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                     \"DomainUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
@@ -2205,8 +2205,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
                     \"edgeId\": \"http://schema.org/author\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                 },
                 \"type\": \"other\"
@@ -2238,8 +2238,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.org/Comment\",
                     \"edgeId\": \"http://schema.org/comment\",
-                    \"edgeTargetId\": \"http://schema.org/Comment1\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.org/Comment1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                 },
                 \"type\": \"other\"
@@ -2271,8 +2271,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization\",
                     \"edgeId\": \"http://schema.org/author\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                     \"edgeSourceId\": \"http://schema.org/Comment1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/PersonOrOrganization2\",
                     \"edgeSourceUri\": \"http://schema.org/Comment\"
                 },
                 \"type\": \"other\"
@@ -2304,8 +2304,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Vulnerability\",
                     \"edgeId\": \"http://schema.org/mentions\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Vulnerability1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                 },
                 \"type\": \"other\"
@@ -2337,8 +2337,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate\",
                     \"edgeId\": \"http://schema.dig.isi.edu/ontology/mentionsSecurityUpdate\",
-                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/SecurityUpdate1\",
+                    \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                 },
                 \"type\": \"other\"
@@ -2370,8 +2370,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Forum\",
                     \"edgeId\": \"http://schema.dig.isi.edu/ontology/isTopicOf\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Forum1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Topic\"
                 },
                 \"type\": \"other\"
@@ -2403,8 +2403,8 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
                 \"value\": {
                     \"edgeTargetUri\": \"http://schema.dig.isi.edu/ontology/Topic\",
                     \"edgeId\": \"http://schema.dig.isi.edu/ontology/hasTopic\",
-                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                     \"edgeSourceId\": \"http://schema.dig.isi.edu/ontology/Post1\",
+                    \"edgeTargetId\": \"http://schema.dig.isi.edu/ontology/Topic1\",
                     \"edgeSourceUri\": \"http://schema.dig.isi.edu/ontology/Post\"
                 },
                 \"type\": \"other\"
@@ -2424,493 +2424,493 @@ _:node1c169u4gjx1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_1d8c23b3-d4c3-4311-b9d3-2d573e369cae a rr:TriplesMap .
+km-dev:TriplesMap_56cb4be6-dec1-4eee-9fab-0a479409f9b1 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_1d8c23b3-d4c3-4311-b9d3-2d573e369cae .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_56cb4be6-dec1-4eee-9fab-0a479409f9b1 .
 
-km-dev:TriplesMap_1d8c23b3-d4c3-4311-b9d3-2d573e369cae km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_56cb4be6-dec1-4eee-9fab-0a479409f9b1 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx2 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx2 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx2 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx2 .
 
-km-dev:TriplesMap_1d8c23b3-d4c3-4311-b9d3-2d573e369cae rr:logicalTable _:node1c169u4gjx2 ;
-	rr:subjectMap _:node1c169u4gjx3 .
+km-dev:TriplesMap_56cb4be6-dec1-4eee-9fab-0a479409f9b1 rr:logicalTable _:node1c1dpmqbhx2 ;
+	rr:subjectMap _:node1c1dpmqbhx3 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx3 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx3 .
 
-_:node1c169u4gjx3 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx3 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Forum1" ;
 	rr:class memex:Forum ;
 	rr:template "forum/reddit" .
 
-km-dev:TriplesMap_a9ab3081-308e-4c4b-babe-aeb61e3ddc60 a rr:TriplesMap .
+km-dev:TriplesMap_c100062b-b048-419d-a18c-15a98ba25930 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_a9ab3081-308e-4c4b-babe-aeb61e3ddc60 .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_c100062b-b048-419d-a18c-15a98ba25930 .
 
-km-dev:TriplesMap_a9ab3081-308e-4c4b-babe-aeb61e3ddc60 km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_c100062b-b048-419d-a18c-15a98ba25930 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx4 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx4 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx4 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx4 .
 
-km-dev:TriplesMap_a9ab3081-308e-4c4b-babe-aeb61e3ddc60 rr:logicalTable _:node1c169u4gjx4 ;
-	rr:subjectMap _:node1c169u4gjx5 .
+km-dev:TriplesMap_c100062b-b048-419d-a18c-15a98ba25930 rr:logicalTable _:node1c1dpmqbhx4 ;
+	rr:subjectMap _:node1c1dpmqbhx5 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx5 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx5 .
 
-_:node1c169u4gjx5 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx5 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization1" ;
 	rr:class memex:PersonOrOrganization ;
 	rr:template "{[\"json_rep\",\"author_uri\"]}" .
 
-km-dev:TriplesMap_49424215-76f6-4bc6-b668-7211db64204e a rr:TriplesMap .
+km-dev:TriplesMap_000f9d18-c294-4b32-a330-064642bb88e7 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_49424215-76f6-4bc6-b668-7211db64204e .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_000f9d18-c294-4b32-a330-064642bb88e7 .
 
-km-dev:TriplesMap_49424215-76f6-4bc6-b668-7211db64204e km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_000f9d18-c294-4b32-a330-064642bb88e7 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx6 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx6 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx6 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx6 .
 
-km-dev:TriplesMap_49424215-76f6-4bc6-b668-7211db64204e rr:logicalTable _:node1c169u4gjx6 ;
-	rr:subjectMap _:node1c169u4gjx7 .
+km-dev:TriplesMap_000f9d18-c294-4b32-a330-064642bb88e7 rr:logicalTable _:node1c1dpmqbhx6 ;
+	rr:subjectMap _:node1c1dpmqbhx7 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx7 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx7 .
 
-_:node1c169u4gjx7 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx7 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/PersonOrOrganization2" ;
 	rr:class memex:PersonOrOrganization ;
 	rr:template "{[\"json_rep\",\"comments\",\"comment_author\"]}" .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb a rr:TriplesMap .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx8 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx8 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx8 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx8 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:logicalTable _:node1c169u4gjx8 ;
-	rr:subjectMap _:node1c169u4gjx9 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:logicalTable _:node1c1dpmqbhx8 ;
+	rr:subjectMap _:node1c1dpmqbhx9 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx9 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx9 .
 
-_:node1c169u4gjx9 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx9 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Post1" ;
 	rr:class memex:Post ;
 	rr:template "{[\"json_rep\",\"topic_uri\"]}/post" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_c5724a39-54a8-4c09-9369-8e2971a175e6 rr:predicate memex:hasTopic .
+km-dev:PredicateObjectMap_38e6bd7c-bc59-4f31-bac2-59b1d8039a58 rr:predicate schema:author .
 
-km-dev:RefObjectMap_424d6599-5743-4040-9578-aac4f70984b2 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:RefObjectMap_b1e5d314-255e-4434-bc68-0cbba43eaf06 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c100062b-b048-419d-a18c-15a98ba25930 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_424d6599-5743-4040-9578-aac4f70984b2 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_b1e5d314-255e-4434-bc68-0cbba43eaf06 .
 
-km-dev:PredicateObjectMap_c5724a39-54a8-4c09-9369-8e2971a175e6 rr:objectMap km-dev:RefObjectMap_424d6599-5743-4040-9578-aac4f70984b2 .
+km-dev:PredicateObjectMap_38e6bd7c-bc59-4f31-bac2-59b1d8039a58 rr:objectMap km-dev:RefObjectMap_b1e5d314-255e-4434-bc68-0cbba43eaf06 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_c5724a39-54a8-4c09-9369-8e2971a175e6 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_38e6bd7c-bc59-4f31-bac2-59b1d8039a58 .
 
-km-dev:PredicateObjectMap_c5724a39-54a8-4c09-9369-8e2971a175e6 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_38e6bd7c-bc59-4f31-bac2-59b1d8039a58 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c5724a39-54a8-4c09-9369-8e2971a175e6 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_38e6bd7c-bc59-4f31-bac2-59b1d8039a58 .
 
-km-dev:PredicateObjectMap_909fb203-0b35-4a32-bdfa-01012b918e1e rr:predicate memex:mentionsSecurityUpdate .
+km-dev:PredicateObjectMap_7a6cc3dd-a9a1-4bbe-9915-1a9b08cb42a5 rr:predicate schema:datePublished .
 
-km-dev:RefObjectMap_19314170-2298-4417-b71c-4ca05941093f a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_1a6262a0-a1c7-466e-86b7-8859083b7348 ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_19314170-2298-4417-b71c-4ca05941093f .
-
-km-dev:PredicateObjectMap_909fb203-0b35-4a32-bdfa-01012b918e1e rr:objectMap km-dev:RefObjectMap_19314170-2298-4417-b71c-4ca05941093f .
-
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_909fb203-0b35-4a32-bdfa-01012b918e1e .
-
-km-dev:PredicateObjectMap_909fb203-0b35-4a32-bdfa-01012b918e1e a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_909fb203-0b35-4a32-bdfa-01012b918e1e .
-
-km-dev:PredicateObjectMap_985f5fbf-cd99-49c4-8a08-817e3566f30f rr:predicate schema:author .
-
-km-dev:RefObjectMap_ce8491bd-4166-43f8-b6c4-c7ff20c0b072 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_a9ab3081-308e-4c4b-babe-aeb61e3ddc60 ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_ce8491bd-4166-43f8-b6c4-c7ff20c0b072 .
-
-km-dev:PredicateObjectMap_985f5fbf-cd99-49c4-8a08-817e3566f30f rr:objectMap km-dev:RefObjectMap_ce8491bd-4166-43f8-b6c4-c7ff20c0b072 .
-
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_985f5fbf-cd99-49c4-8a08-817e3566f30f .
-
-km-dev:PredicateObjectMap_985f5fbf-cd99-49c4-8a08-817e3566f30f a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_985f5fbf-cd99-49c4-8a08-817e3566f30f .
-
-km-dev:PredicateObjectMap_ade9e10c-9f5d-4767-a490-de5b86e5f57b rr:predicate schema:datePublished .
-
-_:node1c169u4gjx10 rr:column "[\"json_rep\",\"created_iso\"]" ;
+_:node1c1dpmqbhx10 rr:column "[\"json_rep\",\"created_iso\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx10 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx10 .
 
-km-dev:PredicateObjectMap_ade9e10c-9f5d-4767-a490-de5b86e5f57b rr:objectMap _:node1c169u4gjx10 .
+km-dev:PredicateObjectMap_7a6cc3dd-a9a1-4bbe-9915-1a9b08cb42a5 rr:objectMap _:node1c1dpmqbhx10 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_ade9e10c-9f5d-4767-a490-de5b86e5f57b .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_7a6cc3dd-a9a1-4bbe-9915-1a9b08cb42a5 .
 
-km-dev:PredicateObjectMap_ade9e10c-9f5d-4767-a490-de5b86e5f57b a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_7a6cc3dd-a9a1-4bbe-9915-1a9b08cb42a5 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ade9e10c-9f5d-4767-a490-de5b86e5f57b .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7a6cc3dd-a9a1-4bbe-9915-1a9b08cb42a5 .
 
-km-dev:PredicateObjectMap_2935ff87-fe7b-4939-849b-e25ed6cb52e3 rr:predicate schema:mentions .
+km-dev:PredicateObjectMap_78898045-3e00-489a-9767-3981cbeb9554 rr:predicate schema:text .
 
-km-dev:RefObjectMap_0b97808d-3803-423e-b11c-495835e0f6ed a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_fe48aa3d-4ec2-4e0c-bc10-b42fcc99498e ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_0b97808d-3803-423e-b11c-495835e0f6ed .
-
-km-dev:PredicateObjectMap_2935ff87-fe7b-4939-849b-e25ed6cb52e3 rr:objectMap km-dev:RefObjectMap_0b97808d-3803-423e-b11c-495835e0f6ed .
-
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_2935ff87-fe7b-4939-849b-e25ed6cb52e3 .
-
-km-dev:PredicateObjectMap_2935ff87-fe7b-4939-849b-e25ed6cb52e3 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2935ff87-fe7b-4939-849b-e25ed6cb52e3 .
-
-km-dev:PredicateObjectMap_e9f64ff9-d92e-4e7e-a66c-a65b2be710d2 rr:predicate schema:text .
-
-_:node1c169u4gjx11 rr:column "[\"json_rep\",\"selftext_with_links\"]" ;
+_:node1c1dpmqbhx11 rr:column "[\"json_rep\",\"selftext_with_links\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx11 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx11 .
 
-km-dev:PredicateObjectMap_e9f64ff9-d92e-4e7e-a66c-a65b2be710d2 rr:objectMap _:node1c169u4gjx11 .
+km-dev:PredicateObjectMap_78898045-3e00-489a-9767-3981cbeb9554 rr:objectMap _:node1c1dpmqbhx11 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_e9f64ff9-d92e-4e7e-a66c-a65b2be710d2 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_78898045-3e00-489a-9767-3981cbeb9554 .
 
-km-dev:PredicateObjectMap_e9f64ff9-d92e-4e7e-a66c-a65b2be710d2 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_78898045-3e00-489a-9767-3981cbeb9554 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e9f64ff9-d92e-4e7e-a66c-a65b2be710d2 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_78898045-3e00-489a-9767-3981cbeb9554 .
 
-km-dev:PredicateObjectMap_dc5f5d66-1551-4f55-bf89-d5bb4b3d3dcf rr:predicate schema:url .
+km-dev:PredicateObjectMap_cd382304-96c8-4cf8-b971-099499773720 rr:predicate schema:url .
 
-_:node1c169u4gjx12 rr:constant "http://www.reddit.com{[\"json_rep\",\"permalink\"]}" ;
+_:node1c1dpmqbhx12 rr:constant "http://www.reddit.com{[\"json_rep\",\"permalink\"]}" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx12 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx12 .
 
-km-dev:PredicateObjectMap_dc5f5d66-1551-4f55-bf89-d5bb4b3d3dcf rr:objectMap _:node1c169u4gjx12 .
+km-dev:PredicateObjectMap_cd382304-96c8-4cf8-b971-099499773720 rr:objectMap _:node1c1dpmqbhx12 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_dc5f5d66-1551-4f55-bf89-d5bb4b3d3dcf .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_cd382304-96c8-4cf8-b971-099499773720 .
 
-km-dev:PredicateObjectMap_dc5f5d66-1551-4f55-bf89-d5bb4b3d3dcf a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_cd382304-96c8-4cf8-b971-099499773720 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_dc5f5d66-1551-4f55-bf89-d5bb4b3d3dcf .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_cd382304-96c8-4cf8-b971-099499773720 .
 
-km-dev:PredicateObjectMap_ca018e62-6803-46ad-aed2-0eafc064f7df rr:predicate schema:publisher .
+km-dev:PredicateObjectMap_a86b6c44-2def-49c2-9288-a0ef2abd21f4 rr:predicate memex:hasTopic .
 
-_:node1c169u4gjx13 rr:column "source_name" ;
+km-dev:RefObjectMap_bf32cc41-996b-496b-9f1e-cb9bf9d88d8e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_bf32cc41-996b-496b-9f1e-cb9bf9d88d8e .
+
+km-dev:PredicateObjectMap_a86b6c44-2def-49c2-9288-a0ef2abd21f4 rr:objectMap km-dev:RefObjectMap_bf32cc41-996b-496b-9f1e-cb9bf9d88d8e .
+
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_a86b6c44-2def-49c2-9288-a0ef2abd21f4 .
+
+km-dev:PredicateObjectMap_a86b6c44-2def-49c2-9288-a0ef2abd21f4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a86b6c44-2def-49c2-9288-a0ef2abd21f4 .
+
+km-dev:PredicateObjectMap_44848bf2-bfc0-46a3-8fe5-c251b580b03e rr:predicate memex:mentionsSecurityUpdate .
+
+km-dev:RefObjectMap_89b12629-cd6d-472a-91c9-d448bcc84bef a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_f646bbb4-0ca4-495d-a8c2-a88b2dd3063c ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_89b12629-cd6d-472a-91c9-d448bcc84bef .
+
+km-dev:PredicateObjectMap_44848bf2-bfc0-46a3-8fe5-c251b580b03e rr:objectMap km-dev:RefObjectMap_89b12629-cd6d-472a-91c9-d448bcc84bef .
+
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_44848bf2-bfc0-46a3-8fe5-c251b580b03e .
+
+km-dev:PredicateObjectMap_44848bf2-bfc0-46a3-8fe5-c251b580b03e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_44848bf2-bfc0-46a3-8fe5-c251b580b03e .
+
+km-dev:PredicateObjectMap_bb785be8-8131-4e7e-a92b-76a0e10c675d rr:predicate memex:dateRecorded .
+
+_:node1c1dpmqbhx13 rr:column "timestamp_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx13 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx13 .
 
-km-dev:PredicateObjectMap_ca018e62-6803-46ad-aed2-0eafc064f7df rr:objectMap _:node1c169u4gjx13 .
+km-dev:PredicateObjectMap_bb785be8-8131-4e7e-a92b-76a0e10c675d rr:objectMap _:node1c1dpmqbhx13 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_ca018e62-6803-46ad-aed2-0eafc064f7df .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_bb785be8-8131-4e7e-a92b-76a0e10c675d .
 
-km-dev:PredicateObjectMap_ca018e62-6803-46ad-aed2-0eafc064f7df a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_bb785be8-8131-4e7e-a92b-76a0e10c675d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ca018e62-6803-46ad-aed2-0eafc064f7df .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_bb785be8-8131-4e7e-a92b-76a0e10c675d .
 
-km-dev:PredicateObjectMap_80e84144-1ef5-4013-8d1c-418d9ad62c56 rr:predicate schema:source .
+km-dev:PredicateObjectMap_cb66ce9e-115d-4f59-896a-7449be08dcad rr:predicate schema:publisher .
 
-_:node1c169u4gjx14 rr:column "_id" ;
+_:node1c1dpmqbhx14 rr:column "source_name" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx14 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx14 .
 
-km-dev:PredicateObjectMap_80e84144-1ef5-4013-8d1c-418d9ad62c56 rr:objectMap _:node1c169u4gjx14 .
+km-dev:PredicateObjectMap_cb66ce9e-115d-4f59-896a-7449be08dcad rr:objectMap _:node1c1dpmqbhx14 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_80e84144-1ef5-4013-8d1c-418d9ad62c56 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_cb66ce9e-115d-4f59-896a-7449be08dcad .
 
-km-dev:PredicateObjectMap_80e84144-1ef5-4013-8d1c-418d9ad62c56 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_cb66ce9e-115d-4f59-896a-7449be08dcad a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_80e84144-1ef5-4013-8d1c-418d9ad62c56 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_cb66ce9e-115d-4f59-896a-7449be08dcad .
 
-km-dev:PredicateObjectMap_a1c1b70c-796f-4c61-a2e4-543bda022a02 rr:predicate memex:dateRecorded .
+km-dev:PredicateObjectMap_cdfa1516-c141-4e53-a4a1-201155aa61b1 rr:predicate schema:source .
 
-_:node1c169u4gjx15 rr:column "timestamp_iso" ;
+_:node1c1dpmqbhx15 rr:column "_id" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx15 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx15 .
 
-km-dev:PredicateObjectMap_a1c1b70c-796f-4c61-a2e4-543bda022a02 rr:objectMap _:node1c169u4gjx15 .
+km-dev:PredicateObjectMap_cdfa1516-c141-4e53-a4a1-201155aa61b1 rr:objectMap _:node1c1dpmqbhx15 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_a1c1b70c-796f-4c61-a2e4-543bda022a02 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_cdfa1516-c141-4e53-a4a1-201155aa61b1 .
 
-km-dev:PredicateObjectMap_a1c1b70c-796f-4c61-a2e4-543bda022a02 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_cdfa1516-c141-4e53-a4a1-201155aa61b1 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a1c1b70c-796f-4c61-a2e4-543bda022a02 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_cdfa1516-c141-4e53-a4a1-201155aa61b1 .
 
-km-dev:PredicateObjectMap_32878368-e45f-406b-ae6d-83c021119ae8 rr:predicate schema:comment .
+km-dev:PredicateObjectMap_6bb7611d-3dfd-4170-8782-2a6a4aef53d8 rr:predicate schema:mentions .
 
-km-dev:RefObjectMap_592ade16-3da7-4290-8fcd-8948e68fcb52 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:RefObjectMap_3ea77f82-a685-4bf5-91c3-93214e3010d4 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_3c3db2db-a6e1-45d3-8666-1119c1b641f4 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_592ade16-3da7-4290-8fcd-8948e68fcb52 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_3ea77f82-a685-4bf5-91c3-93214e3010d4 .
 
-km-dev:PredicateObjectMap_32878368-e45f-406b-ae6d-83c021119ae8 rr:objectMap km-dev:RefObjectMap_592ade16-3da7-4290-8fcd-8948e68fcb52 .
+km-dev:PredicateObjectMap_6bb7611d-3dfd-4170-8782-2a6a4aef53d8 rr:objectMap km-dev:RefObjectMap_3ea77f82-a685-4bf5-91c3-93214e3010d4 .
 
-km-dev:TriplesMap_86e7299e-4065-4aef-8387-776ff86807bb rr:predicateObjectMap km-dev:PredicateObjectMap_32878368-e45f-406b-ae6d-83c021119ae8 .
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_6bb7611d-3dfd-4170-8782-2a6a4aef53d8 .
 
-km-dev:PredicateObjectMap_32878368-e45f-406b-ae6d-83c021119ae8 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_6bb7611d-3dfd-4170-8782-2a6a4aef53d8 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_32878368-e45f-406b-ae6d-83c021119ae8 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6bb7611d-3dfd-4170-8782-2a6a4aef53d8 .
 
-km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 a rr:TriplesMap .
+km-dev:PredicateObjectMap_2b92f8c9-fae3-45af-ba97-d3276a012dd1 rr:predicate schema:comment .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 .
+km-dev:RefObjectMap_887e09e7-8237-4e7e-a5e3-aa6be5edda4e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 km-dev:isPartOfMapping _:node1c169u4gjx1 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_887e09e7-8237-4e7e-a5e3-aa6be5edda4e .
 
-_:node1c169u4gjx16 rr:tableName "reddit-cdr-extractions.jl" ;
+km-dev:PredicateObjectMap_2b92f8c9-fae3-45af-ba97-d3276a012dd1 rr:objectMap km-dev:RefObjectMap_887e09e7-8237-4e7e-a5e3-aa6be5edda4e .
+
+km-dev:TriplesMap_5d2c2dc3-1c3a-4125-b7ef-582319bd6ad0 rr:predicateObjectMap km-dev:PredicateObjectMap_2b92f8c9-fae3-45af-ba97-d3276a012dd1 .
+
+km-dev:PredicateObjectMap_2b92f8c9-fae3-45af-ba97-d3276a012dd1 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_2b92f8c9-fae3-45af-ba97-d3276a012dd1 .
+
+km-dev:TriplesMap_f646bbb4-0ca4-495d-a8c2-a88b2dd3063c a rr:TriplesMap .
+
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_f646bbb4-0ca4-495d-a8c2-a88b2dd3063c .
+
+km-dev:TriplesMap_f646bbb4-0ca4-495d-a8c2-a88b2dd3063c km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx16 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx16 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx16 .
 
-km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 rr:logicalTable _:node1c169u4gjx16 ;
-	rr:subjectMap _:node1c169u4gjx17 .
+km-dev:TriplesMap_f646bbb4-0ca4-495d-a8c2-a88b2dd3063c rr:logicalTable _:node1c1dpmqbhx16 ;
+	rr:subjectMap _:node1c1dpmqbhx17 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx17 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx17 .
 
-_:node1c169u4gjx17 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Topic1" ;
-	rr:class memex:Topic ;
-	rr:template "{[\"json_rep\",\"forum_uri\"]}/topic/{[\"json_rep\",\"id\"]}" .
-
-km-dev:PredicateObjectMap_6d765feb-5d96-4409-89e0-357d49b7f4c9 rr:predicate memex:isTopicOf .
-
-km-dev:RefObjectMap_9c05d488-98ff-4aa7-b480-41eec98d698a a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_1d8c23b3-d4c3-4311-b9d3-2d573e369cae ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_9c05d488-98ff-4aa7-b480-41eec98d698a .
-
-km-dev:PredicateObjectMap_6d765feb-5d96-4409-89e0-357d49b7f4c9 rr:objectMap km-dev:RefObjectMap_9c05d488-98ff-4aa7-b480-41eec98d698a .
-
-km-dev:TriplesMap_5df2838c-4619-45e7-af89-ffcfc188cc54 rr:predicateObjectMap km-dev:PredicateObjectMap_6d765feb-5d96-4409-89e0-357d49b7f4c9 .
-
-km-dev:PredicateObjectMap_6d765feb-5d96-4409-89e0-357d49b7f4c9 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6d765feb-5d96-4409-89e0-357d49b7f4c9 .
-
-km-dev:TriplesMap_1a6262a0-a1c7-466e-86b7-8859083b7348 a rr:TriplesMap .
-
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_1a6262a0-a1c7-466e-86b7-8859083b7348 .
-
-km-dev:TriplesMap_1a6262a0-a1c7-466e-86b7-8859083b7348 km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx18 rr:tableName "reddit-cdr-extractions.jl" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
-
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx18 .
-
-km-dev:TriplesMap_1a6262a0-a1c7-466e-86b7-8859083b7348 rr:logicalTable _:node1c169u4gjx18 ;
-	rr:subjectMap _:node1c169u4gjx19 .
-
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx19 .
-
-_:node1c169u4gjx19 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx17 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/SecurityUpdate1" ;
 	rr:class memex:SecurityUpdate ;
 	rr:template "{[\"extractions\",\"msid\",\"result\",\"msid_uri\"]}" .
 
-km-dev:TriplesMap_fe48aa3d-4ec2-4e0c-bc10-b42fcc99498e a rr:TriplesMap .
+km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_fe48aa3d-4ec2-4e0c-bc10-b42fcc99498e .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 .
 
-km-dev:TriplesMap_fe48aa3d-4ec2-4e0c-bc10-b42fcc99498e km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx20 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx18 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx20 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx18 .
 
-km-dev:TriplesMap_fe48aa3d-4ec2-4e0c-bc10-b42fcc99498e rr:logicalTable _:node1c169u4gjx20 ;
-	rr:subjectMap _:node1c169u4gjx21 .
+km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 rr:logicalTable _:node1c1dpmqbhx18 ;
+	rr:subjectMap _:node1c1dpmqbhx19 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx21 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx19 .
 
-_:node1c169u4gjx21 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx19 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Topic1" ;
+	rr:class memex:Topic ;
+	rr:template "{[\"json_rep\",\"forum_uri\"]}/topic/{[\"json_rep\",\"id\"]}" .
+
+km-dev:PredicateObjectMap_a257ce07-ae6c-4a7b-9cfe-898fb09e9acc rr:predicate memex:isTopicOf .
+
+km-dev:RefObjectMap_d56f5cb2-0194-4164-a27e-09803a169076 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_56cb4be6-dec1-4eee-9fab-0a479409f9b1 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_d56f5cb2-0194-4164-a27e-09803a169076 .
+
+km-dev:PredicateObjectMap_a257ce07-ae6c-4a7b-9cfe-898fb09e9acc rr:objectMap km-dev:RefObjectMap_d56f5cb2-0194-4164-a27e-09803a169076 .
+
+km-dev:TriplesMap_a845ee0e-db88-4356-a107-6797840c3664 rr:predicateObjectMap km-dev:PredicateObjectMap_a257ce07-ae6c-4a7b-9cfe-898fb09e9acc .
+
+km-dev:PredicateObjectMap_a257ce07-ae6c-4a7b-9cfe-898fb09e9acc a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a257ce07-ae6c-4a7b-9cfe-898fb09e9acc .
+
+km-dev:TriplesMap_3c3db2db-a6e1-45d3-8666-1119c1b641f4 a rr:TriplesMap .
+
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_3c3db2db-a6e1-45d3-8666-1119c1b641f4 .
+
+km-dev:TriplesMap_3c3db2db-a6e1-45d3-8666-1119c1b641f4 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx20 rr:tableName "reddit-cdr-extractions.jl" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
+
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx20 .
+
+km-dev:TriplesMap_3c3db2db-a6e1-45d3-8666-1119c1b641f4 rr:logicalTable _:node1c1dpmqbhx20 ;
+	rr:subjectMap _:node1c1dpmqbhx21 .
+
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx21 .
+
+_:node1c1dpmqbhx21 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.dig.isi.edu/ontology/Vulnerability1" ;
 	rr:class memex:Vulnerability ;
 	rr:template "{[\"extractions\",\"cve\",\"result\",\"cve_uri\"]}" .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 a rr:TriplesMap .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 a rr:TriplesMap .
 
-_:node1c169u4gjx1 km-dev:hasTriplesMap km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 .
+_:node1c1dpmqbhx1 km-dev:hasTriplesMap km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx22 rr:tableName "reddit-cdr-extractions.jl" ;
+_:node1c1dpmqbhx22 rr:tableName "reddit-cdr-extractions.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasLogicalTable _:node1c169u4gjx22 .
+_:node1c1dpmqbhx1 km-dev:hasLogicalTable _:node1c1dpmqbhx22 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:logicalTable _:node1c169u4gjx22 ;
-	rr:subjectMap _:node1c169u4gjx23 .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:logicalTable _:node1c1dpmqbhx22 ;
+	rr:subjectMap _:node1c1dpmqbhx23 .
 
-_:node1c169u4gjx1 km-dev:hasSubjectMap _:node1c169u4gjx23 .
+_:node1c1dpmqbhx1 km-dev:hasSubjectMap _:node1c1dpmqbhx23 .
 
-_:node1c169u4gjx23 km-dev:isPartOfMapping _:node1c169u4gjx1 ;
+_:node1c1dpmqbhx23 km-dev:isPartOfMapping _:node1c1dpmqbhx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.org/Comment1" ;
 	rr:class schema:Comment ;
 	rr:template "{[\"json_rep\",\"reddit_uri\"]}/comment/{[\"json_rep\",\"comments\",\"id\"]}" .
 
-km-dev:PredicateObjectMap_ccffcf6d-baf4-4556-bc30-e5b49367d0a9 rr:predicate schema:author .
+km-dev:PredicateObjectMap_7389cf31-92d2-44c4-a887-b36e7336068a rr:predicate schema:author .
 
-km-dev:RefObjectMap_95a6274b-1995-44a0-b749-b0c6fa825e74 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_49424215-76f6-4bc6-b668-7211db64204e ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:RefObjectMap_abcb2933-f551-4391-bc1b-20185a524220 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_000f9d18-c294-4b32-a330-064642bb88e7 ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap km-dev:RefObjectMap_95a6274b-1995-44a0-b749-b0c6fa825e74 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap km-dev:RefObjectMap_abcb2933-f551-4391-bc1b-20185a524220 .
 
-km-dev:PredicateObjectMap_ccffcf6d-baf4-4556-bc30-e5b49367d0a9 rr:objectMap km-dev:RefObjectMap_95a6274b-1995-44a0-b749-b0c6fa825e74 .
+km-dev:PredicateObjectMap_7389cf31-92d2-44c4-a887-b36e7336068a rr:objectMap km-dev:RefObjectMap_abcb2933-f551-4391-bc1b-20185a524220 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_ccffcf6d-baf4-4556-bc30-e5b49367d0a9 .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_7389cf31-92d2-44c4-a887-b36e7336068a .
 
-km-dev:PredicateObjectMap_ccffcf6d-baf4-4556-bc30-e5b49367d0a9 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_7389cf31-92d2-44c4-a887-b36e7336068a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ccffcf6d-baf4-4556-bc30-e5b49367d0a9 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7389cf31-92d2-44c4-a887-b36e7336068a .
 
-km-dev:PredicateObjectMap_1cde38b8-7ff6-43a0-a653-83cfd1b45f20 rr:predicate schema:datePublished .
+km-dev:PredicateObjectMap_b34a57af-c0ab-480c-a7ce-e66f9f92ae70 rr:predicate schema:datePublished .
 
-_:node1c169u4gjx24 rr:column "[\"json_rep\",\"comments\",\"comment_created_iso\"]" ;
+_:node1c1dpmqbhx24 rr:column "[\"json_rep\",\"comments\",\"comment_created_iso\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx24 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx24 .
 
-km-dev:PredicateObjectMap_1cde38b8-7ff6-43a0-a653-83cfd1b45f20 rr:objectMap _:node1c169u4gjx24 .
+km-dev:PredicateObjectMap_b34a57af-c0ab-480c-a7ce-e66f9f92ae70 rr:objectMap _:node1c1dpmqbhx24 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_1cde38b8-7ff6-43a0-a653-83cfd1b45f20 .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_b34a57af-c0ab-480c-a7ce-e66f9f92ae70 .
 
-km-dev:PredicateObjectMap_1cde38b8-7ff6-43a0-a653-83cfd1b45f20 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_b34a57af-c0ab-480c-a7ce-e66f9f92ae70 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1cde38b8-7ff6-43a0-a653-83cfd1b45f20 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b34a57af-c0ab-480c-a7ce-e66f9f92ae70 .
 
-km-dev:PredicateObjectMap_14554207-c9c8-427e-bf4c-d72a3dc8abe1 rr:predicate schema:text .
+km-dev:PredicateObjectMap_65321879-3807-43be-8b96-85a6780b0346 rr:predicate schema:text .
 
-_:node1c169u4gjx25 rr:column "[\"json_rep\",\"comments\",\"body\"]" ;
+_:node1c1dpmqbhx25 rr:column "[\"json_rep\",\"comments\",\"body\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx25 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx25 .
 
-km-dev:PredicateObjectMap_14554207-c9c8-427e-bf4c-d72a3dc8abe1 rr:objectMap _:node1c169u4gjx25 .
+km-dev:PredicateObjectMap_65321879-3807-43be-8b96-85a6780b0346 rr:objectMap _:node1c1dpmqbhx25 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_14554207-c9c8-427e-bf4c-d72a3dc8abe1 .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_65321879-3807-43be-8b96-85a6780b0346 .
 
-km-dev:PredicateObjectMap_14554207-c9c8-427e-bf4c-d72a3dc8abe1 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_65321879-3807-43be-8b96-85a6780b0346 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_14554207-c9c8-427e-bf4c-d72a3dc8abe1 .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_65321879-3807-43be-8b96-85a6780b0346 .
 
-km-dev:PredicateObjectMap_e267d4fb-d7ed-4bc7-8d3e-b01178e0937f rr:predicate schema:source .
+km-dev:PredicateObjectMap_ed3bead5-e613-4c55-ac70-65076e76ec5b rr:predicate schema:source .
 
-_:node1c169u4gjx26 rr:column "_id" ;
+_:node1c1dpmqbhx26 rr:column "_id" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx26 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx26 .
 
-km-dev:PredicateObjectMap_e267d4fb-d7ed-4bc7-8d3e-b01178e0937f rr:objectMap _:node1c169u4gjx26 .
+km-dev:PredicateObjectMap_ed3bead5-e613-4c55-ac70-65076e76ec5b rr:objectMap _:node1c1dpmqbhx26 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_e267d4fb-d7ed-4bc7-8d3e-b01178e0937f .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_ed3bead5-e613-4c55-ac70-65076e76ec5b .
 
-km-dev:PredicateObjectMap_e267d4fb-d7ed-4bc7-8d3e-b01178e0937f a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_ed3bead5-e613-4c55-ac70-65076e76ec5b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e267d4fb-d7ed-4bc7-8d3e-b01178e0937f .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ed3bead5-e613-4c55-ac70-65076e76ec5b .
 
-km-dev:PredicateObjectMap_248979a6-dfb9-4db9-9b49-94ec9990058d rr:predicate memex:dateRecorded .
+km-dev:PredicateObjectMap_5d42cec6-e52b-415b-84d9-9811b2ea2460 rr:predicate memex:dateRecorded .
 
-_:node1c169u4gjx27 rr:column "timestamp_iso" ;
+_:node1c1dpmqbhx27 rr:column "timestamp_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx27 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx27 .
 
-km-dev:PredicateObjectMap_248979a6-dfb9-4db9-9b49-94ec9990058d rr:objectMap _:node1c169u4gjx27 .
+km-dev:PredicateObjectMap_5d42cec6-e52b-415b-84d9-9811b2ea2460 rr:objectMap _:node1c1dpmqbhx27 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_248979a6-dfb9-4db9-9b49-94ec9990058d .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_5d42cec6-e52b-415b-84d9-9811b2ea2460 .
 
-km-dev:PredicateObjectMap_248979a6-dfb9-4db9-9b49-94ec9990058d a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_5d42cec6-e52b-415b-84d9-9811b2ea2460 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_248979a6-dfb9-4db9-9b49-94ec9990058d .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5d42cec6-e52b-415b-84d9-9811b2ea2460 .
 
-km-dev:PredicateObjectMap_3492ca61-b9fe-40f3-b753-4f36510222cd rr:predicate schema:publisher .
+km-dev:PredicateObjectMap_610e977e-2cd1-4974-8f0c-050a1f25ba2a rr:predicate schema:publisher .
 
-_:node1c169u4gjx28 rr:column "source_name" ;
+_:node1c1dpmqbhx28 rr:column "source_name" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasObjectMap _:node1c169u4gjx28 .
+_:node1c1dpmqbhx1 km-dev:hasObjectMap _:node1c1dpmqbhx28 .
 
-km-dev:PredicateObjectMap_3492ca61-b9fe-40f3-b753-4f36510222cd rr:objectMap _:node1c169u4gjx28 .
+km-dev:PredicateObjectMap_610e977e-2cd1-4974-8f0c-050a1f25ba2a rr:objectMap _:node1c1dpmqbhx28 .
 
-km-dev:TriplesMap_173a7dcc-d73c-4a05-a174-78834e9bb4c9 rr:predicateObjectMap km-dev:PredicateObjectMap_3492ca61-b9fe-40f3-b753-4f36510222cd .
+km-dev:TriplesMap_910ee799-62cf-4a56-bde4-b6f1517f81e4 rr:predicateObjectMap km-dev:PredicateObjectMap_610e977e-2cd1-4974-8f0c-050a1f25ba2a .
 
-km-dev:PredicateObjectMap_3492ca61-b9fe-40f3-b753-4f36510222cd a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1c169u4gjx1 .
+km-dev:PredicateObjectMap_610e977e-2cd1-4974-8f0c-050a1f25ba2a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1c1dpmqbhx1 .
 
-_:node1c169u4gjx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3492ca61-b9fe-40f3-b753-4f36510222cd .
+_:node1c1dpmqbhx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_610e977e-2cd1-4974-8f0c-050a1f25ba2a .
