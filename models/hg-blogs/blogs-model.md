@@ -11,6 +11,17 @@ From column: _json_rep / link_
 return UM.uri_from_fields("blogs/", getValue("link"))
 ```
 
+#### _ioc_uri_
+From column: _json_rep / ioc_extractions / ioc_
+``` python
+blog_uri = getValue("link_uri")
+if len(blog_uri) > 0:
+   x = getValue("ioc")
+   if len(x) > 0:
+     return blog_uri + "/" + UM.uri_from_fields('ioc/', x)
+return ''
+```
+
 #### _datePublishedBestKnown_
 From column: _json_rep / published_
 ``` python
@@ -73,6 +84,8 @@ if len(x) > 0:
 | _datePublishedBestKnown_ | `schema:datePublished` | `schema:Blog1`|
 | _extraction_uri_ | `uri` | `memex:Extraction1`|
 | _extractor_ | `memex:extractor` | `memex:Extraction1`|
+| _ioc_ | `schema:name` | `memex:IndicatorOfCompromise1`|
+| _ioc_uri_ | `uri` | `memex:IndicatorOfCompromise1`|
 | _label_ | `memex:hasType` | `memex:Extraction1`|
 | _link_ | `schema:url` | `schema:Blog1`|
 | _link_uri_ | `uri` | `schema:Blog1`|
@@ -89,5 +102,6 @@ if len(x) > 0:
 | From | Property | To |
 |  --- | -------- | ---|
 | `schema:Blog1` | `memex:hasExtraction` | `memex:Extraction1`|
+| `schema:Blog1` | `memex:mentionsIOC` | `memex:IndicatorOfCompromise1`|
 | `schema:Blog1` | `memex:mentionsSecurityUpdate` | `memex:SecurityUpdate1`|
 | `schema:Blog1` | `schema:mentions` | `memex:Vulnerability1`|
