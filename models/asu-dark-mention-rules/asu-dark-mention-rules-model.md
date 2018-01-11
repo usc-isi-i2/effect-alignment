@@ -1,4 +1,4 @@
-# dark-mention-rules-cdr.jl
+# Armstrong_pointExact_rules_CDR.jl
 
 ## Add Column
 
@@ -92,6 +92,15 @@ if len(x) > 0:
   return "marketplace/" + x
 ```
 
+#### _numAttacks_clean_
+From column: _json_rep / numberOfAttacks_
+``` python
+x = getValue("numberOfAttacks")
+if len(x) > 0:
+   return SM.numeric_only(x)
+return "0"
+```
+
 
 ## Selections
 
@@ -105,6 +114,7 @@ if len(x) > 0:
 | _eventType_ | `memex:hasType` | `memex:AttackEvent1`|
 | _forum_uri_ | `uri` | `memex:Forum1`|
 | _marketplace_uri_ | `uri` | `memex:PersonOrOrganization2`|
+| _numAttacks_clean_ | `memex:numberOfAttacks` | `memex:AttackEvent1`|
 | _probability_ | `memex:probabilityOfOccurance` | `memex:AttackEvent1`|
 | _source_name_ | `schema:publisher` | `memex:AttackEvent1`|
 | _targetSystem_ | `schema:name` | `memex:PersonOrOrganization1`|
