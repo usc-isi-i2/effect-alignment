@@ -116,6 +116,7 @@ return "0"
 | _marketplace_uri_ | `uri` | `memex:PersonOrOrganization2`|
 | _numAttacks_clean_ | `memex:numberOfAttacks` | `memex:AttackEvent1`|
 | _probability_ | `memex:probabilityOfOccurance` | `memex:AttackEvent1`|
+| _ruleType_ | `schema:category` | `memex:AttackEvent1`|
 | _source_name_ | `schema:publisher` | `memex:AttackEvent1`|
 | _targetSystem_ | `schema:name` | `memex:PersonOrOrganization1`|
 | _targetSystem_uri_ | `uri` | `memex:PersonOrOrganization1`|
