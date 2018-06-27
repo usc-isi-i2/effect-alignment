@@ -1,8 +1,13 @@
-# Armstrong_pointExact_rules_CDR.jl
+# dark-mention-rules-cdr.jl
 
 ## Add Column
 
 ## Add Node/Literal
+#### Literal Node: `JSON`
+Literal Type: ``
+<br/>Language: ``
+<br/>isUri: `false`
+
 
 ## PyTransforms
 #### _cpe_cluster_uri_
@@ -107,7 +112,7 @@ return "0"
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| __id_ | `schema:source`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 | _attack_uri_ | `uri` | `memex:AttackEvent1`|
 | _cpe_cluster_uri_ | `uri` | `memex:SoftwareSystemCluster1`|
 | _dateRuleUpdated_iso_ | `schema:dateCreated` | `memex:AttackEvent1`|
@@ -116,18 +121,21 @@ return "0"
 | _marketplace_uri_ | `uri` | `memex:PersonOrOrganization2`|
 | _numAttacks_clean_ | `memex:numberOfAttacks` | `memex:AttackEvent1`|
 | _probability_ | `memex:probabilityOfOccurance` | `memex:AttackEvent1`|
+| _raw_content_ | `schema:text` | `schema:Code1`|
 | _ruleType_ | `schema:category` | `memex:AttackEvent1`|
 | _source_name_ | `schema:publisher` | `memex:AttackEvent1`|
 | _targetSystem_ | `schema:name` | `memex:PersonOrOrganization1`|
 | _targetSystem_uri_ | `uri` | `memex:PersonOrOrganization1`|
 | _timeLagDays_iso_ | `schema:duration` | `memex:AttackEvent1`|
-| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:AttackEvent1`|
+| _timestamp_iso_ | `memex:dateRecorded`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 
 
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:AttackEvent1` | `memex:affected` | `memex:PersonOrOrganization1`|
 | `memex:AttackEvent1` | `memex:attackOnSoftwareCluster` | `memex:SoftwareSystemCluster1`|
-| `memex:AttackEvent1` | `memex:isMentionedIn` | `memex:Forum1`|
+| `memex:AttackEvent1` | `memex:affected` | `memex:PersonOrOrganization1`|
 | `memex:AttackEvent1` | `schema:seller` | `memex:PersonOrOrganization2`|
+| `memex:AttackEvent1` | `schema:recordedIn` | `schema:Code1`|
+| `memex:AttackEvent1` | `memex:isMentionedIn` | `memex:Forum1`|
+| `schema:Code1` | `schema:inLanguage` | `JSON`|
