@@ -75,10 +75,13 @@ if len(x) > 0 and x.lower() == "true":
 #### _attack_uri_
 From column: _json_rep / targetSystem_uri_
 ``` python
-restricted = ""
-if len(getValue("forumIds_clean")) > 0 or len(getValue("marketIds_clean")) > 0:
-   restricted = "/restricted"
-return "attack/" + getValue("targetSystem").lower() + "/type/" + getValue("eventType") + "/" + getValue("cpe_cluster_uri") + "/lag/" + getValue("timeLagDays") + "/date/" + getValue("dateRuleAdded") + restricted
+return "attack/" + SM.md5_hash(getValue("raw_content"))
+```
+
+#### _code_uri_
+From column: _raw_content_
+``` python
+return "attack/" + SM.md5_hash(getValue("raw_content")) + "/code"
 ```
 
 #### _forum_uri_
@@ -114,6 +117,7 @@ return "0"
 |  ----- | -------- | ----- |
 | __id_ | `schema:source`<BR> - _specified provenance_ | `memex:PersonOrOrganization1`|
 | _attack_uri_ | `uri` | `memex:AttackEvent1`|
+| _code_uri_ | `uri` | `schema:Code1`|
 | _cpe_cluster_uri_ | `uri` | `memex:SoftwareSystemCluster1`|
 | _dateRuleUpdated_iso_ | `schema:dateCreated` | `memex:AttackEvent1`|
 | _eventType_ | `memex:hasType` | `memex:AttackEvent1`|
