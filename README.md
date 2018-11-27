@@ -15,9 +15,10 @@ git checkout development
 
 ## Incorporating a New Source
 1. Download a sample data for the source
-2. Convert the data into Json Lines: `jq -c .[] filename.json > filename.jl`
+2. Convert the data into Json Lines: `jq -c '.[]' filename.json > filename.jl`
 3. Convert the data into CDR - `python generateDataForKarmaModeling.py --input filename.jl \
-          --output filename-CDR.jl --source <sourcename>` 
+          --output filename-CDR.jl --source <sourcename>`  (this python script
+is in effect-workflow).
    Follow steps [here](https://github.com/usc-isi-i2/effect-workflows) for installation(Steps 1-4)
 4. Save the sample data files(json, jl, -cdr.jl) into effect-data repository)
 
