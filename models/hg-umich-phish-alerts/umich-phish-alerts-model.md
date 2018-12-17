@@ -3,10 +3,6 @@
 ## Add Column
 
 ## Add Node/Literal
-#### Node: `memex:Post1`
-Uri: `http://schema.dig.isi.edu/ontology/Post`
-<br/>Id: `http://schema.dig.isi.edu/ontology/Post1`
-
 
 ## PyTransforms
 #### _timestamp_iso_
