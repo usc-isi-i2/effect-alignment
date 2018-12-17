@@ -21,12 +21,12 @@ return DM.iso8601date(getValue("timestamp"))
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
-| _body_ | `schema:text` | `memex:Post1`|
-| _source_name_ | `schema:publisher` | `memex:Post1`|
-| _timestamp_ | `memex:observedDate` | `memex:Post1`|
-| _timestamp_iso_ | `memex:dateRecorded` | `memex:Post1`|
-| _url_ | `schema:url` | `memex:Post1`|
-| _values_ | `schema:title` | `memex:Post1`|
+| _body_ | `schema:text` | `schema:Blog1`|
+| _source_name_ | `schema:publisher` | `schema:Blog1`|
+| _timestamp_ | `schema:datePublished` | `schema:Blog1`|
+| _timestamp_iso_ | `memex:dateRecorded` | `schema:Blog1`|
+| _url_ | `schema:url` | `schema:Blog1`|
+| _values_ | `schema:title` | `schema:Blog1`|
 
 
 ## Links
