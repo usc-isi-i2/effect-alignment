@@ -1,0 +1,25 @@
+digraph n0 {
+fontcolor="blue"
+remincross="true"
+label="unc-phish-alerts-CDR.jl"
+subgraph cluster {
+label="model"
+n2[style="filled",color="white",fillcolor="lightgray",label="EmailAddress1"];
+n3[shape="plaintext",style="filled",fillcolor="gold",label="sender"];
+n4[style="filled",color="white",fillcolor="lightgray",label="PersonOrOrganization1"];
+n5[style="filled",color="white",fillcolor="lightgray",label="EmailMessage1"];
+n6[shape="plaintext",style="filled",fillcolor="gold",label="timestamp_iso"];
+n7[shape="plaintext",style="filled",fillcolor="gold",label="timestamp"];
+n8[shape="plaintext",style="filled",fillcolor="gold",label="source_name"];
+n9[shape="plaintext",style="filled",fillcolor="gold",label="body"];
+n10[shape="plaintext",style="filled",fillcolor="gold",label="title"];
+}
+n2 -> n3[color="brown",fontcolor="black",label="classLink"]
+n4 -> n2[color="brown",fontcolor="black",label="email"]
+n5 -> n6[color="brown",fontcolor="black",label="dateRecorded"]
+n5 -> n4[color="brown",fontcolor="black",label="actor"]
+n5 -> n7[color="brown",fontcolor="black",label="datePublished"]
+n5 -> n8[color="brown",fontcolor="black",label="publisher"]
+n5 -> n9[color="brown",fontcolor="black",label="text"]
+n5 -> n10[color="brown",fontcolor="black",label="title"]
+}
