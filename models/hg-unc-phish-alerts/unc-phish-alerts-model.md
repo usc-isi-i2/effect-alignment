@@ -32,4 +32,3 @@ return DM.iso8601date(getValue("timestamp"))
 ## Links
 | From | Property | To |
 |  --- | -------- | ---|
-| `memex:PersonOrOrganization1` | `schema:email` | `memex:EmailAddress1`|
