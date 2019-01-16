@@ -14,12 +14,12 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
+_:node1d1c2kk85x1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "armstrong-CDR.jl" ;
-	km-dev:modelPublicationTime "1547253569143"^^xsd:long ;
+	km-dev:modelPublicationTime "1547667394821"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
-	km-dev:hasInputColumns "[[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"threatsInfoMap\"},{\"columnName\":\"threatType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"subject\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"messageTime\"}],[{\"columnName\":\"timestamp\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"threatsInfoMap\"},{\"columnName\":\"threatType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"subject\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"messageTime\"}]]" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"threatsInfoMap\"},{\"columnName\":\"threatType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"subject\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"GUID\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"messageTime\"}],[{\"columnName\":\"timestamp\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"source_name\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"threatsInfoMap\"},{\"columnName\":\"threatType\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"subject\"}],[{\"columnName\":\"timestamp_iso\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"GUID\"}],[{\"columnName\":\"json_rep\"},{\"columnName\":\"messageTime\"}]]" ;
 	km-dev:hasModelLabel "armstrong" ;
 	km-dev:hasBaseURI "http://localhost:8080/source/" ;
 	km-dev:hasWorksheetHistory """[
@@ -148,6 +148,61 @@ _:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
                 \"name\": \"outputColumns\",
                 \"type\": \"hNodeIdList\",
                 \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"threatsInfoMap\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"temps_threats\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"import json\\nthreats_info =  json.loads(getValue(\\\"threatsInfoMap\\\"))\\nthreat_type = threats_info[0]['threatType']\\nif not isinstance(threat_type, list):\\n    threat_type = [threat_type]\\nreturn json.dumps(threat_type)\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"threatsInfoMap\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"temps_threats\\\"}]}]\"
             }
         ],
         \"tags\": [\"Transformation\"]
@@ -395,6 +450,83 @@ _:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
         \"tags\": [\"SemanticType\"]
     },
     {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [
+                    {\"columnName\": \"json_rep\"},
+                    {\"columnName\": \"GUID\"}
+                ]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/EmailMessage\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/EmailMessage1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/EmailMessage\",
+                    \"DomainId\": \"http://schema.org/EmailMessage1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:EmailMessage1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"GUID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"GUID\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
         \"commandName\": \"SetSemanticTypeCommand\",
         \"model\": \"new\",
         \"inputParameters\": [
@@ -403,8 +535,7 @@ _:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
                 \"type\": \"hNodeId\",
                 \"value\": [
                     {\"columnName\": \"json_rep\"},
-                    {\"columnName\": \"threatsInfoMap\"},
-                    {\"columnName\": \"threatType\"}
+                    {\"columnName\": \"temps_threats\"}
                 ]
             },
             {
@@ -447,12 +578,12 @@ _:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"inputColumns\",
                 \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"threatsInfoMap\\\"},{\\\"columnName\\\":\\\"threatType\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"temps_threats\\\"}]}]\"
             },
             {
                 \"name\": \"outputColumns\",
                 \"type\": \"hNodeIdList\",
-                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"threatsInfoMap\\\"},{\\\"columnName\\\":\\\"threatType\\\"}]}]\"
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"json_rep\\\"},{\\\"columnName\\\":\\\"temps_threats\\\"}]}]\"
             }
         ],
         \"tags\": [\"SemanticType\"]
@@ -501,112 +632,111 @@ _:node1d0vnvljnx1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 a rr:TriplesMap .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba a rr:TriplesMap .
 
-_:node1d0vnvljnx1 km-dev:hasTriplesMap km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 .
+_:node1d1c2kk85x1 km-dev:hasTriplesMap km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx2 rr:tableName "armstrong-CDR.jl" ;
+_:node1d1c2kk85x2 rr:tableName "armstrong-CDR.jl" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasLogicalTable _:node1d0vnvljnx2 .
+_:node1d1c2kk85x1 km-dev:hasLogicalTable _:node1d1c2kk85x2 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:logicalTable _:node1d0vnvljnx2 ;
-	rr:subjectMap _:node1d0vnvljnx3 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:logicalTable _:node1d1c2kk85x2 ;
+	rr:subjectMap _:node1d1c2kk85x3 .
 
-_:node1d0vnvljnx1 km-dev:hasSubjectMap _:node1d0vnvljnx3 .
+_:node1d1c2kk85x1 km-dev:hasSubjectMap _:node1d1c2kk85x3 .
 
-_:node1d0vnvljnx3 km-dev:isPartOfMapping _:node1d0vnvljnx1 ;
+_:node1d1c2kk85x3 km-dev:isPartOfMapping _:node1d1c2kk85x1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.org/EmailMessage1" ;
 	rr:class schema:EmailMessage ;
-	rr:termType rr:BlankNode ;
-	km-dev:namePrefix "schema:EmailMessage1" ;
+	rr:template "{[\"json_rep\",\"GUID\"]}" ;
 	a km-dev:steinerTreeRootNode .
 
-km-dev:PredicateObjectMap_f60a5a1c-20b5-4ba3-9a60-7a29d7a72518 rr:predicate memex:dateRecorded .
+km-dev:PredicateObjectMap_de1053f0-b5bc-4606-ad5f-94f45295dfa5 rr:predicate memex:dateRecorded .
 
-_:node1d0vnvljnx4 rr:column "timestamp_iso" ;
+_:node1d1c2kk85x4 rr:column "timestamp_iso" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasObjectMap _:node1d0vnvljnx4 .
+_:node1d1c2kk85x1 km-dev:hasObjectMap _:node1d1c2kk85x4 .
 
-km-dev:PredicateObjectMap_f60a5a1c-20b5-4ba3-9a60-7a29d7a72518 rr:objectMap _:node1d0vnvljnx4 .
+km-dev:PredicateObjectMap_de1053f0-b5bc-4606-ad5f-94f45295dfa5 rr:objectMap _:node1d1c2kk85x4 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:predicateObjectMap km-dev:PredicateObjectMap_f60a5a1c-20b5-4ba3-9a60-7a29d7a72518 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:predicateObjectMap km-dev:PredicateObjectMap_de1053f0-b5bc-4606-ad5f-94f45295dfa5 .
 
-km-dev:PredicateObjectMap_f60a5a1c-20b5-4ba3-9a60-7a29d7a72518 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:PredicateObjectMap_de1053f0-b5bc-4606-ad5f-94f45295dfa5 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f60a5a1c-20b5-4ba3-9a60-7a29d7a72518 .
+_:node1d1c2kk85x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_de1053f0-b5bc-4606-ad5f-94f45295dfa5 .
 
-km-dev:PredicateObjectMap_c1080552-5011-4a0c-8af0-6b1ed8f474ec rr:predicate memex:hasType .
+km-dev:PredicateObjectMap_18dafe2e-8cee-4618-9a46-1c579454f5d5 rr:predicate memex:hasType .
 
-_:node1d0vnvljnx5 rr:column "[\"json_rep\",\"threatsInfoMap\",\"threatType\"]" ;
+_:node1d1c2kk85x5 rr:column "[\"json_rep\",\"threatsInfoMap\",\"threatType\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasObjectMap _:node1d0vnvljnx5 .
+_:node1d1c2kk85x1 km-dev:hasObjectMap _:node1d1c2kk85x5 .
 
-km-dev:PredicateObjectMap_c1080552-5011-4a0c-8af0-6b1ed8f474ec rr:objectMap _:node1d0vnvljnx5 .
+km-dev:PredicateObjectMap_18dafe2e-8cee-4618-9a46-1c579454f5d5 rr:objectMap _:node1d1c2kk85x5 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:predicateObjectMap km-dev:PredicateObjectMap_c1080552-5011-4a0c-8af0-6b1ed8f474ec .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:predicateObjectMap km-dev:PredicateObjectMap_18dafe2e-8cee-4618-9a46-1c579454f5d5 .
 
-km-dev:PredicateObjectMap_c1080552-5011-4a0c-8af0-6b1ed8f474ec a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:PredicateObjectMap_18dafe2e-8cee-4618-9a46-1c579454f5d5 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c1080552-5011-4a0c-8af0-6b1ed8f474ec .
+_:node1d1c2kk85x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_18dafe2e-8cee-4618-9a46-1c579454f5d5 .
 
-km-dev:PredicateObjectMap_f0e580ae-7de2-486b-b241-1db1d7400b21 rr:predicate schema:datePublished .
+km-dev:PredicateObjectMap_182df0fc-334e-4225-8b96-5a6f55087556 rr:predicate schema:datePublished .
 
-_:node1d0vnvljnx6 rr:column "[\"json_rep\",\"messageTime\"]" ;
+_:node1d1c2kk85x6 rr:column "[\"json_rep\",\"messageTime\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasObjectMap _:node1d0vnvljnx6 .
+_:node1d1c2kk85x1 km-dev:hasObjectMap _:node1d1c2kk85x6 .
 
-km-dev:PredicateObjectMap_f0e580ae-7de2-486b-b241-1db1d7400b21 rr:objectMap _:node1d0vnvljnx6 .
+km-dev:PredicateObjectMap_182df0fc-334e-4225-8b96-5a6f55087556 rr:objectMap _:node1d1c2kk85x6 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:predicateObjectMap km-dev:PredicateObjectMap_f0e580ae-7de2-486b-b241-1db1d7400b21 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:predicateObjectMap km-dev:PredicateObjectMap_182df0fc-334e-4225-8b96-5a6f55087556 .
 
-km-dev:PredicateObjectMap_f0e580ae-7de2-486b-b241-1db1d7400b21 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:PredicateObjectMap_182df0fc-334e-4225-8b96-5a6f55087556 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f0e580ae-7de2-486b-b241-1db1d7400b21 .
+_:node1d1c2kk85x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_182df0fc-334e-4225-8b96-5a6f55087556 .
 
-km-dev:PredicateObjectMap_63aaf9ac-b7e7-420a-aa79-87efd992c4e0 rr:predicate schema:publisher .
+km-dev:PredicateObjectMap_e47049dd-0868-41e3-b025-41dbfc74e1bc rr:predicate schema:publisher .
 
-_:node1d0vnvljnx7 rr:column "source_name" ;
+_:node1d1c2kk85x7 rr:column "source_name" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasObjectMap _:node1d0vnvljnx7 .
+_:node1d1c2kk85x1 km-dev:hasObjectMap _:node1d1c2kk85x7 .
 
-km-dev:PredicateObjectMap_63aaf9ac-b7e7-420a-aa79-87efd992c4e0 rr:objectMap _:node1d0vnvljnx7 .
+km-dev:PredicateObjectMap_e47049dd-0868-41e3-b025-41dbfc74e1bc rr:objectMap _:node1d1c2kk85x7 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:predicateObjectMap km-dev:PredicateObjectMap_63aaf9ac-b7e7-420a-aa79-87efd992c4e0 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:predicateObjectMap km-dev:PredicateObjectMap_e47049dd-0868-41e3-b025-41dbfc74e1bc .
 
-km-dev:PredicateObjectMap_63aaf9ac-b7e7-420a-aa79-87efd992c4e0 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:PredicateObjectMap_e47049dd-0868-41e3-b025-41dbfc74e1bc a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_63aaf9ac-b7e7-420a-aa79-87efd992c4e0 .
+_:node1d1c2kk85x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e47049dd-0868-41e3-b025-41dbfc74e1bc .
 
-km-dev:PredicateObjectMap_f66681d6-1096-4a1a-8ee5-2a8c6dc68c31 rr:predicate schema:title .
+km-dev:PredicateObjectMap_046a3f66-2118-456e-b3de-ac298f212a6f rr:predicate schema:title .
 
-_:node1d0vnvljnx8 rr:column "[\"json_rep\",\"subject\"]" ;
+_:node1d1c2kk85x8 rr:column "[\"json_rep\",\"subject\"]" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasObjectMap _:node1d0vnvljnx8 .
+_:node1d1c2kk85x1 km-dev:hasObjectMap _:node1d1c2kk85x8 .
 
-km-dev:PredicateObjectMap_f66681d6-1096-4a1a-8ee5-2a8c6dc68c31 rr:objectMap _:node1d0vnvljnx8 .
+km-dev:PredicateObjectMap_046a3f66-2118-456e-b3de-ac298f212a6f rr:objectMap _:node1d1c2kk85x8 .
 
-km-dev:TriplesMap_3350c651-a738-4e13-8ead-73eacc8f1775 rr:predicateObjectMap km-dev:PredicateObjectMap_f66681d6-1096-4a1a-8ee5-2a8c6dc68c31 .
+km-dev:TriplesMap_ce70988e-b737-4214-b312-a09ac6aebcba rr:predicateObjectMap km-dev:PredicateObjectMap_046a3f66-2118-456e-b3de-ac298f212a6f .
 
-km-dev:PredicateObjectMap_f66681d6-1096-4a1a-8ee5-2a8c6dc68c31 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1d0vnvljnx1 .
+km-dev:PredicateObjectMap_046a3f66-2118-456e-b3de-ac298f212a6f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1d1c2kk85x1 .
 
-_:node1d0vnvljnx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f66681d6-1096-4a1a-8ee5-2a8c6dc68c31 .
+_:node1d1c2kk85x1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_046a3f66-2118-456e-b3de-ac298f212a6f .
