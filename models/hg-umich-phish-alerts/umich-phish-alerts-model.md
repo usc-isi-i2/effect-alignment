@@ -17,6 +17,7 @@ return DM.iso8601date(getValue("timestamp"))
 ## Semantic Types
 | Column | Property | Class |
 |  ----- | -------- | ----- |
+| __id_ | `uri` | `schema:Blog1`|
 | _body_ | `schema:text` | `schema:Blog1`|
 | _source_name_ | `schema:publisher` | `schema:Blog1`|
 | _timestamp_ | `schema:datePublished` | `schema:Blog1`|
